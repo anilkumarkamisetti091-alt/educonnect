@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="te" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduConnect - Education Platform with AI Doubt-Solving</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- ======================================================================
+       0. OPENING SCREEN (Language Selection -> Login/Register with Email/Mobile & Password)
+       ====================================================================== -->
+  <!-- ======================================================================
+       0. OPENING SCREEN (3D Student-Professor Mentorship Hero + Language Selection + Auth)
+       ====================================================================== -->
+  <div id="opening-screen" class="opening-container">
+    <div class="opening-card-wrapper">
+
+      <!-- STEP 1: Select Your Language -->
+      <div id="lang-select-step" class="opening-card">
+        <div style="font-size: 2.75rem; margin-bottom: 0.5rem;">🎓</div>
+        <h2 class="brand-title" style="font-size: 2rem; font-weight: 800; margin-bottom: 0.35rem;" data-i18n="brand">EduConnect</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;" data-i18n="tagline">Faculty-Led Education with AI Problem-Solving</p>
+        
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.35rem;" data-i18n="auth.selectLanguageTitle">Select Your Language</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;" data-i18n="auth.selectLanguageSubtitle">Choose your preferred language to proceed with EduConnect</p>
+          
+          <div class="lang-grid">
+            <button type="button" class="lang-card-btn" onclick="App.chooseLanguageAndProceed('en')">
+              <span class="lang-card-flag">🌐</span>
+              <span class="lang-card-title">English</span>
+              <span class="lang-card-sub">Global (Default)</span>
+            </button>
+            <button type="button" class="lang-card-btn" onclick="App.chooseLanguageAndProceed('te')">
+              <span class="lang-card-flag">🇮🇳</span>
+              <span class="lang-card-title">తెలుగు</span>
+              <span class="lang-card-sub">Telugu</span>
+            </button>
+            <button type="button" class="lang-card-btn" onclick="App.chooseLanguageAndProceed('hi')">
+              <span class="lang-card-flag">🇮🇳</span>
+              <span class="lang-card-title">हिंदी</span>
+              <span class="lang-card-sub">Hindi</span>
+            </button>
+            <button type="button" class="lang-card-btn" onclick="App.chooseLanguageAndProceed('ta')">
+              <span class="lang-card-flag">🇮🇳</span>
+              <span class="lang-card-title">தமிழ்</span>
+              <span class="lang-card-sub">Tamil</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Authentication (Login or Register with Email or Mobile Number using Password) -->
+      <div id="auth-credentials-step" class="opening-card auth-box" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <button type="button" class="btn btn-sm btn-secondary" onclick="App.backToLanguageSelect()" data-i18n="auth.changeLangBtn">
+            ← Change Language
+          </button>
+          <span class="brand-title" style="font-size: 1.25rem; font-weight: 800;" data-i18n="brand">EduConnect</span>
+        </div>
+
+        <div class="auth-tabs-nav">
+          <button type="button" id="tab-login-btn" class="auth-tab-link active" onclick="App.switchAuthMode('login')" data-i18n="auth.tabLogin">
+            Sign In
+          </button>
+          <button type="button" id="tab-register-btn" class="auth-tab-link" onclick="App.switchAuthMode('register')" data-i18n="auth.tabRegister">
+            Register
+          </button>
+        </div>
+
+        <!-- Role Selection Pills -->
+        <div style="margin-bottom: 1rem;">
+          <label class="form-label" style="font-size: 0.85rem;" data-i18n="auth.selectRole">Select Your Role</label>
+          <div class="role-select-pills" id="auth-role-pills">
+            <label class="role-pill-label active" data-role="student">
+              <input type="radio" name="auth_role" value="student" checked onchange="App.handleRoleChange('student')">
+              <span>🎒 <span data-i18n="roles.student">Student</span></span>
+            </label>
+            <label class="role-pill-label" data-role="professor">
+              <input type="radio" name="auth_role" value="professor" onchange="App.handleRoleChange('professor')">
+              <span>👨‍🏫 <span data-i18n="roles.professor">Professor</span></span>
+            </label>
+            <label class="role-pill-label" data-role="parent">
+              <input type="radio" name="auth_role" value="parent" onchange="App.handleRoleChange('parent')">
+              <span>👨‍👩‍👧 <span data-i18n="roles.parent">Parent</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Form A: Login with Email/Mobile & Password -->
+        <form id="auth-login-form" onsubmit="App.handleLogin(event)">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem;" data-i18n="auth.loginTitle">Sign In to EduConnect</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;" data-i18n="auth.loginSubtitle">Enter your email or mobile number and password</p>
+
+          <div id="login-error-msg" class="alert alert-danger" style="display: none; margin-bottom: 1rem; padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; background: var(--danger-bg); color: var(--danger-text);"></div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-identifier" data-i18n="auth.identifierLabel">Email or Mobile Number</label>
+            <input type="text" id="login-identifier" class="form-control" data-i18n-placeholder="auth.identifierPlaceholder" placeholder="e.g. name@email.com or 9876543210" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0.5rem;">
+            <label class="form-label" for="login-password" data-i18n="auth.passwordLabel">Password</label>
+            <input type="password" id="login-password" class="form-control" data-i18n-placeholder="auth.passwordPlaceholder" placeholder="Enter your password" required>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
+            <a href="javascript:void(0)" onclick="App.openForgotPasswordModal()" style="font-size: 0.825rem; color: var(--primary); text-decoration: underline; cursor: pointer;" data-i18n="auth.forgotPassword">
+              Forgot Password?
+            </a>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.25rem;" data-i18n="auth.loginBtn">
+            Sign In
+          </button>
+
+          <div style="text-align: center; margin-top: 1.25rem;">
+            <a href="javascript:void(0)" onclick="App.switchAuthMode('register')" style="font-size: 0.875rem; color: var(--primary); text-decoration: underline;" data-i18n="auth.noAccount">
+              Don't have an account? Register now
+            </a>
+          </div>
+        </form>
+
+        <!-- Form B: Register with Email/Mobile & Password with Auto-Parent Connect -->
+        <form id="auth-register-form" style="display: none;" onsubmit="App.handleRegister(event)">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem;" data-i18n="auth.registerTitle">Create Your Account</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;" data-i18n="auth.registerSubtitle">Join EduConnect as a Student, Professor, or Parent</p>
+
+          <div id="register-error-msg" class="alert alert-danger" style="display: none; margin-bottom: 1rem; padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; background: var(--danger-bg); color: var(--danger-text);"></div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-name" data-i18n="auth.nameLabel">Full Name</label>
+            <input type="text" id="reg-name" class="form-control" data-i18n-placeholder="auth.namePlaceholder" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-identifier" data-i18n="auth.identifierLabel">Email or Mobile Number</label>
+            <input type="text" id="reg-identifier" class="form-control" data-i18n-placeholder="auth.identifierPlaceholder" placeholder="e.g. name@email.com or 9876543210" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-password" data-i18n="auth.passwordLabel">Password</label>
+            <input type="password" id="reg-password" class="form-control" data-i18n-placeholder="auth.passwordPlaceholder" placeholder="Enter your password" required>
+          </div>
+
+          <!-- Student fields with Automated Parent Linkage -->
+          <div id="reg-student-fields">
+            <div class="two-col-grid" style="margin-bottom: 0.5rem;">
+              <div class="form-group">
+                <label class="form-label" for="reg-year" data-i18n="auth.yearLabel">Year / Grade</label>
+                <input type="text" id="reg-year" class="form-control" data-i18n-placeholder="auth.yearPlaceholder" placeholder="e.g. Year 3 (Junior)" value="Year 3 (Junior)">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-major" data-i18n="auth.majorLabel">Course / Branch</label>
+                <input type="text" id="reg-major" class="form-control" data-i18n-placeholder="auth.majorPlaceholder" placeholder="e.g. Computer Science" value="Computer Science">
+              </div>
+            </div>
+
+            <!-- Automated Parent Connection field -->
+            <div class="form-group" style="background: rgba(99, 102, 241, 0.08); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px dashed var(--primary);">
+              <label class="form-label" for="reg-parent-id" style="color: var(--primary); font-weight: 700;" data-i18n="auth.parentIdentifierLabel">
+                👨‍👩‍👧 Parent Mobile Number or Email (for automated connection)
+              </label>
+              <input type="text" id="reg-parent-id" class="form-control" data-i18n-placeholder="auth.parentIdentifierPlaceholder" placeholder="e.g. 9876543210 or parent@gmail.com">
+              <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.35rem;">
+                ✨ When your parent registers with this phone or email, accounts will be linked automatically.
+              </span>
+            </div>
+          </div>
+
+          <!-- Professor fields -->
+          <div id="reg-prof-fields" style="display: none;">
+            <div class="form-group">
+              <label class="form-label" for="reg-dept" data-i18n="auth.deptLabel">Department / Specialization</label>
+              <input type="text" id="reg-dept" class="form-control" data-i18n-placeholder="auth.deptPlaceholder" placeholder="e.g. Engineering & Computing" value="Engineering & Computing">
+            </div>
+          </div>
+
+          <!-- Parent fields with Automated Child Linkage -->
+          <div id="reg-parent-fields" style="display: none;">
+            <div class="form-group" style="background: rgba(16, 185, 129, 0.08); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px dashed var(--success);">
+              <label class="form-label" for="reg-child-identifier" style="color: var(--success); font-weight: 700;" data-i18n="auth.childIdentifierLabel">
+                🎒 Child's Mobile Number, Email, or Student Code
+              </label>
+              <input type="text" id="reg-child-identifier" class="form-control" data-i18n-placeholder="auth.childIdentifierPlaceholder" placeholder="e.g. 9876543210, child@email.com or ST-...">
+              <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.35rem;">
+                ✨ Academic progress and WhatsApp notifications will automatically sync directly to your profile.
+              </span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;" data-i18n="auth.registerBtn">
+            Create Account
+          </button>
+
+          <div style="text-align: center; margin-top: 1.25rem;">
+            <a href="javascript:void(0)" onclick="App.switchAuthMode('login')" style="font-size: 0.875rem; color: var(--primary); text-decoration: underline;" data-i18n="auth.haveAccount">
+              Already have an account? Sign In
+            </a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       1. MAIN APPLICATION DASHBOARD (Visible when logged in)
+       ====================================================================== -->
+  <div id="app-screen" style="display: none;">
+
+    <!-- Top Sticky Navigation Bar -->
+    <header class="navbar">
+      <a href="#" class="brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <span class="brand-title" data-i18n="brand">EduConnect</span>
+          <span class="brand-badge">2.0</span>
+        </div>
+      </a>
+
+      <!-- Current Authenticated Role Badge (Only shows logged-in user's role) -->
+      <div class="current-portal-pill">
+        <span id="current-portal-icon">🎒</span>
+        <span id="current-portal-text">Student Portal</span>
+      </div>
+
+      <!-- Right Controls: Regional Language Selector, User Profile Badge, Logout -->
+      <div class="nav-actions">
+        <!-- 100% Full Language Selector -->
+        <div class="lang-select-wrapper" title="Choose Interface & AI Language">
+          <span>🌐</span>
+          <select id="global-lang-select" class="lang-select">
+            <option value="en" selected>English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+            <option value="hi">हिंदी (Hindi)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+          </select>
+        </div>
+
+        <!-- Active User Badge (Clickable to change profile picture) -->
+        <div id="nav-user-badge" style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-card-subtle); padding: 0.35rem 0.75rem; border-radius: var(--radius-full); border: 1px solid var(--border-color); cursor: pointer;" onclick="App.openProfilePicModal()" title="Change Profile Picture from Gallery or Presets">
+          <img id="nav-user-avatar" src="" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover;" alt="Avatar">
+          <span id="nav-user-name" style="font-size: 0.825rem; font-weight: 600;">User</span>
+        </div>
+
+        <!-- Logout Button -->
+        <button type="button" class="btn-logout" onclick="App.handleLogout()" data-i18n="auth.logoutBtn">
+          <span>🚪</span>
+          <span data-i18n="auth.logoutBtn">Log Out</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" title="Toggle Theme">🌙</button>
+      </div>
+    </header>
+
+    <!-- Context / Role Banner -->
+    <aside id="role-banner" class="role-banner student-theme">
+      <div class="role-banner-info">
+        <div class="role-avatar-wrapper" style="position: relative; cursor: pointer; display: inline-block;" onclick="App.openProfilePicModal()" title="Change Profile Picture from Gallery or Presets">
+          <img id="role-avatar" class="role-avatar" src="" alt="Profile Avatar" style="object-fit: cover;">
+          <span style="position: absolute; bottom: -3px; right: -3px; background: var(--primary); color: #fff; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; border: 2px solid var(--bg-card); box-shadow: var(--shadow-sm);">📷</span>
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <h1 id="role-title" class="role-banner-title">EduConnect Platform</h1>
+            <span id="role-badge" class="role-badge badge-student">Active</span>
+            <button type="button" class="btn btn-secondary btn-xs" onclick="App.openProfilePicModal()" style="padding: 0.2rem 0.6rem; font-size: 0.75rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.35rem;">
+              <span>📷</span>
+              <span data-i18n="profile.changePhoto">Change Profile Picture</span>
+            </button>
+          </div>
+          <p id="role-subtitle" class="role-banner-sub" data-i18n="tagline">Bridging Education Gaps with AI & Human Mentorship</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Viewports -->
+    <main class="main-container">
+
+      <!-- ======================================================================
+           1. STUDENT PORTAL
+           ====================================================================== -->
+      <section id="student-portal" class="portal-view">
+        <div id="student-content-container">
+          <!-- Student Unique Code & Parent Connection Status -->
+          <div class="two-col-grid" style="margin-bottom: 1.25rem;">
+            <!-- Left: Student Unique Code Card -->
+            <div class="card" style="padding: 0.9rem 1.25rem; margin-bottom: 0; background: var(--bg-card-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; border: 1px solid var(--border-color);">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span style="font-size: 1.5rem;">🎓</span>
+                <div>
+                  <span style="font-size: 0.8rem; color: var(--text-muted); display: block;" data-i18n="student.myCodeLabel">Your Student Code for Parents:</span>
+                  <span style="font-family: monospace; font-size: 1.15rem; font-weight: 800; color: var(--primary);" id="student-unique-code-display">ST-...</span>
+                </div>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); max-width: 320px; line-height: 1.4;">
+                📲 Live test scores & assignments are automatically shared with your connected parents.
+              </div>
+            </div>
+
+            <!-- Right: Parent Automatic Connection Status Card -->
+            <div class="card" id="student-parent-connect-card" style="padding: 0.9rem 1.25rem; margin-bottom: 0; background: var(--bg-card-subtle); border: 1px solid var(--border-color);">
+              <!-- Rendered dynamically by App.renderParentConnectionStatus(user) -->
+            </div>
+          </div>
+
+          <!-- Student KPIs -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label" data-i18n="student.streak">Study Streak</span>
+                <div class="kpi-icon-wrap" style="background-color: var(--primary-light); color: var(--primary);">🔥</div>
+              </div>
+              <div class="kpi-value" id="student-streak-val">1 Day</div>
+              <div class="kpi-footer" data-i18n="student.streakSub">Daily learning streak active!</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label" data-i18n="student.attendance">Attendance</span>
+                <div class="kpi-icon-wrap" style="background-color: var(--success-bg); color: var(--success);">📅</div>
+              </div>
+              <div class="kpi-value" id="student-attendance-val">0%</div>
+              <div class="kpi-footer" data-i18n="student.attendanceSub">Earned via quizzes & assignments</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label" data-i18n="student.classes">Enrolled Classes</span>
+                <div class="kpi-icon-wrap" style="background-color: var(--warning-bg); color: var(--warning);">📚</div>
+              </div>
+              <div class="kpi-value" id="student-classes-count-val">0</div>
+              <div class="kpi-footer" data-i18n="student.classesSub">Batches joined with code</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label" data-i18n="student.grade">Average Grade</span>
+                <div class="kpi-icon-wrap" style="background-color: var(--info-bg); color: var(--info);">⭐</div>
+              </div>
+              <div class="kpi-value" id="student-grade-val">Pending</div>
+              <div class="kpi-footer" data-i18n="student.gradeSub">Graded by professors</div>
+            </div>
+          </div>
+
+          <!-- Professor Academic Regulations & Code of Conduct -->
+          <div class="card" id="student-professor-rules-card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="student.rulesTitle">📜 Professor Academic Regulations & Code of Conduct</h2>
+                <p class="card-subtitle" data-i18n="student.rulesSubtitle">
+                  Mandatory class guidelines, attendance policies, and academic integrity standards set by your professors
+                </p>
+              </div>
+            </div>
+            <div id="student-professor-rules-list">
+              <!-- Dynamically populated professor rules -->
+            </div>
+          </div>
+
+          <!-- Academic Doubt Resolution: First Preference Professor, Next Option AI -->
+          <div class="card">
+            <div class="ai-solver-header-wrap">
+              <img src="images/ai_robot_tutor.jpg" class="ai-robot-3d-img" alt="3D AI Tutor Robot">
+              <div>
+                <h2 class="card-title" data-i18n="student.aiSolverTitle">👨‍🏫 Academic Doubt Resolution & AI Assistant</h2>
+                <p class="card-subtitle" data-i18n="student.aiSolverSubtitle">
+                  First Preference: Submit directly to your designated professor for authentic faculty explanation. Next Option: Solve instantly with AI.
+                </p>
+              </div>
+            </div>
+            <form id="student-doubt-form" onsubmit="App.handleSendDoubtToProfessor(event)">
+              <div class="form-group" style="margin-bottom: 0.85rem;">
+                <label class="form-label" for="doubt-prof-select" style="font-size: 0.85rem; font-weight: 600;" data-i18n="student.selectProfLabel">
+                  👨‍🏫 Designated Professor (First Preference for Faculty Clarification):
+                </label>
+                <select id="doubt-prof-select" class="form-control" style="font-weight: 500;" required>
+                  <!-- Dynamically populated with verified professors from store -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="student-doubt-input" style="font-size: 0.85rem; font-weight: 600;">
+                  Academic Question / Concept Doubt:
+                </label>
+                <textarea id="student-doubt-input" class="form-control" data-i18n-placeholder="student.questionPlaceholder" placeholder="Type your academic question here (e.g. 'Explain how binary search tree balancing works with step-by-step derivation')..." rows="3" required></textarea>
+              </div>
+              <div style="display: flex; justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <button type="button" class="btn btn-secondary" onclick="App.handleSolveDoubtWithAI()" style="font-weight: 600;">
+                  ⚡ Or Solve with AI (Next Option)
+                </button>
+                <button type="submit" class="btn btn-primary" style="font-weight: 600;">
+                  👨‍🏫 Ask Selected Professor (First Preference)
+                </button>
+              </div>
+            </form>
+
+            <div style="margin-top: 1.5rem;">
+              <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem;" data-i18n="student.doubtHistoryTitle">
+                Your Doubt History & Faculty Answers
+              </h3>
+              <div id="student-doubts-history">
+                <!-- Dynamically populated doubts -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Enrolled Classes & Downloadable Notes -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="student.classesTitle">📖 Enrolled Classes & Learning Materials</h2>
+                <p class="card-subtitle" data-i18n="student.classesSubtitle">
+                  Access lecture notes, PDFs, and video links provided by your professors
+                </p>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="App.openJoinClassModal()" data-i18n="student.joinClassBtn">
+                + Join Class with Code
+              </button>
+            </div>
+            <div id="student-classes-list">
+              <!-- Dynamically populated classes -->
+            </div>
+          </div>
+
+          <!-- Assignments & Submissions -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="student.assignmentsTitle">📝 Assignments & Submissions</h2>
+                <p class="card-subtitle" data-i18n="student.assignmentsSubtitle">
+                  View deadlines, upload solutions, and check professor marks
+                </p>
+              </div>
+            </div>
+            <div id="student-assignments-list">
+              <!-- Dynamically populated assignments -->
+            </div>
+          </div>
+
+          <!-- Professor Quizzes vs Dynamic AI Mock Tests -->
+          <div class="two-col-grid">
+            <!-- Card A: Professor-Assigned Quizzes -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title" data-i18n="student.profQuizzesTitle">👨‍🏫 Professor-Assigned Class Quizzes</h2>
+                  <p class="card-subtitle" data-i18n="student.profQuizzesSubtitle">
+                    Official curriculum quizzes published by your course professors
+                  </p>
+                </div>
+              </div>
+              <div id="student-prof-quizzes-list">
+                <!-- Dynamically populated professor quizzes -->
+              </div>
+            </div>
+
+            <!-- Card B: Dynamic AI Mock Tests (Changes Every Time) -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title" data-i18n="student.aiMockTitle">🤖 Dynamic AI Mock Tests</h2>
+                  <p class="card-subtitle" data-i18n="student.aiMockSubtitle">
+                    Fresh practice questions generated dynamically on every attempt by AI
+                  </p>
+                </div>
+              </div>
+              <div class="quiz-3d-wrap" style="background-color: var(--bg-card-subtle); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 1rem;">
+                <img src="images/edu_3d_trophy.jpg" class="quiz-3d-trophy-img" alt="3D Trophy Award">
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.25rem;">Adaptive AI Examination Generator</div>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+                    Randomized question pool across analytical thinking, core theory, and problem solving. Questions shuffle and change every single time!
+                  </p>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <div class="two-col-grid" style="margin-bottom: 0;">
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label" style="font-size: 0.8rem;" data-i18n="student.levelLabel">Academic Stream:</label>
+                    <select id="mock-level-select" class="form-control" onchange="App.handleMockLevelChange(this.value)">
+                      <option value="school">School (Classes 1 - 12)</option>
+                      <option value="btech" selected>B.Tech Engineering</option>
+                      <option value="diploma">Diploma / Polytechnic</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label" style="font-size: 0.8rem;">Subject / Topic:</label>
+                    <select id="mock-subject-select" class="form-control">
+                      <!-- Populated dynamically -->
+                    </select>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm" onclick="App.startAIMockTest()" data-i18n="student.takeMockBtn">
+                  ⚡ Start Dynamic AI Mock Test (20 Questions - 20 Mins)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Discussion Forum & Peer Groups -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="student.forumTitle">💬 Discussion Forum & Study Groups</h2>
+                <p class="card-subtitle" data-i18n="student.forumSubtitle">
+                  Discuss academic topics with fellow students and get faculty answers
+                </p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="App.openNewForumPostModal()" data-i18n="student.postQuestionBtn">
+                + Start New Discussion
+              </button>
+            </div>
+            <div id="student-forum-posts">
+              <!-- Dynamically populated forum threads -->
+            </div>
+          </div>
+
+          <!-- Smart Study Planner & Custom Schedule -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="student.plannerTitle">📅 Smart Study Planner & Custom Schedule</h2>
+                <p id="planner-exam-meta" class="card-subtitle" data-i18n="student.plannerSubtitle">
+                  Personalized subject timetable based on your level (Class 1-12, B.Tech, Diploma) and exam targets
+                </p>
+              </div>
+            </div>
+
+            <!-- Planner Configuration Form -->
+            <div style="background: var(--bg-card-subtle); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 1.25rem;">
+              <!-- Strict Validation Alert Container (Shown if any option is not selected) -->
+              <div id="planner-validation-msg" style="display: none; background: var(--danger-bg); color: var(--danger-text); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid rgba(239, 68, 68, 0.3); font-size: 0.85rem; margin-bottom: 1rem; font-weight: 600;">
+              </div>
+
+              <form onsubmit="App.handleGenerateStudyPlan(event)">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label" for="planner-level-select" data-i18n="student.levelLabel">Academic Stream / Level:</label>
+                    <select id="planner-level-select" class="form-control" onchange="App.handlePlannerLevelChange(this.value)">
+                      <option value="" disabled selected>-- Select Academic Stream --</option>
+                      <option value="school">School (Classes 1 - 12)</option>
+                      <option value="btech">B.Tech Engineering</option>
+                      <option value="diploma">Diploma / Polytechnic</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label" for="planner-grade-select" data-i18n="student.gradeBranchLabel">Grade / Branch:</label>
+                    <select id="planner-grade-select" class="form-control" onchange="App.handlePlannerGradeChange(this.value)">
+                      <option value="" disabled selected>-- Select Grade / Branch --</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label" for="planner-hours-input" data-i18n="student.dailyHoursLabel">Daily Study Hours:</label>
+                    <input type="number" id="planner-hours-input" class="form-control" min="1" max="12" step="0.5" placeholder="e.g. 3" value="">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label" for="planner-exam-date" data-i18n="student.examDateLabel">Target Exam Date:</label>
+                    <input type="date" id="planner-exam-date" class="form-control" value="">
+                  </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label class="form-label" style="font-weight: 600; font-size: 0.85rem;">Select Subjects for Timetable (Tick to Include):</label>
+                  <div id="planner-subjects-checkboxes" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.35rem;">
+                    <!-- Dynamically populated subjects checkboxes -->
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-sm" data-i18n="student.generatePlanBtn">
+                  ⚡ Generate Custom Subject Study Plan
+                </button>
+              </form>
+            </div>
+
+            <div style="margin-bottom: 0.85rem;">
+              <h3 id="planner-exam-title" style="font-size: 1.05rem; font-weight: 700; color: var(--primary);">
+                Semester Study Schedule
+              </h3>
+            </div>
+            <div id="student-planner-items">
+              <!-- Dynamically populated planner tasks -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           2. PROFESSOR PORTAL
+           ====================================================================== -->
+      <section id="professor-portal" class="portal-view">
+        <div id="prof-content-container">
+          <!-- Professor KPIs -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label" data-i18n="professor.activeClasses">Active Classes</span>
+                <div class="kpi-icon-wrap" style="background-color: var(--primary-light); color: var(--primary);">🎓</div>
+              </div>
+              <div class="kpi-value" id="prof-total-classes-val">0</div>
+              <div class="kpi-footer" data-i18n="professor.activeClassesSub">Batches currently teaching</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label" data-i18n="professor.pendingDoubts">Escalated Doubts</span>
+                <div class="kpi-icon-wrap" style="background-color: var(--danger-bg); color: var(--danger);">❓</div>
+              </div>
+              <div class="kpi-value" id="prof-pending-doubts-val">0</div>
+              <div class="kpi-footer" data-i18n="professor.pendingDoubtsSub">Awaiting faculty answer</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label" data-i18n="professor.pendingGrading">Pending Submissions</span>
+                <div class="kpi-icon-wrap" style="background-color: var(--warning-bg); color: var(--warning);">✍️</div>
+              </div>
+              <div class="kpi-value" id="prof-pending-grading-val">0</div>
+              <div class="kpi-footer" data-i18n="professor.pendingGradingSub">Ready for marks & feedback</div>
+            </div>
+          </div>
+
+          <!-- Doubt Resolution Inbox -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="professor.inboxTitle">📥 Doubt Resolution Inbox</h2>
+                <p class="card-subtitle" data-i18n="professor.inboxSubtitle">
+                  Student questions where initial AI draft was escalated for human faculty explanation
+                </p>
+              </div>
+            </div>
+            <div id="prof-doubt-inbox-list">
+              <!-- Dynamically populated doubts -->
+            </div>
+          </div>
+
+          <!-- Class Management & Content Upload -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="professor.classesTitle">🏫 My Classes, Join Codes & Uploads</h2>
+                <p class="card-subtitle" data-i18n="professor.classesSubtitle">
+                  Create class batches and share notes, PDFs, or video lectures
+                </p>
+              </div>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button class="btn btn-secondary btn-sm" onclick="App.openScheduleLiveModal()" data-i18n="professor.scheduleLiveBtn">
+                  + Schedule Live Lecture
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="App.openCreateQuizModal()" data-i18n="professor.createQuizBtn">
+                  + Create Class Quiz
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="App.openCreateClassModal()" data-i18n="professor.createClassBtn">
+                  + Create New Class
+                </button>
+              </div>
+            </div>
+            <div id="prof-classes-mgmt-list">
+              <!-- Dynamically populated classes -->
+            </div>
+          </div>
+
+          <!-- Professor's Live Sessions & Quizzes -->
+          <div class="two-col-grid">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">📹 My Scheduled Live Lectures</h2>
+                  <p class="card-subtitle">
+                    Live interactive video classes hosted exclusively by you
+                  </p>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="App.openScheduleLiveModal()">
+                  + Schedule
+                </button>
+              </div>
+              <div id="prof-live-sessions-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">🎯 My Published Class Quizzes</h2>
+                  <p class="card-subtitle">
+                    Academic quizzes assigned to your enrolled students
+                  </p>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="App.openCreateQuizModal()">
+                  + Create
+                </button>
+              </div>
+              <div id="prof-quizzes-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Submissions & Grading Queue -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="professor.gradingTitle">📋 Student Submissions & Grading Queue</h2>
+                <p class="card-subtitle" data-i18n="professor.gradingSubtitle">
+                  Review student submissions and assign marks with constructive feedback
+                </p>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="App.openCreateAssignmentModal()" data-i18n="professor.createAssignmentBtn">
+                + Create New Assignment
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Student</th>
+                    <th>Assignment</th>
+                    <th>Submitted On</th>
+                    <th>Status / Marks</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="prof-grading-tbody">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Published Assignments Management & Delete Section -->
+            <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+              <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem;">📁 My Published Assignments & Deletion</h3>
+              <div id="prof-assignments-list">
+                <!-- Dynamically populated assignments -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Broadcast Announcements -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="professor.announcementsTitle">📢 Class & Parent Announcements</h2>
+                <p class="card-subtitle" data-i18n="professor.announcementsSubtitle">
+                  Broadcast important notices to enrolled students and linked parents
+                </p>
+              </div>
+            </div>
+            <form onsubmit="App.submitBroadcastAnnouncement(event)" style="margin-bottom: 1.5rem;">
+              <div class="form-group">
+                <input type="text" id="broadcast-title-input" class="form-control" placeholder="Announcement Title" required>
+              </div>
+              <div class="form-group">
+                <textarea id="broadcast-content-input" class="form-control" placeholder="Type your broadcast message to students and parents..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm" data-i18n="professor.broadcastBtn">
+                🚀 Broadcast Notice
+              </button>
+            </form>
+
+            <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem;">Recent Broadcasts</h3>
+            <div id="prof-announcements-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           3. PARENT PORTAL
+           ====================================================================== -->
+      <section id="parent-portal" class="portal-view">
+        <div id="parent-content-container">
+          <!-- Student Code Connection Bar -->
+          <div class="card" style="padding: 1rem 1.25rem; margin-bottom: 1.25rem; background: var(--bg-card-subtle); border: 1px solid var(--border-color);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem;" data-i18n="parent.linkStudentTitle">Connect Student Academic Code</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">
+                  Enter the unique Student Code (e.g., ST-RAHUL-4821) from your child's dashboard to link alerts.
+                </p>
+              </div>
+              <form onsubmit="App.handleParentLinkStudent(event)" style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                <input type="text" id="parent-link-code-input" class="form-control" placeholder="e.g. ST-RAHUL-4821" style="width: 190px; font-family: monospace; text-transform: uppercase;" required>
+                <button type="submit" class="btn btn-secondary btn-sm" data-i18n="parent.linkStudentBtn">Link Student</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Linked Child Header -->
+          <div class="parent-hero-card">
+            <div>
+              <span style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--text-muted);" data-i18n="parent.childRecord">
+                Linked Student Academic Record
+              </span>
+              <h2 id="parent-child-name" style="font-size: 1.6rem; font-weight: 800; margin: 0.25rem 0;">Student</h2>
+              <p id="parent-child-code" style="font-weight: 600; color: var(--primary); font-family: monospace;">Code: ST-...</p>
+              <p id="parent-child-stats" style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">
+                Attendance: 0% • Study Streak: 1 Day • Grade: Pending
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <button class="btn btn-primary btn-sm" onclick="App.openBookMeetingModal()" data-i18n="parent.bookMeetingBtn">
+                📅 Book Faculty Meeting
+              </button>
+            </div>
+          </div>
+
+          <!-- Live WhatsApp Activity & Test Alerts Feed -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="parent.whatsappFeedTitle">📱 Live WhatsApp Activity & Test Alerts</h2>
+                <p class="card-subtitle" data-i18n="parent.whatsappFeedSubtitle">
+                  Instant notifications sent to your registered WhatsApp upon quiz or assignment completion
+                </p>
+              </div>
+            </div>
+            <div id="parent-whatsapp-feed-list">
+              <!-- Dynamically populated real-time WhatsApp alerts -->
+            </div>
+          </div>
+
+          <!-- Weekly WhatsApp & SMS Digest Preview -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-i18n="parent.digestTitle">📱 Weekly Automated Report (WhatsApp & SMS)</h2>
+                <p class="card-subtitle" data-i18n="parent.digestSubtitle">
+                  Real-time preview of the periodic summary delivered in your preferred regional language
+                </p>
+              </div>
+            </div>
+            <div id="parent-whatsapp-digest">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ======================================================================
+       MODALS
+       ====================================================================== -->
+
+  <!-- Modal 1: Join Class with Code -->
+  <div id="join-class-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="modals.joinClassTitle">Join Class with Code</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form onsubmit="App.submitJoinClass(event)">
+        <div class="modal-body">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Enter the 6-character class code shared by your professor.
+          </p>
+          <div class="form-group">
+            <label class="form-label" for="join-code-input">Class Join Code</label>
+            <input type="text" id="join-code-input" class="form-control" placeholder="e.g. CLS832" required style="font-family: monospace; text-transform: uppercase;">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" data-i18n="student.joinClassBtn">Enroll in Class</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Create Class (Professor) -->
+  <div id="create-class-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="modals.createClassTitle">Create New Academic Class</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form onsubmit="App.submitCreateClass(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="create-class-title">Class Title & Course Name</label>
+            <input type="text" id="create-class-title" class="form-control" placeholder="e.g. Advanced Data Structures & Algorithms" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="create-class-schedule">Weekly Schedule</label>
+            <input type="text" id="create-class-schedule" class="form-control" placeholder="e.g. Mon, Wed (10:00 AM - 11:30 AM)" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Generate Class & Join Code</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3: Upload Material (Professor) -->
+  <div id="upload-material-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="modals.uploadTitle">Upload Notes, PDF or Video Link</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form onsubmit="App.submitUploadMaterial(event)">
+        <input type="hidden" id="upload-material-class-id">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="upload-material-title">Document / Lecture Title</label>
+            <input type="text" id="upload-material-title" class="form-control" placeholder="e.g. Chapter 3: Trees & Graphs Complete Notes" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="upload-material-type">Content Type</label>
+            <select id="upload-material-type" class="form-control">
+              <option value="PDF Notes">PDF Document / Notes</option>
+              <option value="Video Link">Recorded Video Lecture</option>
+              <option value="Code / Notes">Code Repository / Notes</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="upload-material-url">Resource URL or File Link</label>
+            <input type="text" id="upload-material-url" class="form-control" placeholder="https://..." value="https://drive.google.com/lecture-notes">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Upload to Class</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 4: Create Assignment (Professor) -->
+  <div id="create-assignment-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="modals.assignmentTitle">Create New Assignment</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form onsubmit="App.submitCreateAssignment(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="asg-title">Assignment Title</label>
+            <input type="text" id="asg-title" class="form-control" placeholder="e.g. Problem Set 2: Dynamic Programming" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="asg-desc">Instructions / Problem Statement</label>
+            <textarea id="asg-desc" class="form-control" placeholder="Describe the assignment requirements..." required></textarea>
+          </div>
+          <div class="two-col-grid" style="margin-bottom: 0;">
+            <div class="form-group">
+              <label class="form-label" for="asg-max-marks">Maximum Marks</label>
+              <input type="number" id="asg-max-marks" class="form-control" value="100" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="asg-due-date">Due Date</label>
+              <input type="date" id="asg-due-date" class="form-control" value="2026-11-15" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Publish Assignment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 5: Grade Submission (Professor) -->
+  <div id="grade-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="modals.gradeTitle">Grade Student Submission</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form onsubmit="App.submitGrade(event)">
+        <input type="hidden" id="grade-asg-id">
+        <input type="hidden" id="grade-sub-id">
+        <div class="modal-body">
+          <p id="grade-student-display" style="font-weight: 700; margin-bottom: 1rem; color: var(--primary);">Student: </p>
+          <div class="form-group">
+            <label class="form-label" for="grade-marks-input">Marks Awarded (%)</label>
+            <input type="number" id="grade-marks-input" class="form-control" min="0" max="100" value="90" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="grade-feedback-input">Feedback & Remarks</label>
+            <textarea id="grade-feedback-input" class="form-control" placeholder="Provide constructive remarks for student improvement..." required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Grade & Feedback</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 6: Quiz / Mock Test Modal (Supports Professor Quiz & Dynamic AI Mock Test) -->
+  <div id="quiz-modal" class="modal-overlay">
+    <div class="modal-dialog" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="quiz-modal-title" data-i18n="modals.quizTitle">Class Quiz / Mock Test</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form id="quiz-form" onsubmit="App.submitQuiz(event)">
+        <input type="hidden" id="quiz-active-id">
+        <input type="hidden" id="quiz-active-type" value="professor">
+        <div class="modal-body" id="quiz-questions-body">
+          <!-- Dynamically populated questions -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="quiz-submit-btn">Submit Test for Auto-Grading</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 6B: Schedule Live Lecture (Professor Only) -->
+  <div id="schedule-live-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="modals.scheduleLiveTitle">Schedule Live Lecture</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form onsubmit="App.submitScheduleLive(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="live-class-select">Select Academic Class</label>
+            <select id="live-class-select" class="form-control" required></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="live-title-input">Lecture / Clinic Topic</label>
+            <input type="text" id="live-title-input" class="form-control" placeholder="e.g. Trees & Dynamic Programming Live Problem Solving" required>
+          </div>
+          <div class="two-col-grid" style="margin-bottom: 0;">
+            <div class="form-group">
+              <label class="form-label" for="live-date-input">Date</label>
+              <input type="date" id="live-date-input" class="form-control" value="2026-10-24" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="live-time-input">Time & Duration</label>
+              <input type="text" id="live-time-input" class="form-control" value="04:00 PM - 05:30 PM (IST)" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="live-url-input">Video Meeting URL (Google Meet / Zoom)</label>
+            <input type="text" id="live-url-input" class="form-control" value="https://meet.google.com/edu-live-clinic" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Publish Live Lecture</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 6C: Create Class Quiz (Professor Only) -->
+  <div id="create-quiz-modal" class="modal-overlay">
+    <div class="modal-dialog" style="max-width: 640px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Create Class Quiz</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form onsubmit="App.submitCreateQuiz(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="quiz-create-class-select">Select Class</label>
+            <select id="quiz-create-class-select" class="form-control" required></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="quiz-create-title">Quiz Title</label>
+            <input type="text" id="quiz-create-title" class="form-control" placeholder="e.g. Unit 2: Graph Theory Assessment" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="quiz-create-timelimit">Time Limit (Minutes)</label>
+            <input type="number" id="quiz-create-timelimit" class="form-control" value="15" min="5" max="120" required>
+          </div>
+          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; margin-top: 0.75rem;">
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              Enter a core quiz question with 4 options and select the correct answer:
+            </p>
+            <div class="form-group">
+              <label class="form-label">Question Text</label>
+              <input type="text" id="quiz-q1-text" class="form-control" placeholder="e.g. What is the time complexity of Dijkstra's algorithm with Min-Heap?" required>
+            </div>
+            <div class="two-col-grid" style="margin-bottom: 0;">
+              <div class="form-group"><input type="text" id="quiz-q1-opt0" class="form-control" placeholder="Option 1" value="O((V + E) log V)" required></div>
+              <div class="form-group"><input type="text" id="quiz-q1-opt1" class="form-control" placeholder="Option 2" value="O(V^3)" required></div>
+              <div class="form-group"><input type="text" id="quiz-q1-opt2" class="form-control" placeholder="Option 3" value="O(E^2)" required></div>
+              <div class="form-group"><input type="text" id="quiz-q1-opt3" class="form-control" placeholder="Option 4" value="O(1)" required></div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Correct Option</label>
+              <select id="quiz-q1-correct" class="form-control">
+                <option value="0">Option 1</option>
+                <option value="1">Option 2</option>
+                <option value="2">Option 3</option>
+                <option value="3">Option 4</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Publish Quiz to Class</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 7: Book Meeting (Parent) -->
+  <div id="book-meeting-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="modals.meetingTitle">Book 1-on-1 Faculty Meeting</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form onsubmit="App.submitBookMeeting(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="meeting-date-input">Preferred Date</label>
+            <input type="date" id="meeting-date-input" class="form-control" value="2026-10-25" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="meeting-time-input">Preferred Time Slot</label>
+            <select id="meeting-time-input" class="form-control">
+              <option value="04:00 PM">04:00 PM - 04:30 PM</option>
+              <option value="04:45 PM">04:45 PM - 05:15 PM</option>
+              <option value="05:30 PM">05:30 PM - 06:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 8: New Forum Post -->
+  <div id="new-forum-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Start New Academic Discussion</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form onsubmit="App.submitNewForumPost(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Discussion Title</label>
+            <input type="text" id="forum-post-title-input" class="form-control" placeholder="e.g. What are the best approaches for solving Dynamic Programming problems?" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Topic / Question Description</label>
+            <textarea id="forum-post-content-input" class="form-control" placeholder="Describe your question or discussion point in detail..." required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Post Discussion</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 9: Forgot / Reset Password -->
+  <div id="forgot-password-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="auth.resetPasswordTitle">Reset / Forgot Password</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form onsubmit="App.submitForgotPassword(event)">
+        <div class="modal-body">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="auth.resetPasswordSubtitle">
+            Enter your registered email or mobile to set a new password
+          </p>
+          <div id="forgot-error-msg" class="alert alert-danger" style="display: none; margin-bottom: 1rem; padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; background: var(--danger-bg); color: var(--danger-text);"></div>
+          <div id="forgot-success-msg" class="alert alert-success" style="display: none; margin-bottom: 1rem; padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; background: var(--success-bg); color: var(--success-text);"></div>
+
+          <div class="form-group">
+            <label class="form-label" for="forgot-identifier" data-i18n="auth.identifierLabel">Email or Mobile Number</label>
+            <input type="text" id="forgot-identifier" class="form-control" data-i18n-placeholder="auth.identifierPlaceholder" placeholder="e.g. name@email.com or 9876543210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="forgot-new-pass" data-i18n="auth.newPasswordLabel">New Password</label>
+            <input type="password" id="forgot-new-pass" class="form-control" placeholder="Enter new password (min 4 characters)" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="forgot-confirm-pass" data-i18n="auth.confirmPasswordLabel">Confirm New Password</label>
+            <input type="password" id="forgot-confirm-pass" class="form-control" placeholder="Re-enter new password" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" data-i18n="auth.resetBtn">Reset Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 10: Choose Profile Picture from Gallery or Presets -->
+  <div id="profile-pic-modal" class="modal-overlay">
+    <div class="modal-dialog" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 class="modal-title">📷 <span data-i18n="profile.modalTitle">Choose Profile Picture</span></h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;" data-i18n="profile.modalSubtitle">
+          Select a photo from your device gallery or choose from our curated character avatars. This updates your profile across your dashboard and badges.
+        </p>
+
+        <!-- Option 1: Gallery / Device Upload -->
+        <div style="border: 2px dashed var(--primary); border-radius: var(--radius-md); padding: 1.25rem; text-align: center; background: rgba(99, 102, 241, 0.04); margin-bottom: 1.5rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.35rem;">📂</div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem;" data-i18n="profile.uploadTitle">Upload from Device Gallery</h4>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.85rem;" data-i18n="profile.uploadSubtitle">
+            Choose any JPG, PNG, WEBP, or GIF image from your gallery or phone storage
+          </p>
+          <input type="file" id="profile-pic-file-input" accept="image/*" style="display: none;" onchange="App.handleProfilePicUpload(event)">
+          <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('profile-pic-file-input').click()">
+            📁 <span data-i18n="profile.browseGalleryBtn">Browse Device Gallery</span>
+          </button>
+        </div>
+
+        <!-- Option 2: Curated Preset Avatars -->
+        <div>
+          <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem;" data-i18n="profile.presetTitle">Or Pick a Curated Avatar:</h4>
+          <div id="preset-avatar-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; max-height: 220px; overflow-y: auto; padding: 0.25rem;">
+            <!-- Dynamically populated avatar presets -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-modal-cancel" data-i18n="modals.cancelBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Area -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Script Modules -->
+  <script src="js/locales.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

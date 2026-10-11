@@ -1,0 +1,19 @@
+{
+  "name": "educonnect-platform",
+  "version": "1.0.0",
+  "description": "EduConnect - Bridging Education Gaps with AI & Human Mentorship",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "education",
+    "edtech",
+    "ai",
+    "mentorship",
+    "elearning"
+  ],
+  "author": "EduConnect Team",
+  "license": "ISC"
+}
