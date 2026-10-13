@@ -20,9 +20,17 @@
  *    - Platform fully revolves around Professors and Students (with Parents linked)
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-  App.init();
-});
+function initEduConnectApp() {
+  if (typeof App !== 'undefined' && typeof App.init === 'function') {
+    App.init();
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initEduConnectApp);
+} else {
+  initEduConnectApp();
+}
 
 const App = {
   activeQuiz: null,
@@ -200,23 +208,31 @@ const App = {
   // =========================================================================
 
   updateScreenVisibility() {
+    if (!this.openingScreen || !this.langSelectStep || !this.authCredentialsStep) {
+      this.cacheDOM();
+    }
     const user = store.getCurrentUser();
     const flowStep = store.getFlowStep();
 
+    const openingScreen = this.openingScreen || document.getElementById('opening-screen');
+    const appScreen = this.appScreen || document.getElementById('app-screen');
+    const langSelectStep = this.langSelectStep || document.getElementById('lang-select-step');
+    const authCredentialsStep = this.authCredentialsStep || document.getElementById('auth-credentials-step');
+
     if (!user) {
-      if (this.appScreen) this.appScreen.style.display = 'none';
-      if (this.openingScreen) this.openingScreen.style.display = 'flex';
+      if (appScreen) appScreen.style.display = 'none';
+      if (openingScreen) openingScreen.style.display = 'flex';
 
       if (flowStep === 'lang_select') {
-        if (this.langSelectStep) this.langSelectStep.style.display = 'block';
-        if (this.authCredentialsStep) this.authCredentialsStep.style.display = 'none';
+        if (langSelectStep) langSelectStep.style.display = 'block';
+        if (authCredentialsStep) authCredentialsStep.style.display = 'none';
       } else {
-        if (this.langSelectStep) this.langSelectStep.style.display = 'none';
-        if (this.authCredentialsStep) this.authCredentialsStep.style.display = 'block';
+        if (langSelectStep) langSelectStep.style.display = 'none';
+        if (authCredentialsStep) authCredentialsStep.style.display = 'block';
       }
     } else {
-      if (this.openingScreen) this.openingScreen.style.display = 'none';
-      if (this.appScreen) this.appScreen.style.display = 'block';
+      if (openingScreen) openingScreen.style.display = 'none';
+      if (appScreen) appScreen.style.display = 'block';
 
       this.updateNavbarUserBadge();
       this.renderCurrentView();
@@ -226,15 +242,28 @@ const App = {
   },
 
   chooseLanguageAndProceed(lang) {
+    if (!this.langSelectStep || !this.authCredentialsStep) {
+      this.cacheDOM();
+    }
     store.selectLanguageAndProceed(lang);
     if (this.langSelect) this.langSelect.value = lang;
     this.applyTranslations();
     this.updateScreenVisibility();
+
+    // Absolute DOM guarantee: hide lang step, show auth step
+    const langStep = document.getElementById('lang-select-step');
+    const authStep = document.getElementById('auth-credentials-step');
+    if (langStep) langStep.style.display = 'none';
+    if (authStep) authStep.style.display = 'block';
   },
 
   backToLanguageSelect() {
     store.setFlowStep('lang_select');
     this.updateScreenVisibility();
+    const langStep = document.getElementById('lang-select-step');
+    const authStep = document.getElementById('auth-credentials-step');
+    if (langStep) langStep.style.display = 'block';
+    if (authStep) authStep.style.display = 'none';
   },
 
   switchAuthMode(mode) {
@@ -2318,3 +2347,27 @@ ${this.escapeHTML(report.body)}
       .replace(/'/g, '&#039;');
   }
 };
+
+// Global exports and event delegation
+window.App = App;
+window.store = store;
+
+window.chooseLanguageAndProceed = function(lang) {
+  if (window.App && typeof window.App.chooseLanguageAndProceed === 'function') {
+    window.App.chooseLanguageAndProceed(lang);
+  } else {
+    const langStep = document.getElementById('lang-select-step');
+    const authStep = document.getElementById('auth-credentials-step');
+    if (langStep) langStep.style.display = 'none';
+    if (authStep) authStep.style.display = 'block';
+  }
+};
+
+document.addEventListener('click', function(e) {
+  const langBtn = e.target.closest('.lang-card-btn');
+  if (langBtn) {
+    const lang = langBtn.getAttribute('data-lang') || 'en';
+    window.chooseLanguageAndProceed(lang);
+  }
+});
+

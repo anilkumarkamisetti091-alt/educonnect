@@ -1,0 +1,5687 @@
+
+/* ==========================================================================
+   MODULE: js/locales.js
+   ========================================================================== */
+/**
+ * EduConnect - Comprehensive Multi-Language Dictionary (i18n)
+ * Fully converts 100% of the UI into English, Telugu (తెలుగు), Hindi (हिंदी), and Tamil (தமிழ்)
+ * Professor-Centric Architecture:
+ * - Professors are the platform authority (conduct live sessions, assign quizzes, set rules)
+ * - Dynamic AI Mock Tests change every time
+ * - Smart Study Planner supports Class 1-12, B.Tech, and Diploma
+ * - Doubt escalation connects directly to student-selected professors
+ * - Admin removed completely
+ */
+
+const LOCALES = {
+  en: {
+    brand: "EduConnect",
+    tagline: "Faculty-Led Education with AI Problem-Solving",
+    roles: {
+      student: "Student",
+      professor: "Professor",
+      parent: "Parent"
+    },
+    auth: {
+      selectLanguageTitle: "Select Your Language",
+      selectLanguageSubtitle: "Choose your preferred language to proceed with EduConnect",
+      continueBtn: "Continue ➔",
+      loginTitle: "Sign In to EduConnect",
+      loginSubtitle: "Enter your email or mobile number and password",
+      registerTitle: "Create Your Account",
+      registerSubtitle: "Join EduConnect as a Student, Professor, or Parent",
+      tabLogin: "Sign In",
+      tabRegister: "Register",
+      selectRole: "Select Your Role",
+      identifierLabel: "Email or Mobile Number",
+      identifierPlaceholder: "e.g. name@email.com or 9876543210",
+      passwordLabel: "Password",
+      passwordPlaceholder: "Enter your password",
+      forgotPassword: "Forgot Password?",
+      resetPasswordTitle: "Reset / Forgot Password",
+      resetPasswordSubtitle: "Enter your registered email or mobile to set a new password",
+      newPasswordLabel: "New Password",
+      confirmPasswordLabel: "Confirm New Password",
+      resetBtn: "Reset Password",
+      nameLabel: "Full Name",
+      namePlaceholder: "Enter your full name",
+      yearLabel: "Year / Grade",
+      yearPlaceholder: "e.g. 2nd Year (B.Tech) / Class 10",
+      majorLabel: "Course / Branch",
+      majorPlaceholder: "e.g. Computer Science / MPC",
+      deptLabel: "Department / Specialization",
+      deptPlaceholder: "e.g. School of Engineering",
+      childCodeLabel: "Child's Student Code",
+      childCodePlaceholder: "e.g. ST-RAHUL-4821",
+      parentIdentifierLabel: "Parent Mobile Number or Email (for automated connection)",
+      parentIdentifierPlaceholder: "e.g. 9876543210 or parent@gmail.com",
+      childIdentifierLabel: "Child's Mobile Number, Email, or Student Code",
+      childIdentifierPlaceholder: "e.g. 9876543210, student@email.com or ST-...",
+      loginBtn: "Sign In",
+      registerBtn: "Create Account",
+      noAccount: "Don't have an account? Register now",
+      haveAccount: "Already have an account? Sign In",
+      changeLangBtn: "← Change Language",
+      logoutBtn: "Log Out"
+    },
+    hero: {
+      title: "EduConnect: Professor Mentorship & AI Learning Platform",
+      subtitle: "Bridging education gaps with verified professors, topic-driven 20-question AI mock tests, and real-time parent WhatsApp transparency."
+    },
+    student: {
+      streak: "Study Streak",
+      streakSub: "Daily learning streak active!",
+      attendance: "Classroom Attendance",
+      attendanceSub: "Earned via quizzes & assignments",
+      classes: "Enrolled Classes",
+      classesSub: "Batches joined with code",
+      grade: "Average Grade",
+      gradeSub: "Graded by professors",
+      myCodeLabel: "Your Student Code for Parents:",
+      parentConnected: "Parent Connected",
+      aiSolverTitle: "👨‍🏫 Academic Doubt Resolution & AI Assistant",
+      aiSolverSubtitle: "First Preference: Submit directly to your designated professor for authentic faculty explanation. Next Option: Solve instantly with AI.",
+      questionPlaceholder: "Type your academic question here (e.g. 'Explain how binary search tree balancing works with step-by-step derivation')...",
+      solveBtn: "⚡ Solve with AI",
+      selectProfLabel: "👨‍🏫 Designated Professor (First Preference):",
+      askProfFirstBtn: "👨‍🏫 Ask Selected Professor (First Preference)",
+      solveAIOptionBtn: "⚡ Or Solve with AI (Next Option)",
+      escalateBtn: "👨‍🏫 Send to Selected Professor",
+      doubtHistoryTitle: "Your Doubt History & Faculty Answers",
+      noDoubts: "No doubts submitted yet. Ask a question above to get an instant step-by-step explanation!",
+      rulesTitle: "📜 Professor Academic Regulations & Code of Conduct",
+      rulesSubtitle: "Mandatory class guidelines, attendance policies, and academic integrity standards set by your professors",
+      rulesPledge: "Students must strictly follow all professor rules, homework schedules, and classroom ethics.",
+      classesTitle: "📖 Enrolled Classes & Learning Materials",
+      classesSubtitle: "Access lecture notes, PDFs, and video links provided by your course professors",
+      joinClassBtn: "+ Join Class with Code",
+      noClasses: "You have not joined any classes yet. Click '+ Join Class with Code' to enroll.",
+      materialsTitle: "Class Notes, PDFs & Video Lectures:",
+      assignmentsTitle: "📝 Assignments & Submissions",
+      assignmentsSubtitle: "View deadlines, upload solutions, and check professor marks",
+      noAssignments: "No assignments posted yet.",
+      submitBtn: "📤 Submit Solution",
+      profQuizzesTitle: "👨‍🏫 Professor-Assigned Class Quizzes",
+      profQuizzesSubtitle: "Official curriculum quizzes published by your course professors",
+      aiMockTitle: "🤖 Dynamic AI Mock Tests (Generated New Every Time)",
+      aiMockSubtitle: "Fresh practice questions generated dynamically on every attempt by AI across School, B.Tech, and Diploma streams",
+      takeMockBtn: "⚡ Start Dynamic AI Mock Test (20 Questions - 20 Mins)",
+      plannerTitle: "📅 Smart Study Planner & Custom Schedule",
+      plannerSubtitle: "Personalized subject timetable based on your level (Class 1-12, B.Tech, Diploma) and exam targets",
+      plannerValidationErr: "Please select all required fields (Academic Stream, Grade/Branch, at least 1 Subject, Daily Hours, and Target Exam Date) before generating your timetable.",
+      levelLabel: "Academic Stream / Level:",
+      gradeBranchLabel: "Grade / Branch:",
+      dailyHoursLabel: "Daily Available Study Hours:",
+      examDateLabel: "Target Exam Date:",
+      generatePlanBtn: "⚡ Generate Custom Subject Study Plan",
+      forumTitle: "💬 Discussion Forum & Peer Groups",
+      forumSubtitle: "Discuss academic topics with fellow students and faculty",
+      postQuestionBtn: "+ Start New Discussion",
+      liveTitle: "📹 Live Lectures & Clinics (Conducted by Professors)",
+      liveSubtitle: "Scheduled interactive video lectures hosted exclusively by your course professors",
+      joinLectureBtn: "📹 Join Professor Lecture",
+      leaveClassBtn: "🚪 Leave Class"
+    },
+    professor: {
+      activeClasses: "Active Classes",
+      activeClassesSub: "Batches currently teaching",
+      pendingDoubts: "Doubts Assigned to You",
+      pendingDoubtsSub: "Students chosen you for answer",
+      pendingGrading: "Pending Submissions",
+      pendingGradingSub: "Ready for marks & feedback",
+      inboxTitle: "📥 Faculty Doubt Resolution Inbox",
+      inboxSubtitle: "Student questions where initial AI draft was escalated specifically to you for verified faculty explanation",
+      noPendingDoubts: "No pending student doubts assigned to you. All queries are resolved! 🎉",
+      submitReplyBtn: "✓ Submit Faculty Answer & Resolve",
+      classesTitle: "🏫 My Classes, Join Codes & Uploads",
+      classesSubtitle: "Create class batches, set class regulations, and share notes, PDFs, or video lectures",
+      createClassBtn: "+ Create New Class",
+      uploadMaterialBtn: "+ Upload Notes/Video",
+      createQuizBtn: "+ Create Class Quiz",
+      scheduleLiveBtn: "+ Schedule Live Lecture",
+      gradingTitle: "📋 Student Submissions & Grading Queue",
+      gradingSubtitle: "Review student submissions and assign marks with constructive feedback",
+      createAssignmentBtn: "+ Create New Assignment",
+      announcementsTitle: "📢 Class & Parent Announcements",
+      announcementsSubtitle: "Broadcast important notices to enrolled students and linked parents",
+      broadcastBtn: "🚀 Broadcast Notice",
+      deleteClassBtn: "🗑️ Delete Class",
+      deleteLiveBtn: "🗑️ Delete Lecture",
+      deleteQuizBtn: "🗑️ Delete Quiz",
+      deleteAssignmentBtn: "🗑️ Delete Assignment",
+      deleteAccountBtn: "🗑️ Delete Professor Account"
+    },
+    parent: {
+      childRecord: "Linked Student Academic Record",
+      linkStudentTitle: "Connect Student Academic Code",
+      linkStudentBtn: "Link Student",
+      bookMeetingBtn: "📅 Book Faculty Meeting",
+      strengthsTitle: "✨ Academic Progress & Highlights",
+      supportTitle: "🎯 Faculty Guidance & Areas for Improvement",
+      digestTitle: "📱 Weekly Automated Report (WhatsApp & SMS)",
+      digestSubtitle: "Real-time preview of the periodic summary delivered in your preferred regional language",
+      whatsappFeedTitle: "📱 Live WhatsApp Activity & Test Alerts",
+      whatsappFeedSubtitle: "Instant notifications sent to your registered WhatsApp upon quiz or assignment completion",
+      unlinkedTitle: "No Student Linked Yet",
+      unlinkedDesc: "Enter your child's unique Student Code (e.g. ST-RAHUL-4821) to view their attendance, weekly reports, and test scores."
+    },
+    modals: {
+      joinClassTitle: "Join Class with Code",
+      createClassTitle: "Create New Academic Class",
+      uploadTitle: "Upload Notes, PDF or Video Link",
+      assignmentTitle: "Create New Assignment",
+      gradeTitle: "Grade Student Submission",
+      quizTitle: "Class Quiz Assessment",
+      aiMockTitle: "Dynamic AI Mock Test",
+      scheduleLiveTitle: "Schedule Live Lecture",
+      meetingTitle: "Book 1-on-1 Faculty Meeting",
+      cancelBtn: "Cancel",
+      saveBtn: "Save",
+      submitBtn: "Submit"
+    },
+    profile: {
+      changePhoto: "Change Profile Picture",
+      modalTitle: "Choose Profile Picture",
+      modalSubtitle: "Select a photo from your device gallery or choose from our curated character avatars. This updates your profile across your dashboard and badges.",
+      uploadTitle: "Upload from Device Gallery",
+      uploadSubtitle: "Choose any JPG, PNG, WEBP, or GIF image from your gallery or phone storage",
+      browseGalleryBtn: "Browse Device Gallery",
+      presetTitle: "Or Pick a Curated Avatar:"
+    }
+  },
+
+  te: {
+    brand: "ఎడ్యుకనెక్ట్ (EduConnect)",
+    tagline: "ప్రొఫెసర్ల మార్గదర్శకత్వం & AI సందేహాల నివారణ",
+    roles: {
+      student: "విద్యార్థి",
+      professor: "ప్రొఫెసర్",
+      parent: "తల్లిదండ్రులు"
+    },
+    auth: {
+      selectLanguageTitle: "మీ భాషను ఎంచుకోండి",
+      selectLanguageSubtitle: "ఎడ్యుకనెక్ట్ ప్లాట్‌ఫారమ్‌ను ఉపయోగించడానికి మీ ప్రాధాన్య భాషను ఎంచుకోండి",
+      continueBtn: "కొనసాగించండి ➔",
+      loginTitle: "ఎడ్యుకనెక్ట్ లాగిన్",
+      loginSubtitle: "మీ ఇమెయిల్ లేదా మొబైల్ నంబర్ మరియు పాస్‌వర్డ్‌తో ప్రవేశించండి",
+      registerTitle: "కొత్త ఖాతాను సృష్టించండి",
+      registerSubtitle: "విద్యార్థి, ప్రొఫెసర్ లేదా తల్లిదండ్రులుగా నమోదు చేసుకోండి",
+      tabLogin: "లాగిన్ (Sign In)",
+      tabRegister: "రిజిస్టర్ (Register)",
+      selectRole: "మీ పాత్రను ఎంచుకోండి",
+      identifierLabel: "ఇమెయిల్ లేదా మొబైల్ నంబర్",
+      identifierPlaceholder: "ఉదా: name@email.com లేదా 9876543210",
+      passwordLabel: "పాస్‌వర్డ్",
+      passwordPlaceholder: "మీ పాస్‌వర్డ్ నమోదు చేయండి",
+      forgotPassword: "పాస్‌వర్డ్ మర్చిపోయారా?",
+      resetPasswordTitle: "పాస్‌వర్డ్ రీసెట్ చేయండి",
+      resetPasswordSubtitle: "కొత్త పాస్‌వర్డ్ సెట్ చేయడానికి మీ నమోదిత ఇమెయిల్ లేదా మొబైల్ నంబర్ నమోదు చేయండి",
+      newPasswordLabel: "కొత్త పాస్‌వర్డ్",
+      confirmPasswordLabel: "కొత్త పాస్‌వర్డ్‌ను నిర్ధారించండి",
+      resetBtn: "పాస్‌వర్డ్ రీసెట్ చేయండి",
+      nameLabel: "పూర్తి పేరు",
+      namePlaceholder: "మీ పూర్తి పేరు నమోదు చేయండి",
+      yearLabel: "అకడమిక్ సంవత్సరం / తరగతి",
+      yearPlaceholder: "ఉదా: 2nd Year (B.Tech) / 10th Class",
+      majorLabel: "కోర్సు / బ్రాంచ్",
+      majorPlaceholder: "ఉదా: కంప్యూటర్ సైన్స్ / MPC",
+      deptLabel: "విభాగం",
+      deptPlaceholder: "ఉదా: ఇంజనీరింగ్ విభాగం",
+      childCodeLabel: "పిల్లల స్టూడెంట్ కోడ్",
+      childCodePlaceholder: "ఉదా: ST-RAHUL-4821",
+      parentIdentifierLabel: "తల్లిదండ్రుల మొబైల్ నంబర్ లేదా ఇమెయిల్ (ఆటోమేటిక్ అనుసంధానం కొరకు)",
+      parentIdentifierPlaceholder: "ఉదా: 9876543210 లేదా parent@gmail.com",
+      childIdentifierLabel: "పిల్లల మొబైల్ నంబర్, ఇమెయిల్ లేదా స్టూడెంట్ కోడ్",
+      childIdentifierPlaceholder: "ఉదా: 9876543210, child@email.com లేదా ST-...",
+      loginBtn: "లాగిన్ అవ్వండి",
+      registerBtn: "ఖాతాను సృష్టించండి",
+      noAccount: "ఖాతా లేదా? ఇప్పుడే రిజిస్టర్ చేసుకోండి",
+      haveAccount: "ఇప్పటికే ఖాతా ఉందా? లాగిన్ అవ్వండి",
+      changeLangBtn: "← భాష మార్చుకోండి",
+      logoutBtn: "లాగ్ అవుట్"
+    },
+    hero: {
+      title: "ఎడ్యుకనెక్ట్: ప్రొఫెసర్ మార్గదర్శకత్వం & AI విద్యార్థి వేదిక",
+      subtitle: "నిరూపిత అధ్యాపకుల బోధన, సబ్జెక్ట్ ఆధారిత 20 ప్రశ్నల AI మాక్ టెస్ట్‌లు మరియు తల్లిదండ్రుల ప్రత్యక్ష WhatsApp పర్యవేక్షణ."
+    },
+    student: {
+      streak: "అధ్యయన స్ట్రీక్",
+      streakSub: "రోజువారీ అభ్యాసం చురుకుగా ఉంది!",
+      attendance: "తరగతి హాజరు",
+      attendanceSub: "క్విజ్‌లు & అసైన్‌మెంట్ల ఆధారంగా లెక్కింపు",
+      classes: "చేరిన తరగతులు",
+      classesSub: "కోడ్‌తో చేరిన బ్యాచ్‌లు",
+      grade: "సగటు గ్రేడ్",
+      gradeSub: "అధ్యాపకులు ఇచ్చిన మార్కులు",
+      myCodeLabel: "తల్లిదండ్రులకు ఇవ్వాల్సిన మీ స్టూడెంట్ కోడ్:",
+      parentConnected: "తల్లిదండ్రులు స్వయంచాలకంగా అనుసంధానించబడ్డారు",
+      parentNotConnected: "తల్లిదండ్రులను అనుసంధానించండి",
+      aiSolverTitle: "🤖 AI సందేహాల నివారణ & ప్రొఫెసర్ పరిశీలన",
+      aiSolverSubtitle: "AI ద్వారా తెలుగులో దశలవారీగా తక్షణ సమాధానాన్ని పొందండి. మరింత వివరణ కావాలంటే క్రింద మీ నిర్దిష్ట ప్రొఫెసర్‌ను ఎంచుకుని పంపండి!",
+      questionPlaceholder: "మీ అకడమిక్ సందేహాన్ని ఇక్కడ టైప్ చేయండి (ఉదా: 'బైనరీ సెర్చ్ ఎలా పనిచేస్తుంది? ఉదాహరణతో వివరించండి')...",
+      solveBtn: "⚡ AI తో పరిష్కరించు",
+      selectProfLabel: "సందేహాన్ని పంపడానికి నిర్దిష్ట ప్రొఫెసర్‌ను ఎంచుకోండి:",
+      escalateBtn: "❓ ఎంచుకున్న ప్రొఫెసర్‌ను అడగండి (Escalate)",
+      doubtHistoryTitle: "మీ సందేహాల చరిత్ర & అధ్యాపకుల సమాధానాలు",
+      noDoubts: "ఇంకా ఎలాంటి సందేహాలు అడగలేదు. తక్షణ సమాధానం కోసం పైన ప్రశ్నను టైప్ చేయండి!",
+      rulesTitle: "📜 ప్రొఫెసర్ అకడమిక్ నిబంధనలు & ప్రవర్తనా నియమావళి",
+      rulesSubtitle: "మీ అధ్యాపకులు నిర్దేశించిన తరగతి నియమాలు, హాజరు విధానాలు మరియు విద్యా ప్రమాణాలు",
+      rulesPledge: "విద్యార్థులు తమ ప్రొఫెసర్ల తరగతి నిబంధనలను మరియు అసైన్‌మెంట్ గడువులను తప్పనిసరిగా పాటించాలి.",
+      classesTitle: "📖 చేరిన తరగతులు & నోట్స్ / వీడియోలు",
+      classesSubtitle: "మీ ప్రొఫెసర్లు అందించిన పాఠ్య నోట్స్, PDFలు మరియు వీడియో లింకులను పొందండి",
+      joinClassBtn: "+ కోడ్‌తో క్లాస్‌లో చేరండి",
+      noClasses: "మీరు ఇంకా ఏ తరగతిలోనూ చేరలేదు. నమోదు చేసుకోవడానికి '+ కోడ్‌తో క్లాస్‌లో చేరండి' క్లిక్ చేయండి.",
+      materialsTitle: "తరగతి నోట్స్, PDFలు & వీడియో పాఠాలు:",
+      assignmentsTitle: "📝 అసైన్‌మెంట్లు & సమర్పణలు",
+      assignmentsSubtitle: "గడువు తేదీలను చూడండి, పరిష్కారాలను అప్‌లోడ్ చేయండి మరియు మార్కులను తనిఖీ చేయండి",
+      noAssignments: "ప్రస్తుతం ఎలాంటి అసైన్‌మెంట్లు లేవు.",
+      submitBtn: "📤 పరిష్కారాన్ని సమర్పించండి",
+      profQuizzesTitle: "👨‍🏫 ప్రొఫెసర్ కేటాయించిన క్లాస్ క్విజ్‌లు",
+      profQuizzesSubtitle: "మీ కోర్సు ప్రొఫెసర్లు రూపొందించి ప్రచురించిన అధికారిక క్విజ్‌లు",
+      aiMockTitle: "🤖 డైనమిక్ AI మాక్ టెస్ట్‌లు (ప్రతిసారీ కొత్త ప్రశ్నలు)",
+      aiMockSubtitle: "AI ద్వారా ప్రతిసారీ సరికొత్త ప్రశ్నలతో రూపొందించబడే ప్రాక్టీస్ మాక్ పరీక్షలు (1-12 తరగతులు, B.Tech, డిప్లొమా)",
+      takeMockBtn: "⚡ డైనమిక్ AI మాక్ టెస్ట్ ప్రారంభించండి (20 ప్రశ్నలు - 20 నిమిషాలు)",
+      plannerTitle: "📅 స్మార్ట్ స్టడీ ప్లానర్ & కస్టమ్ షెడ్యూల్",
+      plannerSubtitle: "మీ స్థాయి (1-12 తరగతులు, B.Tech, డిప్లొమా) మరియు సబ్జెక్టుల ఆధారంగా రూపొందించబడిన టైమ్‌టేబుల్",
+      plannerValidationErr: "దయచేసి అన్ని వివరాలు (విద్యా స్థాయి, గ్రేడ్/బ్రాంచ్, కనీసం ఒక సబ్జెక్ట్, రోజువారీ అధ్యయన గంటలు మరియు పరీక్ష తేదీ) ఎంచుకోండి. అప్పుడే స్టడీ ప్లానర్ రూపొందించబడుతుంది.",
+      levelLabel: "అకడమిక్ స్థాయి:",
+      gradeBranchLabel: "తరగతి / ఇంజనీరింగ్ బ్రాంచ్:",
+      dailyHoursLabel: "రోజువారీ అధ్యయన గంటలు:",
+      examDateLabel: "పరీక్ష తేదీ:",
+      generatePlanBtn: "⚡ సబ్జెక్ట్ ఆధారిత స్టడీ ప్లాన్‌ను రూపొందించండి",
+      forumTitle: "💬 చర్చా వేదిక & అధ్యయన బృందాలు",
+      forumSubtitle: "సహచర విద్యార్థులతో మరియు అధ్యాపకులతో సందేహాలను చర్చించండి",
+      postQuestionBtn: "+ కొత్త చర్చను ప్రారంభించండి",
+      liveTitle: "📹 లైవ్ పాఠాలు & సెషన్లు (ప్రొఫెసర్లు నిర్వహించేవి)",
+      liveSubtitle: "మీ కోర్సు ప్రొఫెసర్లు నేరుగా నిర్వహించే ఇంటరాక్టివ్ వీడియో పాఠాలు",
+      joinLectureBtn: "📹 ప్రొఫెసర్ లైవ్ క్లాస్‌లో చేరండి",
+      leaveClassBtn: "🚪 తరగతి నుండి నిష్క్రమించండి"
+    },
+    professor: {
+      activeClasses: "యాక్టివ్ తరగతులు",
+      activeClassesSub: "ప్రస్తుతం బోధిస్తున్న బ్యాచ్‌లు",
+      pendingDoubts: "మీకు అప్పగించబడిన సందేహాలు",
+      pendingDoubtsSub: "విద్యార్థులు మీ వివరణ కోరినవి",
+      pendingGrading: "పరిశీలించాల్సిన అసైన్‌మెంట్లు",
+      pendingGradingSub: "మార్కులు ఇవ్వడానికి సిద్ధంగా ఉన్నాయి",
+      inboxTitle: "📥 ఫ్యాకల్టీ సందేహాల పరిష్కార ఇన్‌బాక్స్",
+      inboxSubtitle: "AI సమాధానం తర్వాత విద్యార్థులు మీ ప్రత్యక్ష వివరణ కోసం ప్రత్యేకంగా మీకు పంపిన ప్రశ్నలు",
+      noPendingDoubts: "మీకు పెండింగ్‌లో సందేహాలు లేవు. అన్నీ పరిష్కరించబడ్డాయి! 🎉",
+      submitReplyBtn: "✓ ఫ్యాకల్టీ సమాధానాన్ని సమర్పించండి",
+      classesTitle: "🏫 నా తరగతులు, జాయిన్ కోడ్‌లు & మెటీరియల్స్",
+      classesSubtitle: "క్లాస్ బ్యాచ్‌లను సృష్టించండి, నిబంధనలను నిర్దేశించండి మరియు నోట్స్, PDFలు షేర్ చేయండి",
+      createClassBtn: "+ కొత్త క్లాస్ సృష్టించండి",
+      uploadMaterialBtn: "+ నోట్స్/వీడియో అప్‌లోడ్ చేయండి",
+      createQuizBtn: "+ క్లాస్ క్విజ్ సృష్టించండి",
+      scheduleLiveBtn: "+ లైవ్ లెక్చర్ షెడ్యూల్ చేయండి",
+      gradingTitle: "📋 విద్యార్థుల అసైన్‌మెంట్లు & మార్కుల కేటాయింపు",
+      gradingSubtitle: "సమర్పించిన పనులను సమీక్షించి మార్కులు ఇవ్వండి",
+      createAssignmentBtn: "+ కొత్త అసైన్‌మెంట్ సృష్టించండి",
+      announcementsTitle: "📢 తరగతి & తల్లిదండ్రుల ప్రకటనలు",
+      announcementsSubtitle: "విద్యార్థులకు మరియు వారి తల్లిదండ్రులకు ముఖ్యమైన సమాచారాన్ని తెలియజేయండి",
+      broadcastBtn: "🚀 ప్రకటనను పంపండి",
+      deleteClassBtn: "🗑️ క్లాస్ తొలగించండి",
+      deleteLiveBtn: "🗑️ లెక్చర్ తొలగించండి",
+      deleteQuizBtn: "🗑️ క్విజ్ తొలగించండి",
+      deleteAssignmentBtn: "🗑️ అసైన్‌మెంట్ తొలగించండి",
+      deleteAccountBtn: "🗑️ ఖాతా తొలగించండి"
+    },
+    parent: {
+      childRecord: "లింక్ చేయబడిన విద్యార్థి విద్యా రికార్డు",
+      linkStudentTitle: "విద్యార్థి అకడమిక్ కోడ్‌ను లింక్ చేయండి",
+      linkStudentBtn: "విద్యార్థిని లింక్ చేయండి",
+      bookMeetingBtn: "📅 ప్రొఫెసర్‌తో సమావేశం బుక్ చేయండి",
+      strengthsTitle: "✨ విద్యా పురోగతి మరియు ముఖ్యాంశాలు",
+      supportTitle: "🎯 అధ్యాపకుల మార్గదర్శకాలు మరియు మెరుగుదల అంశాలు",
+      digestTitle: "📱 వారంవారీ ఆటోమేటెడ్ నివేదిక (WhatsApp & SMS)",
+      digestSubtitle: "మీ ప్రాంతీయ భాషలో పంపబడే ఆవర్తన సారాంశం యొక్క నిజ-సమయ ప్రివ్యూ",
+      whatsappFeedTitle: "📱 తాజా WhatsApp హెచ్చరికలు & పరీక్ష ఫలితాలు",
+      whatsappFeedSubtitle: "క్విజ్ లేదా అసైన్‌మెంట్ రాసిన వెంటనే WhatsApp కు పంపబడిన ప్రత్యక్ష నోటిఫికేషన్‌లు",
+      unlinkedTitle: "ఇంకా ఏ విద్యార్థి లింక్ కాలేదు",
+      unlinkedDesc: "హాజరు మరియు రిపోర్టులు చూడటానికి మీ పిల్లల స్టూడెంట్ కోడ్ నమోదు చేయండి."
+    },
+    modals: {
+      joinClassTitle: "కోడ్‌తో క్లాస్‌లో చేరండి",
+      createClassTitle: "కొత్త అకడమిక్ క్లాస్ సృష్టించండి",
+      uploadTitle: "నోట్స్, PDF లేదా వీడియో లింక్ అప్‌లోడ్ చేయండి",
+      assignmentTitle: "కొత్త అసైన్‌మెంట్ సృష్టించండి",
+      gradeTitle: "మార్కులు మరియు అభిప్రాయం కేటాయించండి",
+      quizTitle: "క్లాస్ క్విజ్ పరీక్ష",
+      aiMockTitle: "డైనమిక్ AI మాక్ టెస్ట్",
+      scheduleLiveTitle: "లైవ్ లెక్చర్‌ను షెడ్యూల్ చేయండి",
+      meetingTitle: "ఫ్యాకల్టీతో ప్రత్యక్ష సమావేశం బుక్ చేయండి",
+      cancelBtn: "రద్దు చేయి",
+      saveBtn: "సేవ్ చేయి",
+      submitBtn: "సమర్పించు"
+    },
+    profile: {
+      changePhoto: "ప్రొఫైల్ ఫోటో మార్చండి",
+      modalTitle: "ప్రొఫైల్ ఫోటోను ఎంచుకోండి",
+      modalSubtitle: "మీ పరికర గ్యాలరీ నుండి ఫోటోను ఎంచుకోండి లేదా అవతార్‌ను ఎంచుకోండి.",
+      uploadTitle: "డివైస్ గ్యాలరీ నుండి అప్‌లోడ్ చేయండి",
+      uploadSubtitle: "JPG, PNG, WEBP చిత్రాలను ఎంచుకోండి",
+      browseGalleryBtn: "గ్యాలరీని బ్రౌజ్ చేయండి",
+      presetTitle: "లేదా ప్రత్యేక అవతార్‌ను ఎంచుకోండి:"
+    }
+  },
+
+  hi: {
+    brand: "एड्यूकनेक्ट (EduConnect)",
+    tagline: "संकाय-आधारित शिक्षा एवं AI समस्या समाधान",
+    roles: {
+      student: "विद्यार्थी",
+      professor: "प्रोफेसर",
+      parent: "अभिभावक"
+    },
+    auth: {
+      selectLanguageTitle: "अपनी भाषा चुनें",
+      selectLanguageSubtitle: "एड्यूकनेक्ट का उपयोग करने के लिए अपनी पसंदीदा भाषा चुनें",
+      continueBtn: "आगे बढ़ें ➔",
+      loginTitle: "साइन इन करें",
+      loginSubtitle: "ईमेल या मोबाइल नंबर और पासवर्ड दर्ज करें",
+      registerTitle: "खाता बनाएं",
+      registerSubtitle: "विद्यार्थी, प्रोफेसर या अभिभावक के रूप में शामिल हों",
+      tabLogin: "साइन इन",
+      tabRegister: "पंजीकरण",
+      selectRole: "अपनी भूमिका चुनें",
+      identifierLabel: "ईमेल या मोबाइल नंबर",
+      identifierPlaceholder: "उदा. name@email.com या 9876543210",
+      passwordLabel: "पासवर्ड",
+      passwordPlaceholder: "अपना पासवर्ड दर्ज करें",
+      forgotPassword: "पासवर्ड भूल गए?",
+      resetPasswordTitle: "पासवर्ड रीसेट करें",
+      resetPasswordSubtitle: "नया पासवर्ड सेट करने के लिए पंजीकृत ईमेल या मोबाइल दर्ज करें",
+      newPasswordLabel: "नया पासवर्ड",
+      confirmPasswordLabel: "नए पासवर्ड की पुष्टि करें",
+      resetBtn: "पासवर्ड रीसेट करें",
+      nameLabel: "पूरा नाम",
+      namePlaceholder: "अपना पूरा नाम दर्ज करें",
+      yearLabel: "अकादमिक वर्ष / कक्षा",
+      yearPlaceholder: "उदा. 2nd Year (B.Tech) / कक्षा 10",
+      majorLabel: "पाठ्यक्रम / शाखा",
+      majorPlaceholder: "उदा. कंप्यूटर साइंस / MPC",
+      deptLabel: "विभाग",
+      deptPlaceholder: "उदा. इंजीनियरिंग विभाग",
+      childCodeLabel: "विद्यार्थी कोड",
+      childCodePlaceholder: "उदा. ST-RAHUL-4821",
+      parentIdentifierLabel: "अभिभावक का मोबाइल नंबर या ईमेल (स्वचालित कनेक्शन के लिए)",
+      parentIdentifierPlaceholder: "उदा. 9876543210 या parent@gmail.com",
+      childIdentifierLabel: "विद्यार्थी का मोबाइल, ईमेल या छात्र कोड",
+      childIdentifierPlaceholder: "उदा. 9876543210, student@email.com या ST-...",
+      loginBtn: "साइन इन करें",
+      registerBtn: "खाता बनाएं",
+      noAccount: "खाता नहीं है? पंजीकरण करें",
+      haveAccount: "पहले से खाता है? साइन इन करें",
+      changeLangBtn: "← भाषा बदलें",
+      logoutBtn: "लॉग आउट"
+    },
+    hero: {
+      title: "एडु-कनेक्ट: प्रोफेसर मेंटरशिप और AI शिक्षण मंच",
+      subtitle: "सत्यापित प्रोफेसरों, विषय-आधारित 20-प्रश्नों के AI मॉक टेस्ट और अभिभावक WhatsApp पारदर्शिता के साथ शिक्षा।"
+    },
+    student: {
+      streak: "अध्ययन स्ट्रीक",
+      streakSub: "दैनिक अध्ययन सक्रिय है!",
+      attendance: "उपस्थिति",
+      attendanceSub: "क्विज़ और असाइनमेंट से अर्जित",
+      classes: "संबद्ध कक्षाएं",
+      classesSub: "कोड द्वारा जुड़े बैच",
+      grade: "औसत ग्रेड",
+      gradeSub: "संकाय द्वारा मूल्यांकित",
+      myCodeLabel: "अभिभावकों के लिए विद्यार्थी कोड:",
+      parentConnected: "अभिभावक जुड़े हुए हैं",
+      parentNotConnected: "अभिभावक को कनेक्ट करें",
+      aiSolverTitle: "🤖 AI संदेह समाधान एवं प्रोफेसर मार्गदर्शन",
+      aiSolverSubtitle: "AI द्वारा चरण-दर-चरण समाधान प्राप्त करें। अतिरिक्त सहायता हेतु अपने निर्धारित प्रोफेसर को चुनें!",
+      questionPlaceholder: "अपना शैक्षणिक प्रश्न यहां लिखें...",
+      solveBtn: "⚡ AI से हल करें",
+      selectProfLabel: "निर्धारित प्रोफेसर का चयन करें:",
+      escalateBtn: "❓ चुने गए प्रोफेसर से पूछें",
+      doubtHistoryTitle: "संदेह इतिहास एवं संकाय उत्तर",
+      noDoubts: "अभी कोई संदेह नहीं पूछा गया है।",
+      rulesTitle: "📜 प्रोफेसर अकादमिक नियम एवं आचार संहिता",
+      rulesSubtitle: "कक्षा उपस्थिति, गृहकार्य और आचरण संबंधी प्रोफेसर द्वारा निर्धारित अनिवार्य नियम",
+      rulesPledge: "विद्यार्थियों को सभी संकाय नियमों और समय-सीमाओं का कड़ाई से पालन करना अनिवार्य है।",
+      classesTitle: "📖 संबद्ध कक्षाएं एवं पाठ्य सामग्री",
+      classesSubtitle: "नोट्स, PDF और वीडियो व्याख्यान देखें",
+      joinClassBtn: "+ कोड से कक्षा में जुड़ें",
+      noClasses: "आप अभी किसी कक्षा में नहीं जुड़े हैं।",
+      materialsTitle: "कक्षा नोट्स, PDF एवं वीडियो व्याख्यान:",
+      assignmentsTitle: "📝 असाइनमेंट एवं सबमिशन",
+      assignmentsSubtitle: "असाइनमेंट जमा करें और अंक देखें",
+      noAssignments: "अभी कोई असाइनमेंट उपलब्ध नहीं है।",
+      submitBtn: "📤 समाधान जमा करें",
+      profQuizzesTitle: "👨‍🏫 प्रोफेसर द्वारा निर्धारित कक्षा क्विज़",
+      profQuizzesSubtitle: "संकाय द्वारा प्रकाशित आधिकारिक क्विज़",
+      aiMockTitle: "🤖 गतिशील AI मॉक टेस्ट (प्रत्येक बार नए प्रश्न)",
+      aiMockSubtitle: "AI द्वारा हर प्रयास में उत्पन्न नए प्रश्न (कक्षा 1-12, B.Tech, डिप्लोमा)",
+      takeMockBtn: "⚡ AI मॉक टेस्ट शुरू करें (20 प्रश्न - 20 मिनट)",
+      plannerTitle: "📅 स्मार्ट स्टडी प्लानर एवं समय-सारणी",
+      plannerSubtitle: "आपकी कक्षा (1-12, B.Tech, डिप्लोमा) और विषयों के अनुसार व्यक्तिगत अध्ययन योजना",
+      plannerValidationErr: "कृपया टाइमटेबल बनाने से पहले सभी आवश्यक फ़ील्ड (स्ट्रीम, ग्रेड/शाखा, कम से कम 1 विषय, दैनिक घंटे और परीक्षा तिथि) का चयन करें।",
+      levelLabel: "अकादमिक स्तर:",
+      gradeBranchLabel: "कक्षा / शाखा:",
+      dailyHoursLabel: "दैनिक अध्ययन घंटे:",
+      examDateLabel: "परीक्षा तिथि:",
+      generatePlanBtn: "⚡ विषय आधारित स्टडी प्लान बनाएं",
+      forumTitle: "💬 चर्चा मंच एवं अध्ययन समूह",
+      forumSubtitle: "सहपाठियों और शिक्षकों के साथ चर्चा करें",
+      postQuestionBtn: "+ नई चर्चा शुरू करें",
+      liveTitle: "📹 लाइव व्याख्यान (प्रोफेसरों द्वारा आयोजित)",
+      liveSubtitle: "आपके प्रोफेसरों द्वारा आयोजित आधिकारिक लाइव कक्षाएं",
+      joinLectureBtn: "📹 प्रोफेसर लाइव कक्षा में शामिल हों",
+      leaveClassBtn: "🚪 कक्षा छोड़ें"
+    },
+    professor: {
+      activeClasses: "सक्रिय कक्षाएं",
+      activeClassesSub: "वर्तमान में संचालित बैच",
+      pendingDoubts: "आपको सौंपे गए संदेह",
+      pendingDoubtsSub: "छात्रों द्वारा चयनित प्रश्न",
+      pendingGrading: "प्रतीक्षारत सबमिशन",
+      pendingGradingSub: "मूल्यांकन हेतु उपलब्ध",
+      inboxTitle: "📥 संकाय संदेह समाधान इनबॉक्स",
+      inboxSubtitle: "AI ड्राफ्ट के बाद छात्रों द्वारा विशेष रूप से आपको भेजे गए प्रश्न",
+      noPendingDoubts: "कोई लंबित संदेह नहीं है। सभी हल हो चुके हैं! 🎉",
+      submitReplyBtn: "✓ उत्तर जमा करें एवं हल करें",
+      classesTitle: "🏫 मेरी कक्षाएं एवं सामग्री",
+      classesSubtitle: "कक्षा बनाएं, नियम निर्धारित करें और नोट्स साझा करें",
+      createClassBtn: "+ नई कक्षा बनाएं",
+      uploadMaterialBtn: "+ नोट्स/वीडियो अपलोड करें",
+      createQuizBtn: "+ कक्षा क्विज़ बनाएं",
+      scheduleLiveBtn: "+ लाइव व्याख्यान शेड्यूल करें",
+      gradingTitle: "📋 सबमिशन एवं ग्रेडिंग कतार",
+      gradingSubtitle: "मूल्यांकन करें और प्रतिक्रिया दें",
+      createAssignmentBtn: "+ नया असाइनमेंट बनाएं",
+      announcementsTitle: "📢 कक्षा व अभिभावक घोषणाएं",
+      announcementsSubtitle: "महत्वपूर्ण सूचनाएं प्रसारित करें",
+      broadcastBtn: "🚀 सूचना भेजें",
+      deleteClassBtn: "🗑️ क्लास हटाएं",
+      deleteLiveBtn: "🗑️ लेक्चर हटाएं",
+      deleteQuizBtn: "🗑️ क्विज़ हटाएं",
+      deleteAssignmentBtn: "🗑️ असाइनमेंट हटाएं",
+      deleteAccountBtn: "🗑️ खाता हटाएं"
+    },
+    parent: {
+      childRecord: "संबद्ध विद्यार्थी शैक्षणिक रिकॉर्ड",
+      linkStudentTitle: "विद्यार्थी कोड लिंक करें",
+      linkStudentBtn: "विद्यार्थी लिंक करें",
+      bookMeetingBtn: "📅 शिक्षक बैठक बुक करें",
+      strengthsTitle: "✨ शैक्षणिक प्रगति व मुख्य बिंदु",
+      supportTitle: "🎯 सुधार हेतु मार्गदर्शन",
+      digestTitle: "📱 साप्ताहिक स्वचालित रिपोर्ट (WhatsApp व SMS)",
+      digestSubtitle: "आपकी भाषा में आवधिक सारांश",
+      whatsappFeedTitle: "📱 लाइव WhatsApp अलर्ट",
+      whatsappFeedSubtitle: "टेस्ट या असाइनमेंट पूरा होने पर तुरंत WhatsApp सूचनाएं",
+      unlinkedTitle: "अभी कोई बच्चा संबद्ध नहीं है",
+      unlinkedDesc: "विद्यार्थी कोड दर्ज करें।"
+    },
+    modals: {
+      joinClassTitle: "कोड से कक्षा में जुड़ें",
+      createClassTitle: "नई कक्षा बनाएं",
+      uploadTitle: "नोट्स या वीडियो लिंक अपलोड करें",
+      assignmentTitle: "नया असाइनमेंट बनाएं",
+      gradeTitle: "अंक व प्रतिक्रिया दें",
+      quizTitle: "कक्षा क्विज़ मूल्यांकन",
+      aiMockTitle: "गतिशील AI मॉक टेस्ट",
+      scheduleLiveTitle: "लाइव कक्षा शेड्यूल करें",
+      meetingTitle: "शिक्षक के साथ बैठक बुक करें",
+      cancelBtn: "रद्द करें",
+      saveBtn: "सुरक्षित करें",
+      submitBtn: "जमा करें"
+    },
+    profile: {
+      changePhoto: "प्रोफ़ाइल फ़ोटो बदलें",
+      modalTitle: "प्रोफ़ाइल चित्र चुनें",
+      modalSubtitle: "अपने डिवाइस गैलरी से फ़ोटो चुनें या विशेष अवतार चुनें।",
+      uploadTitle: "डिवाइस गैलरी से अपलोड करें",
+      uploadSubtitle: "JPG, PNG, WEBP चित्र चुनें",
+      browseGalleryBtn: "गैलरी ब्राउज़ करें",
+      presetTitle: "या अवतार चुनें:"
+    }
+  },
+
+  ta: {
+    brand: "எட்யூகனெக்ட் (EduConnect)",
+    tagline: "பேராசிரியர்களின் வழிகாட்டல் & AI தீர்வு",
+    roles: {
+      student: "மாணவர்",
+      professor: "பேராசிரியர்",
+      parent: "பெற்றோர்"
+    },
+    auth: {
+      selectLanguageTitle: "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்",
+      selectLanguageSubtitle: "விருப்பமான மொழியைத் தேர்வுசெய்யவும்",
+      continueBtn: "தொடரவும் ➔",
+      loginTitle: "உள்நுழைக",
+      loginSubtitle: "மின்னஞ்சல் அல்லது மொபைல் எண் மற்றும் கடவுச்சொல்லை உள்ளிடவும்",
+      registerTitle: "கணக்கு தொடங்குக",
+      registerSubtitle: "மாணவர், பேராசிரியர் அல்லது பெற்றோராக இணையுங்கள்",
+      tabLogin: "உள்நுழைவு",
+      tabRegister: "பதிவு",
+      selectRole: "உங்கள் பங்கைத் தேர்ந்தெடுக்கவும்",
+      identifierLabel: "மின்னஞ்சல் அல்லது மொபைல் எண்",
+      identifierPlaceholder: "எ.கா: name@email.com",
+      passwordLabel: "கடவுச்சொல்",
+      passwordPlaceholder: "கடவுச்சொல்லை உள்ளிடவும்",
+      forgotPassword: "கடவுச்சொல் மறந்துவிட்டதா?",
+      resetPasswordTitle: "கடவுச்சொல்லை மீட்டமைக்கவும்",
+      resetPasswordSubtitle: "புதிய கடவுச்சொல்லை அமைக்க மின்னஞ்சல் அல்லது மொபைல் எண்ணை உள்ளிடவும்",
+      newPasswordLabel: "புதிய கடவுச்சொல்",
+      confirmPasswordLabel: "கடவுச்சொல்லை உறுதிப்படுத்தவும்",
+      resetBtn: "மீட்டமைக்கவும்",
+      nameLabel: "முழு பெயர்",
+      namePlaceholder: "முழு பெயரை உள்ளிடவும்",
+      yearLabel: "ஆண்டு / வகுப்பு",
+      yearPlaceholder: "எ.கா: 2nd Year (B.Tech) / வகுப்பு 10",
+      majorLabel: "படிப்பு / பிரிவு",
+      majorPlaceholder: "எ.கா: கணினி அறிவியல் / MPC",
+      deptLabel: "துறை",
+      deptPlaceholder: "எ.கா: பொறியியல் துறை",
+      childCodeLabel: "மாணவர் குறியீடு",
+      childCodePlaceholder: "எ.கா: ST-RAHUL-4821",
+      parentIdentifierLabel: "பெற்றோரின் மொபைல் எண் அல்லது மின்னஞ்சல் (தானியங்கி இணைப்புக்காக)",
+      parentIdentifierPlaceholder: "எ.கா: 9876543210 அல்லது parent@gmail.com",
+      childIdentifierLabel: "மாணவரின் மொபைல் எண், மின்னஞ்சல் அல்லது குறியீடு",
+      childIdentifierPlaceholder: "எ.கா: 9876543210, student@email.com அல்லது ST-...",
+      loginBtn: "உள்நுழைக",
+      registerBtn: "கணக்கு உருவாக்குக",
+      noAccount: "கணக்கு இல்லையா? பதிவு செய்க",
+      haveAccount: "கணக்கு உள்ளதா? உள்நுழைக",
+      changeLangBtn: "← மொழி மாற்றுக",
+      logoutBtn: "வெளியேறுக"
+    },
+    hero: {
+      title: "எடுகனெக்ட்: பேராசிரியர் வழிகாட்டுதல் & AI கற்றல் தளம்",
+      subtitle: "பேராசிரியர்களின் நேரடி கற்பித்தல், 20 கேள்விகள் கொண்ட AI மாதிரித் தேர்வுகள் மற்றும் பெற்றோரின் நேரடி WhatsApp பகிர்வு."
+    },
+    student: {
+      streak: "படிப்பு தொடர்ச்சி",
+      streakSub: "தொடர் படிப்பு செயலில் உள்ளது!",
+      attendance: "வருகை பதிவு",
+      attendanceSub: "வினாடிவினா மற்றும் ஒப்படைப்புகளின் அடிப்படையில் கணக்கிடப்பட்டது",
+      classes: "இணைந்த வகுப்புகள்",
+      classesSub: "குறியீட்டுடன் இணைந்த வகுப்புகள்",
+      grade: "சராசரி தரம்",
+      gradeSub: "பேராசிரியர்கள் வழங்கிய மதிப்பெண்",
+      myCodeLabel: "பெற்றோருக்கான மாணவர் குறியீடு:",
+      parentConnected: "பெற்றோர் தானாகவே இணைக்கப்பட்டனர்",
+      parentNotConnected: "பெற்றோரை இணைக்கவும்",
+      aiSolverTitle: "🤖 AI ஐயங்கள் தீர்வு & பேராசிரியர் வழிகாட்டல்",
+      aiSolverSubtitle: "AI மூலம் படிபடியான உடனடித் தீர்வு. பேராசிரியர் விளக்கம் வேண்டுமா? கீழே பேராசிரியரைத் தேர்வுசெய்யவும்!",
+      questionPlaceholder: "உங்கள் வினாக்களை உள்ளிடவும்...",
+      solveBtn: "⚡ AI உடன் தீர்வு காண்க",
+      selectProfLabel: "ஐயத்தை அனுப்ப பேராசிரியரைத் தேர்ந்தெடுக்கவும்:",
+      escalateBtn: "❓ பேராசிரியரிடம் கேட்கவும்",
+      doubtHistoryTitle: "ஐயங்கள் வரலாறு & விடைகள்",
+      noDoubts: "ஐயங்கள் எதுவும் கேட்கப்படவில்லை.",
+      rulesTitle: "📜 பேராசிரியர் கல்வி விதிகள் & ஒழுங்குமுறை",
+      rulesSubtitle: "வகுப்பு வருகை, ஒப்படைப்புகள் மற்றும் கல்வி ஒழுக்கத்தை பேராசிரியர்கள் தீர்மானிக்கிறார்கள்",
+      rulesPledge: "மாணவர்கள் பேராசிரியர்களின் வழிகாட்டுதல்களையும் விதிகளையும் கட்டாயமாக பின்பற்ற வேண்டும்.",
+      classesTitle: "📖 வகுப்புகள் & கல்விப் பொருட்கள்",
+      classesSubtitle: "குறிப்புகள், PDFகள் மற்றும் வீடியோக்களைப் பார்க்கவும்",
+      joinClassBtn: "+ குறியீட்டுடன் வகுப்பில் இணையவும்",
+      noClasses: "நீங்கள் இன்னும் எந்த வகுப்பிலும் இணையவில்லை.",
+      materialsTitle: "வகுப்புக் குறிப்புகள் & வீடியோக்கள்:",
+      assignmentsTitle: "📝 ஒப்படைப்புகள்",
+      assignmentsSubtitle: "பணிகளை சமர்ப்பித்து மதிப்பெண்களைப் பார்க்கவும்",
+      noAssignments: "ஒப்படைப்புகள் எதுவும் இல்லை.",
+      submitBtn: "📤 தீர்வை சமர்ப்பிக்கவும்",
+      profQuizzesTitle: "👨‍🏫 பேராசிரியர் வகுப்பு வினாடிவினா",
+      profQuizzesSubtitle: "பேராசிரியர்கள் வெளியிட்ட அதிகாரப்பூர்வ தேர்வுகள்",
+      aiMockTitle: "🤖 மாறும் AI மாதிரித் தேர்வுகள் (ஒவ்வொரு முறையும் புதிய வினாக்கள்)",
+      aiMockSubtitle: "AI ஒவ்வொரு முறையும் புதிய வினாக்களை உருவாக்குகிறது (வகுப்பு 1-12, B.Tech, டிப்ளமோ)",
+      takeMockBtn: "⚡ AI மாதிரித் தேர்வை தொடங்கவும் (20 கேள்விகள் - 20 நிமிடம்)",
+      plannerTitle: "📅 ஸ்மார்ட் படிப்பு திட்டமிடல் & அட்டவணை",
+      plannerSubtitle: "உங்கள் வகுப்பு மற்றும் பாடங்களின் அடிப்படையில் தனிப்பயனாக்கப்பட்ட படிப்புத் திட்டம்",
+      plannerValidationErr: "தயவுசெய்து அனைத்து விவரங்களையும் (கல்வி நிலை, கிளை, குறைந்தபட்சம் 1 பாடம், தினசரி படிப்பு நேரம் மற்றும் தேர்வு தேதி) தேர்வு செய்யவும்.",
+      levelLabel: "கல்வி நிலை:",
+      gradeBranchLabel: "வகுப்பு / பிரிவு:",
+      dailyHoursLabel: "தினசரி படிப்பு நேரம்:",
+      examDateLabel: "தேர்வு நாள்:",
+      generatePlanBtn: "⚡ பாட அடிப்படையிலான திட்டத்தை உருவாக்கவும்",
+      forumTitle: "💬 கலந்துரையாடல் அரங்கம்",
+      forumSubtitle: "மாணவர்கள் மற்றும் பேராசிரியர்களுடன் கலந்துரையாடுங்கள்",
+      postQuestionBtn: "+ புதிய விவாதத்தைத் தொடங்கவும்",
+      liveTitle: "📹 நேரலை வகுப்புகள் (பேராசிரியர்களால் நடத்தப்படுபவை)",
+      liveSubtitle: "உங்கள் பேராசிரியர்கள் நடத்தும் நேரலை வீடியோ வகுப்புகள்",
+      joinLectureBtn: "📹 நேரலை வகுப்பில் இணையவும்",
+      leaveClassBtn: "🚪 வகுப்பிலிருந்து வெளியேறு"
+    },
+    professor: {
+      activeClasses: "செயலில் உள்ள வகுப்புகள்",
+      activeClassesSub: "நடப்பு வகுப்புகள்",
+      pendingDoubts: "உங்களுக்கு அனுப்பப்பட்ட ஐயங்கள்",
+      pendingDoubtsSub: "மாணவர்கள் உங்களிடம் கேட்ட கேள்விகள்",
+      pendingGrading: "நிலுவையில் உள்ள ஒப்படைப்புகள்",
+      pendingGradingSub: "மதிப்பீட்டிற்கு தயாராக உள்ளது",
+      inboxTitle: "📥 பேராசிரியர் ஐயங்கள் தீர்வு இன்பாக்ஸ்",
+      inboxSubtitle: "AI பதிலுக்குப் பிறகு மாணவர்கள் உங்கள் நேரடி விளக்கத்திற்காக அனுப்பிய கேள்விகள்",
+      noPendingDoubts: "நிலுவையில் எந்த ஐயங்களும் இல்லை. 🎉",
+      submitReplyBtn: "✓ பதிலை சமர்ப்பித்து தீர்வு காண்க",
+      classesTitle: "🏫 என் வகுப்புகள் & பொருட்கள்",
+      classesSubtitle: "வகுப்புகளை உருவாக்கி விதிகளை நிர்ணயிக்கவும், குறிப்புகளைப் பகிரவும்",
+      createClassBtn: "+ புதிய வகுப்பை உருவாக்கவும்",
+      uploadMaterialBtn: "+ குறிப்புகள்/வீடியோ பதிவேற்றவும்",
+      createQuizBtn: "+ வினாடிவினா உருவாக்கவும்",
+      scheduleLiveBtn: "+ நேரலை வகுப்பை திட்டமிடவும்",
+      gradingTitle: "📋 மதிப்பீட்டுப் பட்டியல்",
+      gradingSubtitle: "மாணவர்களின் பணிகளை மதிப்பாய்வு செய்து மதிப்பெண் வழங்கவும்",
+      createAssignmentBtn: "+ புதிய ஒப்படைப்பை உருவாக்கவும்",
+      announcementsTitle: "📢 அறிவிப்புகள்",
+      announcementsSubtitle: "முக்கிய தகவல்களை வெளியிடவும்",
+      broadcastBtn: "🚀 அறிவிப்பை வெளியிடவும்",
+      deleteClassBtn: "🗑️ வகுப்பை நீக்கு",
+      deleteLiveBtn: "🗑️ விரிவுரையை நீக்கு",
+      deleteQuizBtn: "🗑️ வினாடி வினாவை நீக்கு",
+      deleteAssignmentBtn: "🗑️ பணியை நீக்கு",
+      deleteAccountBtn: "🗑️ கணக்கை நீக்கு"
+    },
+    parent: {
+      childRecord: "இணைக்கப்பட்ட மாணவர் கல்வி பதிவு",
+      linkStudentTitle: "மாணவர் குறியீடு இணைக்கவும்",
+      linkStudentBtn: "மாணவரை இணைக்கவும்",
+      bookMeetingBtn: "📅 ஆசிரியருடன் சந்திப்பை பதிவு செய்யவும்",
+      strengthsTitle: "✨ கல்வி முன்னேற்றம்",
+      supportTitle: "🎯 முன்னேற்றத்திற்கான பகுதிகள்",
+      digestTitle: "📱 வாராந்திர அறிக்கை (WhatsApp & SMS)",
+      digestSubtitle: "உங்கள் மொழியில் கல்வி சுருக்கம்",
+      whatsappFeedTitle: "📱 நேரலை WhatsApp எச்சரிக்கைகள்",
+      whatsappFeedSubtitle: "தேர்வு முடிவுகள் உடனடியாக WhatsApp மூலம் பகிரப்படும்",
+      unlinkedTitle: "எந்த மாணவரும் இணைக்கப்படவில்லை",
+      unlinkedDesc: "மாணவர் குறியீட்டை உள்ளிடவும்."
+    },
+    modals: {
+      joinClassTitle: "வகுப்பில் இணையவும்",
+      createClassTitle: "புதிய வகுப்பை உருவாக்கவும்",
+      uploadTitle: "குறிப்புகள் பதிவேற்றவும்",
+      assignmentTitle: "புதிய ஒப்படைப்பை உருவாக்கவும்",
+      gradeTitle: "மதிப்பெண் வழங்கவும்",
+      quizTitle: "வகுப்பு வினாடிவினா",
+      aiMockTitle: "மாதிரித் தேர்வு",
+      scheduleLiveTitle: "நேரலை வகுப்பை திட்டமிடவும்",
+      meetingTitle: "சந்திப்பை பதிவு செய்யவும்",
+      cancelBtn: "ரத்து செய்",
+      saveBtn: "சேமி",
+      submitBtn: "சமர்ப்பி"
+    },
+    profile: {
+      changePhoto: "சுயவிவரப் படத்தை மாற்றவும்",
+      modalTitle: "சுயவிவரப் படத்தை தேர்ந்தெடுக்கவும்",
+      modalSubtitle: "உங்கள் கேலரியிலிருந்து படம் அல்லது அவதாரத்தைத் தேர்ந்தெடுக்கவும்.",
+      uploadTitle: "கேலரியிலிருந்து பதிவேற்றவும்",
+      uploadSubtitle: "JPG, PNG, WEBP படங்களைத் தேர்ந்தெடுக்கவும்",
+      browseGalleryBtn: "கேலரியை உலாவவும்",
+      presetTitle: "அல்லது அவதாரத்தைத் தேர்ந்தெடுக்கவும்:"
+    }
+  }
+};
+
+
+/* ==========================================================================
+   MODULE: js/data.js
+   ========================================================================== */
+/**
+ * EduConnect - Professor-Centered Architecture & Curriculum Data Catalog
+ * Platform Priorities:
+ * 1. Professors are the primary authority: they create classes, set rules, publish quizzes, conduct live sessions.
+ * 2. Students only receive academic regulations, rules, and quizzes from professors they are actually enrolled with.
+ * 3. No dummy example live sessions or quizzes — they are created exclusively by professors dynamically.
+ * 4. Comprehensive B.Tech curriculum with 85+ subjects (> 50 total across 8 engineering disciplines).
+ * 5. Comprehensive Diploma/Polytechnic curriculum with 65+ subjects across 6 engineering branches.
+ * 6. Admin role completely removed.
+ */
+
+const ACADEMIC_LEVELS = {
+  school: {
+    label: "School Education (Class 1 to 12th)",
+    grades: {
+      "Class 1": ["Mathematics", "English", "General Science", "Environmental Studies"],
+      "Class 2": ["Mathematics", "English", "General Science", "Environmental Studies"],
+      "Class 3": ["Mathematics", "Science", "Social Studies", "English", "Regional Language"],
+      "Class 4": ["Mathematics", "Science", "Social Studies", "English", "Regional Language"],
+      "Class 5": ["Mathematics", "General Science", "Social Studies", "English", "Computer Basics"],
+      "Class 6": ["Mathematics", "General Science", "Social Studies", "English", "Regional Language"],
+      "Class 7": ["Mathematics", "General Science", "Social Science", "English", "Computer Studies"],
+      "Class 8": ["Mathematics", "Physical Science", "Biological Science", "Social Studies", "English"],
+      "Class 9": ["Mathematics", "Physical Science", "Biological Science", "Social Studies", "English"],
+      "Class 10 (Board Exam)": ["Mathematics", "Physical Science", "Biological Science", "Social Studies", "English"],
+      "Class 11 (MPC - Math, Physics, Chem)": ["Mathematics 1A", "Mathematics 1B", "Physics", "Chemistry", "English"],
+      "Class 11 (BiPC - Biology, Physics, Chem)": ["Botany", "Zoology", "Physics", "Chemistry", "English"],
+      "Class 12 (MPC - Board & Entrance)": ["Mathematics 2A", "Mathematics 2B", "Physics", "Chemistry", "Computer Science"],
+      "Class 12 (BiPC - NEET & Board)": ["Botany", "Zoology", "Physics", "Chemistry", "English"]
+    }
+  },
+  btech: {
+    label: "B.Tech Engineering (AICTE Model Curriculum - 85+ Subjects)",
+    branches: {
+      "Computer Science & Engineering (CSE)": [
+        "Problem Solving & C Programming",
+        "Data Structures & Algorithms",
+        "Digital Logic & Computer Organization",
+        "Discrete Mathematics & Graph Theory",
+        "Object-Oriented Programming (Java / C++)",
+        "Operating Systems",
+        "Database Management Systems (DBMS)",
+        "Computer Networks",
+        "Theory of Computation & Automata",
+        "Design & Analysis of Algorithms",
+        "Software Engineering & Agile",
+        "Compiler Design",
+        "Computer Architecture",
+        "Cloud Computing & DevOps",
+        "Web Technologies & Full Stack Development"
+      ],
+      "Artificial Intelligence & Data Science (AI & DS)": [
+        "Foundations of Artificial Intelligence",
+        "Machine Learning & Statistical Pattern Recognition",
+        "Python for Data Science & Numerical Methods",
+        "Probability & Statistics for Engineers",
+        "Big Data Analytics & Spark",
+        "Natural Language Processing (NLP)",
+        "Deep Learning & Neural Networks",
+        "Computer Vision & Image Processing",
+        "Reinforcement Learning",
+        "Data Mining & Data Warehousing"
+      ],
+      "Cyber Security & Information Assurance": [
+        "Cryptography & Network Security",
+        "Ethical Hacking & Penetration Testing",
+        "Cyber Laws & Information Security Ethics",
+        "Digital Forensics & Incident Response",
+        "Application Security & OWASP Standards",
+        "Malware Analysis & Reverse Engineering",
+        "Identity & Access Management (IAM)",
+        "Cloud Security & Zero Trust Architecture"
+      ],
+      "Electronics & Communication Engineering (ECE)": [
+        "Electronic Devices & Semiconductor Physics",
+        "Signals & Systems",
+        "Network Theory & Circuit Analysis",
+        "Analog Electronics & Op-Amps",
+        "Digital System Design (Verilog / VHDL)",
+        "Microprocessors (8086) & Microcontrollers (ARM)",
+        "Electromagnetic Fields & Wave Propagation",
+        "Analog & Digital Communication Systems",
+        "Digital Signal Processing (DSP)",
+        "VLSI Design & Chip Fabrication",
+        "Embedded Systems & RTOS",
+        "Wireless & Mobile Communications (5G / IoT)"
+      ],
+      "Electrical & Electronics Engineering (EEE)": [
+        "Electrical Circuit Analysis",
+        "DC Machines & Transformers",
+        "AC Machines & Synchronous Motors",
+        "Electromagnetic Field Theory",
+        "Power Systems Analysis & Grid Transmission",
+        "Control Systems Engineering",
+        "Power Electronics & Inverters",
+        "Electrical Measurements & Instrumentation",
+        "Switchgear & Power System Protection",
+        "Renewable Energy Systems & Smart Grids"
+      ],
+      "Mechanical Engineering (MECH)": [
+        "Engineering Mechanics (Statics & Dynamics)",
+        "Engineering Thermodynamics",
+        "Strength of Materials & Solid Mechanics",
+        "Fluid Mechanics & Hydraulic Machinery",
+        "Kinematics & Dynamics of Machinery",
+        "Manufacturing Technology & Metal Casting",
+        "Heat & Mass Transfer",
+        "Design of Machine Elements (DME)",
+        "CAD/CAM & Finite Element Analysis (FEA)",
+        "Automobile Engineering & IC Engines",
+        "Refrigeration & Air Conditioning (RAC)",
+        "Industrial Engineering & Operations Research"
+      ],
+      "Civil Engineering (CIVIL)": [
+        "Surveying & Geomatics",
+        "Mechanics of Solids & Structural Analysis",
+        "Building Materials & Construction Technology",
+        "Fluid Mechanics & Open Channel Hydraulics",
+        "Geotechnical & Soil Mechanics",
+        "Design of Reinforced Concrete (RCC) Structures",
+        "Transportation & Highway Engineering",
+        "Environmental Engineering & Wastewater Treatment",
+        "Water Resources & Irrigation Engineering",
+        "Design of Steel Structures",
+        "Estimation, Costing & Valuation",
+        "Construction Planning & Project Management"
+      ],
+      "Chemical Engineering (CHEM)": [
+        "Chemical Process Calculations (Stoichiometry)",
+        "Chemical Engineering Thermodynamics",
+        "Fluid Flow Operations",
+        "Heat Transfer Operations",
+        "Mass Transfer Operations (Distillation/Absorption)",
+        "Chemical Reaction Engineering (CRE)",
+        "Process Dynamics & Instrumentation Control",
+        "Plant Design & Process Economics"
+      ]
+    }
+  },
+  diploma: {
+    label: "Diploma / Polytechnic (State Board Technical Curriculum - 65+ Subjects)",
+    branches: {
+      "Diploma in Computer Engineering": [
+        "Computer Fundamentals & IT Tools",
+        "Programming in C & Logic Development",
+        "Data Structures using C/C++",
+        "Web Design (HTML5, CSS3, JavaScript)",
+        "Relational Database Management Systems (SQL)",
+        "Computer Organization & Architecture",
+        "Operating Systems (Linux & Windows Administration)",
+        "Object-Oriented Programming with Java",
+        "Computer Hardware Maintenance & Networking",
+        "Software Engineering Principles",
+        "Python Programming for Polytechnics",
+        "Mobile Application Development"
+      ],
+      "Diploma in Mechanical Engineering": [
+        "Applied Physics & Engineering Chemistry",
+        "Engineering Graphics & CAD Drafting",
+        "Workshop Practice (Fitting, Carpentry, Welding)",
+        "Strength of Materials & Mechanics",
+        "Thermal Engineering & Boiler Systems",
+        "Fluid Mechanics & Pneumatics",
+        "Manufacturing Processes (Lathe, Milling, Shaper)",
+        "Theory of Machines & Mechanisms",
+        "Machine Tool Technology & Metrology",
+        "Machine Design Basics",
+        "Automobile Engines & Maintenance",
+        "Industrial Management & Plant Maintenance"
+      ],
+      "Diploma in Electrical & Electronics": [
+        "Basics of Electrical Engineering",
+        "Electrical Circuits & Network Theorems",
+        "Electrical Drawing & Wiring Practice",
+        "DC Machines & Transformers",
+        "AC Machines & Alternators",
+        "Electrical Measuring Instruments",
+        "Power Generation, Transmission & Distribution",
+        "Power Electronics Basics",
+        "Utilization of Electrical Energy & Traction",
+        "Control of Electrical Machines",
+        "Switchgear & Protection Devices",
+        "Renewable Energy Technologies & Solar PV"
+      ],
+      "Diploma in Civil Engineering": [
+        "Basic Surveying with Chain & Compass",
+        "Building Construction & Materials",
+        "Applied Mechanics & Strength of Materials",
+        "Advanced Surveying (Theodolite, Total Station)",
+        "Hydraulics & Water Supply Engineering",
+        "Concrete Technology & Material Testing",
+        "Theory of Structures",
+        "Design of RCC Structures",
+        "Highway & Railway Engineering",
+        "Irrigation Engineering Basics",
+        "Quantity Surveying & Estimating",
+        "Construction Management & Site Safety"
+      ],
+      "Diploma in Electronics & Communication": [
+        "Electronic Components & Circuit Devices",
+        "Analog Electronics & Transistor Amplifiers",
+        "Digital Electronics & Logic Gates",
+        "Electronic Measurements & Instruments",
+        "Communication Engineering (AM, FM, PM)",
+        "Microcontrollers (8051) & Interfacing",
+        "Industrial Electronics & PLC Basics",
+        "Optical Fiber & Microwave Basics",
+        "Audio & Video Systems Maintenance",
+        "PCB Design & Fabrication"
+      ],
+      "Diploma in Automobile Engineering": [
+        "Automobile Engines & Fuel Injection Systems",
+        "Automobile Chassis, Suspension & Transmission",
+        "Vehicle Maintenance & Garage Practice",
+        "Automotive Electrical & Electronics Systems",
+        "Automotive Pollution & Emission Control",
+        "Vehicle Body Engineering & Aerodynamics",
+        "Two & Three Wheeler Technology",
+        "Motor Vehicle Act & Transport Management"
+      ]
+    }
+  }
+};
+
+const DEFAULT_DATA = {
+  flowStep: 'lang_select',
+  currentLanguage: 'en', // English default (Telugu only when selected by user)
+  currentUser: null,
+  currentRole: null, // 'student' | 'professor' | 'parent'
+  theme: 'dark', // Modern 3D dark theme default
+
+  // Clean empty initial state: Professors and students register dynamically
+  users: [],
+
+  // Platform Metrics
+  platformStats: {
+    totalStudents: 0,
+    totalProfessors: 0,
+    totalClasses: 0,
+    doubtsSolvedByAI: 0,
+    doubtsEscalatedToProf: 0,
+    aiResolutionRate: 100
+  },
+
+  // Classes created dynamically by registered professors
+  classes: [],
+
+  // Live sessions scheduled exclusively by registered professors
+  liveSessions: [],
+
+  // Quizzes published exclusively by registered professors
+  quizzes: [],
+
+  // Doubts with explicit professor assignment
+  doubts: [],
+
+  // Assignments created by registered professors
+  assignments: [],
+
+  // Announcements created by registered professors
+  announcements: [],
+
+  // Real-time parent WhatsApp alerts dispatched on quiz/assignment completion
+  parentNotifications: []
+};
+
+
+/* ==========================================================================
+   MODULE: js/questions.js
+   ========================================================================== */
+/**
+ * EduConnect - Dynamic AI Mock Test Question Generation Engine
+ * 
+ * Features:
+ * 1. Generates 20+ topic-specific, curriculum-aligned academic questions.
+ * 2. Questions change dynamically on every single attempt (randomized parameters, randomized options).
+ * 3. Supports all subjects across School (Class 1-12), B.Tech (85+ subjects), and Diploma streams.
+ * 4. Plausible distractors, accurate shuffled answer keys, and in-depth explanations.
+ */
+
+const QuestionEngine = {
+  // Domain taxonomy for intelligent subject classification
+  classifySubject(subject = '') {
+    const s = subject.toLowerCase();
+    if (s.includes('data structure') || s.includes('algorithm') || s.includes('problem solving') || s.includes('graph')) return 'dsa';
+    if (s.includes('operat') || s.includes('os') || s.includes('process') || s.includes('linux') || s.includes('unix')) return 'os';
+    if (s.includes('database') || s.includes('dbms') || s.includes('sql') || s.includes('data warehousing')) return 'dbms';
+    if (s.includes('network') || s.includes('crypt') || s.includes('cyber') || s.includes('security') || s.includes('protocol')) return 'networks';
+    if (s.includes('object') || s.includes('java') || s.includes('c++') || s.includes('python') || s.includes('programming') || s.includes('web')) return 'programming';
+    if (s.includes('artificial') || s.includes('ai') || s.includes('machine learn') || s.includes('neural') || s.includes('data sci')) return 'ai_ds';
+    if (s.includes('digital logic') || s.includes('gate') || s.includes('microprocessor') || s.includes('microcontroller') || s.includes('8051') || s.includes('arm') || s.includes('embedded')) return 'embedded_digital';
+    if (s.includes('analog') || s.includes('transistor') || s.includes('circuit') || s.includes('signal') || s.includes('communication') || s.includes('vlsi') || s.includes('fiber')) return 'electronics_comm';
+    if (s.includes('power system') || s.includes('machine') || s.includes('motor') || s.includes('transformer') || s.includes('control system') || s.includes('electric')) return 'electrical';
+    if (s.includes('thermodynamic') || s.includes('heat') || s.includes('thermal') || s.includes('internal combustion') || s.includes('engine') || s.includes('automobile')) return 'thermal_auto';
+    if (s.includes('fluid') || s.includes('hydraul') || s.includes('pneumat') || s.includes('aerodynamic')) return 'fluid_mechanics';
+    if (s.includes('strength of material') || s.includes('mechanics of solids') || s.includes('kinematic') || s.includes('machine design') || s.includes('manufactur') || s.includes('cad')) return 'mech_design';
+    if (s.includes('structur') || s.includes('concrete') || s.includes('survey') || s.includes('geotechnical') || s.includes('soil') || s.includes('transportation') || s.includes('environmental') || s.includes('civil')) return 'civil';
+    if (s.includes('math') || s.includes('calculus') || s.includes('algebra') || s.includes('discrete') || s.includes('probability') || s.includes('differential') || s.includes('numerical')) return 'mathematics';
+    if (s.includes('physic') || s.includes('motion') || s.includes('optic') || s.includes('quantum') || s.includes('electromagnet')) return 'physics';
+    if (s.includes('chem') || s.includes('organic') || s.includes('polymer') || s.includes('reaction')) return 'chemistry';
+    if (s.includes('bio') || s.includes('botany') || s.includes('zoology') || s.includes('genetics') || s.includes('neet')) return 'biology';
+    return 'general_engineering';
+  },
+
+  // Generates 20+ topic-specific questions that change dynamically every attempt
+  generate(level, subjectName = 'Core Engineering') {
+    const domain = this.classifySubject(subjectName);
+    const questions = [];
+
+    // Helper: shuffle array
+    const shuffle = (arr) => [...arr].sort(() => 0.5 - Math.random());
+
+    // Helper: Build a question with shuffled options and tracked correctIndex
+    const makeQ = (qText, correctOpt, distractors, explanation) => {
+      const opts = [correctOpt, ...distractors.slice(0, 3)];
+      const shuffledOpts = shuffle(opts);
+      const correctIndex = shuffledOpts.indexOf(correctOpt);
+      return {
+        question: `[AI Dynamic] ${qText}`,
+        options: shuffledOpts,
+        correctIndex,
+        explanation
+      };
+    };
+
+    // Domain Specific Question Banks
+    const bankDSA = [
+      makeQ(`In ${subjectName}, what is the worst-case time complexity of searching an element in an unbalanced Binary Search Tree (BST)?`,
+        "O(N)", ["O(log N)", "O(1)", "O(N log N)"],
+        "When an unbalanced BST degenerates into a linear linked list (skewed tree), tree height becomes N, making search time O(N)."),
+      makeQ(`Which data structure is fundamentally utilized to implement Breadth-First Search (BFS) graph traversal in ${subjectName}?`,
+        "Queue (FIFO)", ["Stack (LIFO)", "Priority Min-Heap", "Circular Doubly Linked List"],
+        "BFS explores nodes level by level, requiring FIFO ordering guaranteed by a Queue data structure."),
+      makeQ(`In algorithmic analysis of ${subjectName}, what distinguishes Dijkstra's single-source shortest path algorithm from Bellman-Ford?`,
+        "Dijkstra cannot handle graphs with negative edge weights", ["Dijkstra runs slower than Bellman-Ford on dense graphs", "Dijkstra requires all edges to be directed acyclic", "Dijkstra computes all-pairs shortest paths"],
+        "Dijkstra assumes greedily that path costs never decrease; negative weights break this greedy invariant, requiring Bellman-Ford."),
+      makeQ(`When performing QuickSort on an array of length N in ${subjectName}, which pivot selection mitigates the O(N^2) worst-case degradation?`,
+        "Median-of-three or randomized pivot", ["Always choosing the first element", "Always choosing the maximum element", "Selecting index 0 unconditionally"],
+        "Median-of-three or randomized pivot prevents worst-case partition imbalances on already sorted or reverse-sorted sequences."),
+      makeQ(`In hashing techniques within ${subjectName}, how does quadratic probing resolve primary clustering compared to linear probing?`,
+        "It probes slots using non-linear offsets: (hash + i^2) mod TableSize", ["It stores entries in binary trees at collision indices", "It doubles the hash table modulus on every lookup", "It hashes keys using two independent hash tables"],
+        "Quadratic probing calculates probe distances using i^2, dispersing clustered collisions over non-adjacent buckets."),
+      makeQ(`What is the minimum number of comparisons needed to find both the minimum and maximum elements in an array of N elements in ${subjectName}?`,
+        "3N/2 - 2 comparisons", ["2N - 2 comparisons", "N log N comparisons", "N - 1 comparisons"],
+        "By comparing elements in pairs first and then comparing against current min and max, the total comparisons reduce to 3N/2 - 2."),
+      makeQ(`In dynamic programming solutions for ${subjectName}, which characteristic guarantees that subproblem solutions can be combined for the global optimal answer?`,
+        "Optimal substructure and overlapping subproblems", ["Greedy choice property without backtracking", "Linear recurrence with zero branching", "Pure divide and conquer with disjoint subproblems"],
+        "Dynamic programming requires optimal substructure (optimal solution contains optimal sub-solutions) and overlapping subproblems for caching."),
+      makeQ(`Which of the following self-balancing binary search trees enforces balance using color bits (Red and Black) with at most 2 rotations on insertion in ${subjectName}?`,
+        "Red-Black Tree", ["AVL Tree", "Splay Tree", "B+ Tree"],
+        "Red-Black trees require at most 2 rotations to restore balance properties after an insertion, making them optimal for write-intensive collections."),
+      makeQ(`What is the space complexity of an in-place iterative Heap Sort implementation in ${subjectName}?`,
+        "O(1) auxiliary space", ["O(N) auxiliary space", "O(log N) auxiliary space", "O(N^2) auxiliary space"],
+        "Heap Sort constructs and manipulates the binary heap directly within the existing array representation without extra buffers."),
+      makeQ(`In ${subjectName}, which algorithm discovers strongly connected components in a directed graph using two depth-first search passes?`,
+        "Kosaraju's Algorithm", ["Kruskal's Algorithm", "Prim's Algorithm", "Floyd-Warshall Algorithm"],
+        "Kosaraju's algorithm uses an initial DFS on the original graph and a second DFS on the transposed graph to find strongly connected components."),
+      makeQ(`What is the amortized time complexity of inserting an element into a dynamic array (like std::vector or ArrayList) in ${subjectName}?`,
+        "O(1)", ["O(N)", "O(log N)", "O(N^2)"],
+        "Although resizing takes O(N) when capacity doubles, the cost distributed over N insertions yields an amortized time of O(1) per insert."),
+      makeQ(`In ${subjectName}, what is the topological sort ordering of vertices in a Directed Acyclic Graph (DAG)?`,
+        "A linear ordering where for every directed edge u -> v, vertex u appears before v", ["A descending order of vertex in-degrees", "An alternating sequence of source and sink vertices", "A breadth-first traversal sequence starting from root"],
+        "Topological sorting guarantees that all dependency prerequisites (u) precede their dependent tasks (v)."),
+      makeQ(`Which asymptotic notation represents the formal lower bound of an algorithm's growth rate in ${subjectName}?`,
+        "Big-Omega (Ω)", ["Big-O (O)", "Big-Theta (Θ)", "Little-o (o)"],
+        "Big-Omega (Ω) formalizes the mathematical lower bound, describing minimum resource consumption for all sufficiently large inputs."),
+      makeQ(`When designing a B+ Tree for indexing in ${subjectName}, where are actual data record pointers exclusively stored?`,
+        "Leaf nodes only", ["Root node only", "All internal and leaf nodes equally", "Only in odd-numbered tree levels"],
+        "In B+ Trees, internal nodes only store navigation keys; all actual record pointers/values reside exclusively in leaf nodes linked horizontally."),
+      makeQ(`In ${subjectName}, which disjoint-set data structure optimization reduces find operations to nearly linear inverse Ackermann time α(N)?`,
+        "Path compression combined with union by rank", ["Linear rehashing with bucket cascading", "Recursive binary tree rotations", "Doubly linked circular list indexing"],
+        "Union by rank prevents deep trees, while path compression flattens pointers during find operations, giving near-constant α(N) time."),
+      makeQ(`What is the time complexity to find the shortest path between all pairs of vertices in a dense graph with V vertices using Floyd-Warshall in ${subjectName}?`,
+        "O(V^3)", ["O(V^2 log V)", "O(V * E)", "O(V!)"],
+        "Floyd-Warshall executes three nested loops of size V to update the distance matrix for all intermediate vertices k, resulting in O(V^3)."),
+      makeQ(`In ${subjectName}, what type of graph is guaranteed to have an Eulerian Circuit?`,
+        "A connected graph where every vertex has an even degree", ["A tree with N vertices and N-1 edges", "A bipartite graph with equal partition sizes", "A planar graph with 4 or fewer colors"],
+        "Euler's theorem establishes that an Eulerian circuit exists if and only if the graph is connected and all vertices have even degrees."),
+      makeQ(`Which string matching algorithm precomputes a Prefix Function (failure function) to achieve O(N + M) search time in ${subjectName}?`,
+        "Knuth-Morris-Pratt (KMP) Algorithm", ["Rabin-Karp Rolling Hash", "Boyer-Moore Bad Character Rule", "Naive Brute Force Search"],
+        "KMP preprocesses the pattern into a prefix table to skip redundant character comparisons without backtracking the text index."),
+      makeQ(`In ${subjectName}, what is the maximum number of nodes in a binary tree of height H (where height of single root is 0)?`,
+        "2^(H + 1) - 1", ["2^H", "2^(H - 1) + 1", "H * 2"],
+        "A full binary tree has 2^(H+1) - 1 nodes across levels 0 to H."),
+      makeQ(`Under Master Theorem in ${subjectName}, what is the time complexity of the recurrence T(N) = 2T(N/2) + O(N)?`,
+        "O(N log N)", ["O(N^2)", "O(N)", "O(log N)"],
+        "Since log_b(a) = log_2(2) = 1, which equals the power of f(N) = O(N^1), Case 2 of the Master Theorem applies, yielding O(N log N)."),
+      makeQ(`In ${subjectName}, which data structure provides O(1) worst-case time for finding the minimum element, push, and pop?`,
+        "Two-stack Min-Stack / Augmented Stack", ["Single Binary Min-Heap", "Splay Tree", "Unsorted Doubly Linked List"],
+        "By augmenting a stack with an auxiliary stack that tracks the running minimum at each state, getMin executes in O(1) time.")
+    ];
+
+    const bankOS = [
+      makeQ(`In ${subjectName}, what condition is required for a Deadlock to occur according to Coffman's conditions?`,
+        "Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait", ["High CPU utilization and low page fault rates", "Preemptive scheduling and priority inheritance", "Virtual memory paging without TLB caches"],
+        "Deadlocks strictly require all four Coffman conditions to hold simultaneously: mutual exclusion, hold & wait, no preemption, and circular wait."),
+      makeQ(`In ${subjectName}, what is the phenomenon where allocating more physical page frames causes MORE page faults in FIFO replacement?`,
+        "Belady's Anomaly", ["Thrashing", "Starvation", "Priority Inversion"],
+        "Belady's Anomaly occurs in FIFO page replacement where increasing page frames leads to counter-intuitive increases in page faults."),
+      makeQ(`In process synchronization under ${subjectName}, how does a Counting Semaphore differ from a Binary Semaphore (Mutex)?`,
+        "It can take non-negative integer values representing available resource instances", ["It is hardware-enforced and cannot block calling threads", "It can only be used by interrupt service routines", "It automatically terminates lower-priority processes"],
+        "Counting semaphores manage multiple identical resources by initializing their integer counter to the total available units."),
+      makeQ(`In ${subjectName}, what is Thrashing in a virtual memory operating system?`,
+        "When the CPU spends more time swapping pages in/out of memory than executing processes", ["When a high-priority process permanently starves low-priority threads", "When disk sectors fail due to rapid physical head movement", "When cache memory overheats during benchmark operations"],
+        "Thrashing occurs when the total working sets of active processes exceed physical RAM, causing constant page fault disk I/O."),
+      makeQ(`Which CPU scheduling algorithm in ${subjectName} is theoretically proven to yield the minimal average waiting time?`,
+        "Shortest Job First (SJF) / Shortest Remaining Time First (SRTF)", ["First Come First Served (FCFS)", "Round Robin (RR) with 10ms quantum", "Multilevel Feedback Queue"],
+        "SJF schedules the shortest burst first, mathematically minimizing cumulative queue waiting times."),
+      makeQ(`In ${subjectName}, what hardware register caches recently accessed virtual-to-physical address translations?`,
+        "Translation Lookaside Buffer (TLB)", ["Memory Management Control Unit (MMCU)", "Instruction Pointer Register", "Direct Memory Access Controller"],
+        "The TLB is a high-speed associative cache inside the MMU that stores recent page table translations to avoid main memory lookups."),
+      makeQ(`How does Banker's Algorithm in ${subjectName} prevent system deadlocks?`,
+        "By simulating allocation of maximum possible resources and ensuring a Safe Sequence exists", ["By aborting the lowest-priority process whenever memory drops below 10%", "By preventing any process from holding more than one resource at a time", "By disabling thread interrupts during system calls"],
+        "Banker's Algorithm tests for safety by simulating resource allocations against process Max matrices to guarantee a safe execution path."),
+      makeQ(`In ${subjectName}, what is the fundamental purpose of the fork() system call in POSIX environments?`,
+        "It creates an exact duplicate child process of the calling process", ["It executes a new binary executable file", "It terminates all zombie child processes", "It shares a memory heap between independent threads"],
+        "fork() spawns a new process that duplicates the parent's memory, file descriptors, and context via copy-on-write."),
+      makeQ(`In ${subjectName}, what is the primary role of a Device Controller Interrupt Service Routine (ISR)?`,
+        "To quickly handle hardware device signals, save context, and service data buffers", ["To compile operating system drivers on startup", "To reformat disk partitions following read errors", "To arbitrate network socket security handshakes"],
+        "ISRs execute asynchronously in response to hardware interrupt pins, servicing the device and restoring interrupted execution state."),
+      makeQ(`In ${subjectName}, what problem arises when a higher-priority task is blocked waiting for a resource held by a lower-priority task, which is preempted by a medium task?`,
+        "Priority Inversion", ["Aging", "Cascading Termination", "Internal Fragmentation"],
+        "Priority Inversion occurs when a medium-priority task preempts a low-priority task that holds a lock needed by a high-priority task."),
+      makeQ(`Which disk scheduling algorithm in ${subjectName} services requests in one direction until the end, then reverses direction?`,
+        "SCAN (Elevator Algorithm)", ["LOOK Algorithm", "FCFS Disk Scheduling", "Shortest Seek Time First (SSTF)"],
+        "SCAN sweeps the disk head from one end to the other servicing requests, then reverses direction at the boundary like an elevator."),
+      makeQ(`In ${subjectName}, what memory management issue occurs when free memory blocks are fragmented into small non-contiguous pockets?`,
+        "External Fragmentation", ["Internal Fragmentation", "Page Thrashing", "Address Misalignment"],
+        "External fragmentation occurs when total free memory is sufficient to satisfy a request, but it is split into non-contiguous slices."),
+      makeQ(`In modern operating systems covering ${subjectName}, what does Copy-On-Write (COW) optimize?`,
+        "Child process page duplication during fork() until a page is modified", ["Network socket streaming speed", "Hard drive defragmentation routines", "Direct memory access transfer rates"],
+        "COW allows parent and child processes to share physical memory pages read-only until either modifies a page, avoiding deep copies."),
+      makeQ(`What is the state of a terminated process in ${subjectName} whose parent has not yet called wait()?`,
+        "Zombie Process", ["Orphan Process", "Daemon Process", "Sleeping Thread"],
+        "A zombie process has finished execution but still occupies an entry in the process table until its exit status is read by the parent."),
+      makeQ(`In ${subjectName}, which synchronization mechanism allows multiple readers to read concurrently while granting writers exclusive access?`,
+        "Read-Write Lock (Shared-Exclusive Lock)", ["Simple Spinlock", "Peterson's 2-process Algorithm", "Disable Interrupts Mask"],
+        "Read-Write locks permit multiple concurrent readers while ensuring writers have mutually exclusive access."),
+      makeQ(`What is the main function of the swap space in ${subjectName}?`,
+        "To provide secondary storage backing for inactive virtual memory pages", ["To store bootloader BIOS code", "To accelerate graphics rendering pipelines", "To encrypt user passwords on disk"],
+        "Swap space on disk holds memory pages that cannot fit in physical RAM, extending the usable virtual address space."),
+      makeQ(`In ${subjectName}, what is a Race Condition?`,
+        "When system behavior depends on the uncontrolled execution order of concurrent threads", ["When clock cycles exceed CPU thermal safety thresholds", "When two processes compete for network bandwidth", "When a computer boots faster than peripheral devices"],
+        "Race conditions occur when shared data is accessed and modified concurrently without synchronization, making output dependent on timing."),
+      makeQ(`Which page replacement algorithm in ${subjectName} replaces the page that will not be used for the longest period of time in the future?`,
+        "Optimal (OPT / MIN) Page Replacement", ["Least Recently Used (LRU)", "First-In First-Out (FIFO)", "Second Chance Algorithm"],
+        "The Optimal replacement algorithm replaces the page whose next reference is farthest in the future, serving as theoretical upper bound."),
+      makeQ(`In ${subjectName}, what distinguishes a Kernel-Level Thread (KLT) from a User-Level Thread (ULT)?`,
+        "KLTs are managed directly by the OS scheduler and can run concurrently on multiple CPU cores", ["KLTs do not have thread context blocks", "ULTs cannot execute loops or recursive calls", "KLTs have zero context switching overhead"],
+        "Kernel-level threads are known to the OS scheduler, allowing genuine parallel execution across multiple CPU cores."),
+      makeQ(`What system call in ${subjectName} replaces the current process image with a new executable program?`,
+        "exec() family (execvp, execl, etc.)", ["fork()", "exit()", "kill()"],
+        "The exec() family overwrites the calling process's text, data, heap, and stack segments with code from a new binary.")
+    ];
+
+    const bankDBMS = [
+      makeQ(`In ${subjectName}, which ACID property ensures that transactions are all-or-nothing (either fully committed or completely rolled back)?`,
+        "Atomicity", ["Consistency", "Isolation", "Durability"],
+        "Atomicity guarantees that all transaction operations complete successfully; if any step fails, the entire transaction is aborted and rolled back."),
+      makeQ(`In ${subjectName}, what does Boyce-Codd Normal Form (BCNF) strictly require for every non-trivial functional dependency X -> Y?`,
+        "X must be a Super Key", ["Y must be a prime attribute", "X and Y must be disjoint sets", "The relation must contain no composite candidate keys"],
+        "BCNF is a stricter form of 3NF where every determinant X in a functional dependency X -> Y must be a candidate or super key."),
+      makeQ(`Which isolation level in ${subjectName} prevents Dirty Reads, Non-Repeatable Reads, and Phantom Reads?`,
+        "Serializable", ["Read Committed", "Repeatable Read", "Read Uncommitted"],
+        "Serializable is the highest ANSI SQL isolation level, executing transactions concurrently in a manner equivalent to serial execution."),
+      makeQ(`In indexing techniques within ${subjectName}, why are B+ Trees overwhelmingly preferred over Binary Search Trees for disk-based storage?`,
+        "Their high branching factor (fan-out) minimizes disk I/O seek operations", ["B+ Trees store duplicate keys in all levels", "Binary trees take zero auxiliary memory on disk", "B+ Trees eliminate the need for write-ahead logging"],
+        "B+ trees have large node capacities (high fan-out), keeping tree depth to 3-4 levels even for millions of records and minimizing slow disk reads."),
+      makeQ(`In ${subjectName}, what is a Dirty Read phenomenon in relational databases?`,
+        "A transaction reads uncommitted data modified by another concurrent transaction", ["A transaction reads rows that have corrupted checksum bytes", "A query retrieves cached records older than 24 hours", "A table scan fails due to dirty disk blocks"],
+        "Dirty reads occur when transaction A reads rows written by transaction B before transaction B has committed or rolled back."),
+      makeQ(`In database recovery under ${subjectName}, what does the Write-Ahead Logging (WAL) protocol mandate?`,
+        "Log records must be written to non-volatile disk before corresponding dirty data pages are flushed", ["Database backups must be taken before every user write", "Data pages must be committed before log buffers are created", "Undo actions must occur prior to checkpointing"],
+        "WAL guarantees Atomicity and Durability by persisting log modifications to disk before modified table pages leave volatile RAM."),
+      makeQ(`Which relational algebra operator in ${subjectName} corresponds to selecting columns from a relation?`,
+        "Projection (π)", ["Selection (σ)", "Cartesian Product (✕)", "Natural Join (⋈)"],
+        "Projection (π) filters attributes/columns vertically, whereas Selection (σ) filters tuples/rows horizontally based on a condition."),
+      makeQ(`In ${subjectName}, what type of lock allows multiple concurrent transactions to read a database row but prevents concurrent writes?`,
+        "Shared Lock (S-Lock)", ["Exclusive Lock (X-Lock)", "Intent Exclusive Lock (IX-Lock)", "Deadlock Verification Lock"],
+        "Shared locks permit concurrent reading among multiple transactions while barring any transaction from obtaining an exclusive write lock."),
+      makeQ(`Under Two-Phase Locking (2PL) protocol in ${subjectName}, what happens during the Shrinking Phase?`,
+        "A transaction may only release locks and cannot acquire any new locks", ["A transaction releases all locks simultaneously", "A transaction acquires additional shared locks", "The database engine truncates unused disk extents"],
+        "In 2PL, the growing phase permits lock acquisitions, and once the first lock is released, the shrinking phase begins, barring new locks."),
+      makeQ(`In SQL database design for ${subjectName}, what is the purpose of a Foreign Key constraint?`,
+        "To enforce referential integrity between tables", ["To automatically encrypt columns during INSERT operations", "To index columns in alphabetical ascending order", "To prevent NULL values in primary key fields"],
+        "Foreign keys ensure referential integrity by requiring that values in a child table match an existing primary key in the referenced parent table."),
+      makeQ(`In ${subjectName}, what is the difference between TRUNCATE and DELETE in SQL?`,
+        "TRUNCATE is a DDL command that deallocates data pages without logging individual row deletions, making it faster", ["DELETE cannot use a WHERE clause", "TRUNCATE triggers row-level audit triggers", "DELETE deletes the entire table schema from the database catalog"],
+        "TRUNCATE resets table extents quickly via DDL without logging each tuple, whereas DELETE logs tuple deletions individually and supports WHERE clauses."),
+      makeQ(`What is the main objective of database normalization in ${subjectName}?`,
+        "To eliminate data redundancy and prevent insertion, update, and deletion anomalies", ["To maximize the physical size of database tables", "To replace SQL queries with stored procedures", "To make all table queries run without disk I/O"],
+        "Normalization decomposes relations to remove redundant duplicates and eliminate structural update/deletion anomalies."),
+      makeQ(`In query optimization for ${subjectName}, what is an Index Scan vs a Full Table Scan?`,
+        "Index scan traverses a B-tree index structure to fetch matched rows; Table scan inspects every page in the table", ["Table scan uses cryptographic hashes", "Index scan always takes more memory than table scan", "Index scan only works on integer primary keys"],
+        "An index scan leverages pre-sorted index nodes to access matched tuples directly, avoiding the overhead of scanning every disk block in a table scan."),
+      makeQ(`In ${subjectName}, which anomaly occurs when transaction T1 reads a row, T2 updates that row and commits, and T1 re-reads the row obtaining different values?`,
+        "Non-Repeatable Read", ["Phantom Read", "Dirty Read", "Lost Update"],
+        "Non-repeatable reads happen when a transaction re-reads a row and finds that data attributes within that row were altered and committed by another transaction."),
+      makeQ(`In distributed database architectures covering ${subjectName}, what does the CAP Theorem state?`,
+        "A distributed system can guarantee at most two of Consistency, Availability, and Partition Tolerance simultaneously", ["Capacity, Accuracy, and Performance cannot scale together", "Clustering, Authentication, and Privacy require triple redundancy", "Cloud databases must sacrifice partition tolerance"],
+        "Eric Brewer's CAP Theorem proves that network partitions (P) force distributed stores to choose between strict consistency (C) or availability (A)."),
+      makeQ(`What is a Clustered Index in ${subjectName}?`,
+        "An index that defines the physical storage order of data rows on disk", ["An index that only indexes columns with UNIQUE constraints", "An index distributed across three cluster nodes", "A temporary index stored in RAM cache"],
+        "A clustered index physically orders table data pages on storage media, meaning each table can have at most one clustered index."),
+      makeQ(`In ${subjectName}, what does SQL 'HAVING' clause do that 'WHERE' clause cannot?`,
+        "It filters grouped records based on aggregate function results (e.g., HAVING COUNT(*) > 5)", ["It creates non-clustered indexes on the fly", "It converts outer joins into inner joins", "It renames table column headers in the output"],
+        "HAVING operates on aggregated grouped sets after GROUP BY execution, whereas WHERE filters individual rows before grouping."),
+      makeQ(`In ${subjectName}, what is the role of a Checkpoint in write-ahead log recovery?`,
+        "It limits the amount of log that must be scanned and replayed during system recovery after a crash", ["It resets all user passwords to database defaults", "It deletes all committed transactions from history", "It freezes incoming connections during transaction rollbacks"],
+        "Checkpoints flush dirty pages and log records to disk, establishing a safe horizon so recovery engines don't need to replay logs from the beginning."),
+      makeQ(`What is a View in ${subjectName}?`,
+        "A virtual table defined by an underlying stored SQL query", ["A physical table duplicated on backup storage", "A client-side JavaScript cached record set", "A temporary table created during bulk inserts"],
+        "A view is a virtual table that encapsulates a SELECT query, computing its rows dynamically from underlying base tables upon invocation."),
+      makeQ(`In ${subjectName}, what is the purpose of the Two-Phase Commit (2PC) protocol in distributed databases?`,
+        "To ensure all distributed participant nodes either commit or abort a distributed transaction together", ["To double the encryption key strength on network packets", "To partition tables into two equal halves", "To run transactions twice to verify mathematical output"],
+        "2PC coordinates multiple autonomous distributed database nodes through Prepare and Commit phases, guaranteeing distributed atomicity.")
+    ];
+
+    const bankElectronics = [
+      makeQ(`In ${subjectName}, what is the maximum theoretical efficiency of a Class-A power amplifier with transformer coupling?`,
+        "50%", ["25%", "78.5%", "90%"],
+        "Transformer-coupled Class-A amplifiers achieve a maximum theoretical efficiency of 50%, whereas direct-coupled Class-A reaches only 25%."),
+      makeQ(`In ${subjectName}, which feedback topology increases input impedance and decreases output impedance?`,
+        "Series-Shunt (Voltage-Series) Feedback", ["Shunt-Series (Current-Shunt) Feedback", "Series-Series (Current-Series) Feedback", "Shunt-Shunt (Voltage-Shunt) Feedback"],
+        "Voltage-Series (series-shunt) feedback samples output voltage (lowering output impedance) and mixes in series at the input (raising input impedance)."),
+      makeQ(`In digital electronics for ${subjectName}, what is the minimum clock period required if flip-flop propagation delay is 3ns, combinational logic delay is 5ns, and setup time is 2ns?`,
+        "10ns (f_max = 100 MHz)", ["8ns (f_max = 125 MHz)", "5ns (f_max = 200 MHz)", "15ns (f_max = 66 MHz)"],
+        "Minimum clock period T_min = t_cq + t_comb + t_setup = 3ns + 5ns + 2ns = 10ns."),
+      makeQ(`In ${subjectName}, what type of multivibrator has no stable state and operates continuously as a clock oscillator?`,
+        "Astable Multivibrator", ["Monostable Multivibrator", "Bistable Multivibrator (Flip-Flop)", "Schmitt Trigger"],
+        "Astable multivibrators oscillate continuously between two quasi-stable states without requiring external trigger pulses, functioning as square wave clocks."),
+      makeQ(`In 8051 Microcontroller architecture under ${subjectName}, how many register banks are present in the internal RAM?`,
+        "4 Register Banks (Bank 0 to Bank 3, 8 registers each)", ["2 Register Banks", "8 Register Banks", "16 Register Banks"],
+        "The 8051 has 4 switchable register banks (Bank 0 to 3) in RAM locations 00H to 1FH, each containing registers R0 to R7."),
+      makeQ(`In ${subjectName}, what is the Slew Rate of an Operational Amplifier (Op-Amp)?`,
+        "The maximum rate of change of output voltage per unit time (V/μs)", ["The ratio of common-mode gain to differential gain", "The input bias current differential at null offset", "The maximum bandwidth when closed-loop gain is unity"],
+        "Slew rate defines the maximum speed at which an op-amp output can change in response to a step input, typically measured in Volts per microsecond."),
+      makeQ(`Under Nyquist-Shannon Sampling Theorem in ${subjectName}, what must the minimum sampling frequency f_s be for a signal with maximum frequency component f_max?`,
+        "f_s >= 2 * f_max", ["f_s >= f_max", "f_s >= f_max / 2", "f_s >= 4 * f_max"],
+        "To prevent aliasing and allow exact signal reconstruction, the sampling frequency must be at least twice the maximum signal frequency (Nyquist rate)."),
+      makeQ(`In ${subjectName}, which CMOS gate topology has lowest static power dissipation?`,
+        "Complementary Static CMOS", ["Pseudo-NMOS Logic", "Dynamic Domino Logic", "Pass Transistor Logic"],
+        "Static CMOS gates draw negligible static leakage power because complementary pull-up PMOS and pull-down NMOS networks are never ON simultaneously."),
+      makeQ(`In ${subjectName}, what is the purpose of a Schmitt Trigger circuit?`,
+        "To convert noisy, slowly changing signals into clean digital waveforms using hysteresis", ["To amplify small AC audio signals linearly", "To generate sinusoidal radio carrier frequencies", "To regulate DC power supply output voltages"],
+        "Schmitt triggers employ positive feedback to create two distinct switching threshold levels (hysteresis), rejecting noise in analog signals."),
+      makeQ(`In optical fiber communications within ${subjectName}, what optical phenomenon keeps light guided inside the core?`,
+        "Total Internal Reflection (TIR)", ["Fresnel Diffraction", "Rayleigh Backscattering", "Chromatic Dispersion"],
+        "Light remains guided within the optical core because the core's refractive index is higher than the cladding, causing total internal reflection at angles above the critical angle."),
+      makeQ(`In ${subjectName}, what does Common-Mode Rejection Ratio (CMRR) measure in an instrumentation amplifier?`,
+        "The ability to reject noise common to both input terminals while amplifying the differential signal", ["The maximum output voltage swing before clipping", "The phase margin at unity gain crossover", "The frequency response roll-off per decade"],
+        "CMRR is the ratio of differential gain to common-mode gain (CMRR = Ad / Ac), quantifying how effectively common-mode noise is suppressed."),
+      makeQ(`In ${subjectName}, which digital logic family is recognized for having the highest noise margin and lowest power consumption at low frequencies?`,
+        "CMOS", ["TTL (Transistor-Transistor Logic)", "ECL (Emitter-Coupled Logic)", "RTL (Resistor-Transistor Logic)"],
+        "CMOS technology offers high noise immunity (up to 30-40% of VDD) and near-zero static power dissipation at low operating frequencies."),
+      makeQ(`In ${subjectName}, what is the Barkhausen Criterion for sustained sinusoidal oscillations?`,
+        "Loop gain magnitude |Aβ| = 1 and loop phase shift = 0° or 360° (2nπ)", ["Loop gain magnitude |Aβ| < 0.5 and phase shift = 90°", "Loop gain magnitude |Aβ| > 10 and phase shift = 180°", "Loop gain magnitude |Aβ| = 0 and phase shift = 45°"],
+        "Barkhausen criteria establish that an oscillator sustains stable oscillations when total closed-loop gain magnitude equals unity and net phase shift around the feedback loop is 0° or multiples of 360°."),
+      makeQ(`What is the Early Effect in Bipolar Junction Transistors (BJTs) in ${subjectName}?`,
+        "Variation of effective base width due to reverse bias voltage across the collector-base junction", ["Breakdown of emitter-base junction under heavy doping", "Thermal runaway caused by collector leakage current", "Saturation of minority carrier drift velocity"],
+        "The Early Effect (base-width modulation) occurs when increasing reverse bias across the collector-base junction widens the depletion region into the base, narrowing effective base width."),
+      makeQ(`In ${subjectName}, what is the function of a PLL (Phase-Locked Loop)?`,
+        "To synchronize an output oscillator's frequency and phase with an incoming reference signal", ["To rectify alternating current into constant DC voltage", "To convert digital numbers into analog voltages", "To filter electromagnetic radiation from chassis grounds"],
+        "A PLL uses a phase detector, loop filter, and VCO in feedback to lock the output frequency to match an incoming input clock phase."),
+      makeQ(`In ${subjectName}, what is Setup Time in flip-flop timing specifications?`,
+        "The minimum time data must remain stable before the active clock edge arrives", ["The time data must remain stable after the clock edge has passed", "The time taken for clock output to transition from low to high", "The power-up reset stabilization interval"],
+        "Setup time is the mandatory time window before the active clock edge during which the input data signal must remain steady to prevent metastability."),
+      makeQ(`In transmission line theory for ${subjectName}, what is the Voltage Standing Wave Ratio (VSWR) when the load impedance perfectly matches characteristic impedance?`,
+        "VSWR = 1.0 (Zero Reflection)", ["VSWR = 0.0", "VSWR = Infinity", "VSWR = 0.5"],
+        "When load impedance matches characteristic line impedance (Z_L = Z_0), the reflection coefficient is 0, giving an ideal VSWR of 1.0."),
+      makeQ(`In ${subjectName}, which modulation technique varies the frequency of the carrier proportional to the instantaneous amplitude of the message signal?`,
+        "Frequency Modulation (FM)", ["Amplitude Modulation (AM)", "Phase Shift Keying (PSK)", "Pulse Code Modulation (PCM)"],
+        "FM encodes information by deviating the instantaneous frequency of a high-frequency carrier wave proportionally to the baseband message voltage."),
+      makeQ(`In ${subjectName}, what is the purpose of the ALE (Address Latch Enable) pin in the 8051 and 8085 microprocessors?`,
+        "To demultiplex the shared Address/Data bus AD0-AD7 by latching lower address bits", ["To signal external memory write operations", "To enable internal cache memory banks", "To request DMA bus access from peripheral devices"],
+        "ALE pulses high to indicate that the multiplexed AD bus currently holds lower-order address bits, allowing an external latch (like 74LS373) to capture the address."),
+      makeQ(`What is the Hall Effect in semiconductor physics covering ${subjectName}?`,
+        "The generation of a transverse voltage across a conductor carrying current in a perpendicular magnetic field", ["The emission of electrons when ultraviolet light strikes metal", "The generation of light photons when forward-biased p-n junctions recombine", "The tunneling of electrons across a reverse-biased ultra-thin barrier"],
+        "The Hall Effect produces a transverse voltage across a current-carrying material placed in a magnetic field, determining carrier charge type (p-type or n-type) and carrier density.")
+    ];
+
+    const bankThermalMechanical = [
+      makeQ(`In ${subjectName}, what does the Second Law of Thermodynamics (Clausius Statement) fundamentally state?`,
+        "Heat cannot spontaneously flow from a colder body to a hotter body without external work", ["Total energy of an isolated system always increases during irreversible processes", "Absolute zero temperature can be achieved in finite cyclic steps", "Internal energy is purely a function of volume in ideal gases"],
+        "Clausius stated that it is impossible to construct a device operating in a cycle whose sole effect is heat transfer from a cooler reservoir to a warmer reservoir without external mechanical work input."),
+      makeQ(`In ${subjectName}, which ideal thermodynamic cycle consists of two reversible isothermal and two reversible adiabatic processes?`,
+        "Carnot Cycle", ["Otto Cycle", "Diesel Cycle", "Rankine Cycle"],
+        "The Carnot cycle comprises two reversible isothermal processes and two reversible adiabatic (isentropic) processes, offering the theoretical maximum thermal efficiency."),
+      makeQ(`In strength of materials under ${subjectName}, what is Hooke's Law within the elastic limit?`,
+        "Stress is directly proportional to strain (σ = E * ε)", ["Shear force equals rate of change of bending moment", "Volumetric strain equals Poisson's ratio squared", "Deflection varies inversely with moment of inertia"],
+        "Hooke's Law states that for an elastic body subjected to modest forces, stress is proportional to strain up to the proportional limit."),
+      makeQ(`In fluid mechanics under ${subjectName}, what does Bernoulli's Equation represent along a streamline in steady, inviscid, incompressible flow?`,
+        "Conservation of mechanical energy (Pressure Head + Velocity Head + Datum Head = Constant)", ["Conservation of mass flux across expanding boundaries", "Rate of change of angular momentum in boundary layers", "Zero shear stress distribution in laminar regimes"],
+        "Bernoulli's equation expresses the conservation of mechanical energy per unit weight of an incompressible, non-viscous fluid in steady streamline flow."),
+      makeQ(`In internal combustion engines under ${subjectName}, which cycle represents ideal spark-ignition (petrol) engines?`,
+        "Otto Cycle (Constant Volume heat addition)", ["Diesel Cycle (Constant Pressure heat addition)", "Dual Combustion Cycle", "Stirling Cycle"],
+        "The Otto cycle models spark-ignition four-stroke internal combustion engines with constant-volume heat addition."),
+      makeQ(`In ${subjectName}, what is the critical Reynolds number that typically separates laminar flow from turbulent flow in a circular pipe?`,
+        "Re ≈ 2300", ["Re ≈ 500", "Re ≈ 10000", "Re ≈ 50000"],
+        "In circular pipe flow, Reynolds numbers below 2300 indicate stable laminar flow, while values above 4000 indicate fully turbulent flow."),
+      makeQ(`In ${subjectName}, what material property measures resistance to localized surface plastic deformation or scratching?`,
+        "Hardness", ["Toughness", "Resilience", "Ductility"],
+        "Hardness measures a material's resistance to localized surface indentation, abrasion, or scratching (measured via Brinell, Rockwell, or Vickers scales)."),
+      makeQ(`In heat transfer under ${subjectName}, which law governs radiative heat emission from a blackbody proportional to absolute temperature T^4?`,
+        "Stefan-Boltzmann Law", ["Fourier's Law of Conduction", "Newton's Law of Cooling", "Wien's Displacement Law"],
+        "The Stefan-Boltzmann Law states that the total emissive power of a blackbody is proportional to the fourth power of its absolute thermodynamic temperature: E = σ * T^4."),
+      makeQ(`In ${subjectName}, what is the purpose of the flywheel in a reciprocating internal combustion engine?`,
+        "To smooth out cyclic fluctuations in engine speed by storing energy during power stroke and releasing it during idle strokes", ["To filter engine oil entering the crankcase", "To synchronize intake and exhaust valves", "To inject pressurized fuel directly into cylinders"],
+        "Flywheels possess high rotational inertia, storing kinetic energy during the power expansion stroke and releasing it during non-power intake/compression/exhaust strokes."),
+      makeQ(`In mechanical manufacturing covering ${subjectName}, what is the cutting tool material known as HSS made of?`,
+        "High-Speed Steel (alloyed with Tungsten, Chromium, Vanadium, and Molybdenum)", ["High-Strength Sintered Silicon", "Hot-Stamped Stainless Sheet", "Hardened Synthetic Sapphire"],
+        "High-Speed Steel (HSS) is an alloy steel containing significant percentages of tungsten, molybdenum, chromium, and vanadium, retaining hardness at elevated cutting temperatures."),
+      makeQ(`In ${subjectName}, what is Poisson's Ratio (ν)?`,
+        "The negative ratio of lateral strain to longitudinal (axial) strain", ["The ratio of shear stress to shear strain", "The ratio of ultimate tensile strength to yield point", "The ratio of mass density to volumetric modulus"],
+        "Poisson's ratio is the negative ratio of transverse (lateral) strain to axial (longitudinal) strain when an axial tensile or compressive load is applied."),
+      makeQ(`In refrigeration and air conditioning under ${subjectName}, what component drops refrigerant pressure from condensing level to evaporating level?`,
+        "Expansion Valve / Capillary Tube", ["Evaporator Coil", "Hermetic Compressor", "Condenser Fan"],
+        "The expansion device throttles high-pressure liquid refrigerant down to low-pressure, low-temperature liquid/vapor mixture via isenthalpic expansion."),
+      makeQ(`In ${subjectName}, what does the P-V diagram area enclosed by a thermodynamic cycle represent?`,
+        "The net mechanical work done during one complete cycle", ["The total heat rejected to the low-temperature sink", "The change in entropy of the surroundings", "The mass flow rate of working fluid"],
+        "The enclosed area on a pressure-volume (P-V) indicator diagram corresponds directly to the net mechanical boundary work (∮ P dV) delivered by the cyclic process."),
+      makeQ(`In ${subjectName}, what is the primary function of a differential gear mechanism in an automobile?`,
+        "To allow outer drive wheels to rotate faster than inner drive wheels during cornering turns", ["To change engine gear ratios from reverse to forward", "To prevent brake locking on slippery asphalt", "To balance air-fuel ratios in multi-cylinder manifolds"],
+        "Differentials transfer engine torque to drive axles while allowing outer drive wheels to spin faster than inner wheels as vehicle negotiates turns."),
+      makeQ(`In ${subjectName}, what is Euler's critical buckling load formula for a long slender column with both ends pinned?`,
+        "P_cr = (π^2 * E * I) / L^2", ["P_cr = (2 * π * E * I) / L", "P_cr = (π * E * A) / L^2", "P_cr = (E * I) / (π * L^3)"],
+        "Euler's buckling formula for a pinned-pinned slender column is P_cr = π^2 * E * I / L^2, where E is Young's modulus, I is minimum moment of inertia, and L is length."),
+      makeQ(`In ${subjectName}, what is Cavitation in hydraulic pumps and turbines?`,
+        "Formation and violent collapse of vapor bubbles when local static pressure drops below saturation vapor pressure", ["Mechanical wear caused by abrasive sand particles in fluid", "Thermal expansion of impeller blades at high RPM", "Air leakage around shaft packings"],
+        "Cavitation occurs when local fluid pressure falls below vapor pressure, generating vapor cavities whose violent collapse erodes metallic surfaces."),
+      makeQ(`In ${subjectName}, what is the purpose of an economizer in a thermal steam power plant?`,
+        "To preheat boiler feedwater using waste flue gases", ["To superheat high-pressure steam before the turbine", "To condense turbine exhaust steam into liquid water", "To pulverize raw coal into fine combustion dust"],
+        "Economizers extract residual thermal energy from exhaust chimney flue gases to preheat incoming boiler feedwater, increasing overall plant thermal efficiency."),
+      makeQ(`What is the Cop (Coefficient of Performance) of a Carnot heat pump operating between 300 K and 350 K in ${subjectName}?`,
+        "COP = T_H / (T_H - T_L) = 350 / 50 = 7.0", ["COP = 6.0", "COP = 1.16", "COP = 0.14"],
+        "For a Carnot heat pump, COP = T_H / (T_H - T_L) = 350 / (350 - 300) = 350 / 50 = 7.0."),
+      makeQ(`In ${subjectName}, what nondestructive testing (NDT) method uses high-frequency sound waves to detect internal subsurface flaws in metal welds?`,
+        "Ultrasonic Testing (UT)", ["Liquid Penetrant Testing", "Visual Inspection", "Magnetic Particle Surface Testing"],
+        "Ultrasonic testing transmits high-frequency acoustic waves (0.5 to 15 MHz) into components; reflections from internal boundaries reveal subsurface defects."),
+      makeQ(`In ${subjectName}, which manufacturing process forms seamless metallic cylinders and hollow tubes by forcing metal through a die orifice under compressive force?`,
+        "Extrusion", ["Sand Casting", "Drop Hammer Forging", "Resistance Spot Welding"],
+        "Extrusion pushes billet metal through a shaped die opening to produce long continuous products of constant cross-sectional geometry.")
+    ];
+
+    const bankMathScience = [
+      makeQ(`In ${subjectName}, what is the derivative of f(x) = ln(sin(x)) with respect to x?`,
+        "cot(x)", ["tan(x)", "sec^2(x)", "1 / cos(x)"],
+        "By chain rule, d/dx[ln(sin(x))] = (1 / sin(x)) * cos(x) = cot(x)."),
+      makeQ(`In linear algebra under ${subjectName}, what are the eigenvalues of an upper triangular matrix?`,
+        "The diagonal elements of the matrix", ["The trace divided by the determinant", "The roots of the transpose row sums", "Zero for all triangular forms"],
+        "For any triangular matrix (upper or lower), the characteristic polynomial det(A - λI) factors directly into the diagonal terms (a_ii - λ), so eigenvalues are the diagonal entries."),
+      makeQ(`In ${subjectName}, what is the definite integral of x * e^x dx from x = 0 to x = 1?`,
+        "1", ["e", "e - 1", "2e - 1"],
+        "Using integration by parts ∫ u dv = uv - ∫ v du with u=x, dv=e^x dx: [x e^x - e^x]_0^1 = (e - e) - (0 - 1) = 1."),
+      makeQ(`In probability theory for ${subjectName}, if a random variable follows a Poisson distribution with parameter λ, what is its variance?`,
+        "λ", ["λ^2", "sqrt(λ)", "1 / λ"],
+        "A defining mathematical property of the Poisson distribution is that both its mean and variance are equal to λ."),
+      makeQ(`Under ${subjectName}, what does the Divergence Theorem (Gauss's Theorem) relate?`,
+        "The volume integral of the divergence of a vector field to the surface integral of its flux", ["The line integral around a closed curve to the surface curl", "The second partial derivatives of analytic functions", "The gradient of scalar fields to path line integrals"],
+        "Gauss's Divergence Theorem states that the volume integral of ∇ · F over volume V equals the closed surface integral of F · n dS over boundary surface S."),
+      makeQ(`In ${subjectName}, what is the rank of an N x N identity matrix I_N?`,
+        "N", ["N - 1", "1", "0"],
+        "An N x N identity matrix has N linearly independent pivot rows and columns, giving rank N and non-zero determinant = 1."),
+      makeQ(`In differential equations under ${subjectName}, what is the general solution to dy/dx + P(x)y = Q(x)?`,
+        "y * e^(∫ P dx) = ∫ Q * e^(∫ P dx) dx + C", ["y = P(x) * Q(x) + C", "y = e^(P + Q) + C", "y * Q(x) = ∫ P(x) dx + C"],
+        "First-order linear differential equations use integrating factor IF = e^(∫ P dx), giving y * IF = ∫ (Q * IF) dx + C."),
+      makeQ(`In ${subjectName}, what is the sum of the infinite geometric series 1 + 1/2 + 1/4 + 1/8 + ...?`,
+        "2", ["1.5", "3", "Infinity"],
+        "Using infinite geometric series sum S = a / (1 - r) with initial term a = 1 and common ratio r = 0.5: S = 1 / (1 - 0.5) = 2."),
+      makeQ(`In ${subjectName}, what is the value of limit as x approaches 0 of (sin(5x) / x)?`,
+        "5", ["1", "0", "Undefined"],
+        "Using standard trigonometric limit lim_{x->0} (sin(kx)/kx) * k = 1 * 5 = 5."),
+      makeQ(`In ${subjectName}, what condition guarantees that a system of linear equations A X = B has a unique solution?`,
+        "det(A) ≠ 0 (Matrix A is non-singular and rank(A) = rank(A|B) = N)", ["det(A) = 0", "Matrix A is symmetric", "Vector B contains all zero elements"],
+        "A square linear system has a unique solution if and only if determinant of coefficient matrix A is non-zero, making A invertible."),
+      makeQ(`In ${subjectName}, what is the Laplace Transform of the unit step function u(t)?`,
+        "1 / s", ["s", "1 / s^2", "1 / (s + 1)"],
+        "The Laplace transform of unit step function u(t) is ∫_0^∞ e^(-st) * 1 dt = [-e^(-st) / s]_0^∞ = 1 / s for Re(s) > 0."),
+      makeQ(`Under ${subjectName}, which test determines the convergence of alternating infinite series ∑ (-1)^n b_n?`,
+        "Leibniz Test (Alternating Series Test)", ["Ratio Test", "Integral Test", "Raabe's Test"],
+        "The Leibniz test states an alternating series converges if terms b_n are positive, monotonically decreasing, and lim_{n->∞} b_n = 0."),
+      makeQ(`In ${subjectName}, what is the dot product of two non-zero vectors if they are perpendicular to each other?`,
+        "0", ["1", "-1", "Magnitude of A times B"],
+        "A · B = |A||B| cos(90°) = 0, meaning orthogonal vectors have zero scalar dot product."),
+      makeQ(`In ${subjectName}, what is the median of the dataset [12, 5, 22, 30, 7, 18, 9]?`,
+        "12", ["14", "18", "9"],
+        "Sorting the 7 elements gives [5, 7, 9, 12, 18, 22, 30]; the central 4th element is 12."),
+      makeQ(`In complex analysis for ${subjectName}, what equations must the real and imaginary parts of an analytic function satisfy?`,
+        "Cauchy-Riemann Equations (∂u/∂x = ∂v/∂y and ∂u/∂y = -∂v/∂x)", ["Euler-Lagrange Equations", "Navier-Stokes Equations", "Maxwell Equations"],
+        "The Cauchy-Riemann equations ∂u/∂x = ∂v/∂y and ∂u/∂y = -∂v/∂x are necessary conditions for complex differentiability of f(z) = u + iv."),
+      makeQ(`In ${subjectName}, what is the standard deviation if variance of a distribution is 64?`,
+        "8", ["16", "4", "32"],
+        "Standard deviation is the positive square root of variance: σ = sqrt(64) = 8."),
+      makeQ(`In physics & mechanics for ${subjectName}, what is the acceleration due to gravity on the Earth's surface approximately?`,
+        "9.81 m/s^2", ["12.5 m/s^2", "6.67 m/s^2", "3.14 m/s^2"],
+        "Standard gravitational acceleration at sea level is approximately 9.80665 m/s^2 (commonly 9.81 m/s^2)."),
+      makeQ(`In chemical science under ${subjectName}, what is the pH of a neutral aqueous solution at 25°C?`,
+        "7.0", ["0.0", "14.0", "1.0"],
+        "At 25°C in pure water, [H+] = [OH-] = 10^-7 M, giving neutral pH = -log10(10^-7) = 7.0."),
+      makeQ(`In physics for ${subjectName}, what law states that the induced electromotive force in a circuit is proportional to the rate of change of magnetic flux?`,
+        "Faraday's Law of Electromagnetic Induction", ["Ohm's Law", "Ampere's Circuital Law", "Coulomb's Law"],
+        "Faraday's law states that EMF = -dΦ/dt, where the negative sign reflects Lenz's law opposing the flux change."),
+      makeQ(`In ${subjectName}, what is the value of 1 Pascal in SI base units?`,
+        "1 N/m^2 (or kg·m^-1·s^-2)", ["1 J/s", "1 kg·m/s", "1 W/m^2"],
+        "Pressure is Force per unit area: 1 Pa = 1 N / 1 m^2 = 1 (kg·m/s^2) / m^2 = 1 kg·m^-1·s^-2.")
+    ];
+
+    // Select domain bank or combine appropriately
+    let primaryBank = bankDSA;
+    if (domain === 'os') primaryBank = bankOS;
+    else if (domain === 'dbms') primaryBank = bankDBMS;
+    else if (domain === 'networks') primaryBank = [...bankDSA.slice(0, 5), ...bankOS.slice(0, 5), ...bankDBMS.slice(0, 10)];
+    else if (domain === 'embedded_digital' || domain === 'electronics_comm') primaryBank = bankElectronics;
+    else if (domain === 'electrical') primaryBank = [...bankElectronics.slice(0, 10), ...bankThermalMechanical.slice(0, 10)];
+    else if (domain === 'thermal_auto' || domain === 'fluid_mechanics' || domain === 'mech_design' || domain === 'civil') primaryBank = bankThermalMechanical;
+    else if (domain === 'mathematics' || domain === 'physics' || domain === 'chemistry' || domain === 'biology') primaryBank = bankMathScience;
+    else if (domain === 'ai_ds') primaryBank = [...bankDSA.slice(0, 10), ...bankMathScience.slice(0, 10)];
+    else if (domain === 'programming') primaryBank = [...bankDSA.slice(0, 12), ...bankOS.slice(0, 8)];
+    else primaryBank = [...bankDSA.slice(0, 7), ...bankThermalMechanical.slice(0, 7), ...bankMathScience.slice(0, 7)];
+
+    // Ensure we have at least 20 questions
+    // Shuffle the bank and pick exactly 20 distinct questions
+    const shuffledBank = shuffle(primaryBank);
+    const selected = shuffledBank.slice(0, 20);
+
+    // If pool is short, fill with parameterized high-yield academic questions
+    while (selected.length < 20) {
+      const idx = selected.length + 1;
+      selected.push(
+        makeQ(`In advanced examination assessment for ${subjectName}, which conceptual principle is most critical for Question #${idx}?`,
+          `Fundamental analytical laws, empirical boundary validation, and error bounds in ${subjectName}`,
+          [
+            `Heuristic approximations ignoring conservation constraints`,
+            `Arbitrary guess-and-check heuristics without verification`,
+            `Unverified assumptions without domain assertions`
+          ],
+          `Rigorous examination in ${subjectName} requires adherence to foundational theorems, boundary analysis, and validated mathematical formulation.`
+        )
+      );
+    }
+
+    return {
+      id: 'aimock_' + Date.now() + '_' + Math.floor(Math.random() * 1000),
+      title: `Dynamic AI Mock Test: ${subjectName} (20 Questions)`,
+      subject: subjectName,
+      level: level || 'btech',
+      timeLimitMinutes: 20, // 20 minutes for 20 questions
+      totalQuestions: selected.length,
+      generatedAt: new Date().toISOString(),
+      questions: selected
+    };
+  }
+};
+
+
+/* ==========================================================================
+   MODULE: js/store.js
+   ========================================================================== */
+/**
+ * EduConnect - State Store & Business Logic Engine (Professor-Centric)
+ * Features:
+ * - Direct Doubt Escalation to a Student-Selected Professor + AI Engine
+ * - Dynamic AI Mock Test Generator (Changes questions every time)
+ * - Professor-Assigned Quizzes & Live Sessions
+ * - Smart Study Planner with 1st to 12th, B.Tech, and Diploma subject selection
+ * - Strict Professor Academic Rules & Code of Conduct
+ * - Zero Admin priority (Platform revolves around Professors and Students)
+ */
+
+class EduConnectStore {
+  constructor() {
+    this.storageKey = 'educonnect_platform_state_v12_fresh_clean';
+    this.listeners = {};
+    this.purgeOldStorage();
+    this.state = this.loadState();
+  }
+
+  purgeOldStorage() {
+    try {
+      const legacyKeys = [
+        'educonnect_platform_state_v9_dynamic_attendance',
+        'educonnect_platform_state_v10_ai_mock_auto_link',
+        'educonnect_platform_state_v8',
+        'educonnect_platform_state_v7'
+      ];
+      legacyKeys.forEach(k => localStorage.removeItem(k));
+    } catch (e) {}
+  }
+
+  loadState() {
+    try {
+      const saved = localStorage.getItem(this.storageKey);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (!parsed.users) parsed.users = [];
+        if (!parsed.classes) parsed.classes = [];
+        if (!parsed.liveSessions) parsed.liveSessions = [];
+        if (!parsed.quizzes) parsed.quizzes = [];
+        if (!parsed.doubts) parsed.doubts = [];
+        if (!parsed.assignments) parsed.assignments = [];
+        if (!parsed.announcements) parsed.announcements = [];
+        if (!parsed.parentNotifications) parsed.parentNotifications = [];
+        return { ...DEFAULT_DATA, ...parsed };
+      }
+    } catch (e) {
+      console.warn('Failed to load state from localStorage:', e);
+    }
+    return JSON.parse(JSON.stringify(DEFAULT_DATA));
+  }
+
+  saveState() {
+    try {
+      localStorage.setItem(this.storageKey, JSON.stringify(this.state));
+    } catch (e) {
+      console.error('Failed to save state to localStorage:', e);
+    }
+  }
+
+  resetToDefault() {
+    this.state = JSON.parse(JSON.stringify(DEFAULT_DATA));
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    this.emit('flowChanged', this.state.flowStep);
+    this.emit('languageChanged', this.state.currentLanguage);
+  }
+
+  on(event, callback) {
+    if (!this.listeners[event]) this.listeners[event] = [];
+    this.listeners[event].push(callback);
+    return () => {
+      this.listeners[event] = this.listeners[event].filter(cb => cb !== callback);
+    };
+  }
+
+  emit(event, payload) {
+    if (this.listeners[event]) {
+      this.listeners[event].forEach(cb => {
+        try { cb(payload); } catch (err) { console.error(`Error in listener for ${event}:`, err); }
+      });
+    }
+  }
+
+  // --- Multi-Language Translation ---
+  t(path) {
+    const lang = this.getLanguage();
+    const dict = LOCALES[lang] || LOCALES.en;
+    const parts = path.split('.');
+    let cur = dict;
+    for (const part of parts) {
+      if (cur && cur[part] !== undefined) cur = cur[part];
+      else {
+        let fb = LOCALES.en;
+        for (const p of parts) {
+          if (fb && fb[p] !== undefined) fb = fb[p];
+          else return path;
+        }
+        return fb;
+      }
+    }
+    return cur;
+  }
+
+  getFlowStep() { return this.state.flowStep || 'lang_select'; }
+  setFlowStep(step) {
+    this.state.flowStep = step;
+    this.saveState();
+    this.emit('flowChanged', step);
+  }
+
+  getLanguage() { return this.state.currentLanguage || 'en'; }
+  setLanguage(lang) {
+    if (['en', 'te', 'hi', 'ta'].includes(lang)) {
+      this.state.currentLanguage = lang;
+      this.saveState();
+      this.emit('languageChanged', lang);
+    }
+  }
+
+  selectLanguageAndProceed(lang) {
+    this.setLanguage(lang);
+    this.setFlowStep('auth_login');
+  }
+
+  getCurrentRole() { return this.state.currentRole; }
+  setRole(role) {
+    this.state.currentRole = role;
+    this.saveState();
+    this.emit('roleChanged', role);
+  }
+
+  getCurrentUser() { return this.state.currentUser; }
+  getTheme() { return this.state.theme || 'dark'; }
+  toggleTheme() {
+    this.state.theme = this.state.theme === 'dark' ? 'light' : 'dark';
+    this.saveState();
+    this.emit('themeChanged', this.state.theme);
+    return this.state.theme;
+  }
+
+  // --- Real-World Email & Mobile Validator (Strictly Regular Working Mail & Number) ---
+  validateRealWorldIdentifier(identifier) {
+    if (!identifier || typeof identifier !== 'string') {
+      const lang = this.getLanguage();
+      const msg = lang === 'te' 
+        ? 'దయచేసి ప్రస్తుతం పనిచేస్తున్న సరైన ఇమెయిల్ లేదా 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి.' 
+        : 'Please provide an active, regular working email or 10-digit mobile number.';
+      return { valid: false, message: msg };
+    }
+    const clean = identifier.trim();
+
+    if (clean.includes('@')) {
+      // RFC-compliant real-world email format
+      const emailRegex = /^[a-zA-Z0-9]+([._%+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(clean)) {
+        const lang = this.getLanguage();
+        const msg = lang === 'te'
+          ? 'దయచేసి ప్రస్తుతం పనిచేస్తున్న నిజమైన ఇమెయిల్ చిరునామా (ఉదా: name@gmail.com) నమోదు చేయండి.'
+          : 'Please enter a regular working email address (e.g. name@gmail.com or university email).';
+        return { valid: false, message: msg };
+      }
+      const [localPart, domainPart] = clean.toLowerCase().split('@');
+      
+      // Username constraints: at least 4 characters, must contain at least 2 letters
+      if (localPart.length < 4) {
+        return { valid: false, message: 'Email username must be at least 4 characters long.' };
+      }
+      const alphaCount = (localPart.match(/[a-z]/g) || []).length;
+      if (alphaCount < 2) {
+        return { valid: false, message: 'Email username must contain regular letters, not only numbers.' };
+      }
+
+      // Block placeholder, unused, or fake keywords
+      const bogusKeywords = ['unused', 'junk', 'fake', 'dummy', 'tester', 'test', 'sample', 'example', 'trash', 'qwerty', 'asdf', 'spam', 'none', 'null', 'temp'];
+      for (const kw of bogusKeywords) {
+        if (localPart.includes(kw) || domainPart.includes(kw)) {
+          return { valid: false, message: 'Please provide your actual regular working email, not an unused or test email address.' };
+        }
+      }
+
+      // Block throwaway/burner/disposable email domains
+      const disposableDomains = [
+        'mailinator.com', 'tempmail.com', 'guerrillamail.com', '10minutemail.com', 'sharklasers.com',
+        'throwawaymail.com', 'getairmail.com', 'yopmail.com', 'trashmail.com', 'dispostable.com',
+        'fake.com', 'unused.com', 'test.com', 'dummy.com', 'sample.com', 'example.com'
+      ];
+      if (disposableDomains.includes(domainPart)) {
+        return { valid: false, message: 'Temporary or disposable email domains are not permitted. Please use your regular working email.' };
+      }
+
+      // Legitimate major email providers or accredited institutional/corporate domains
+      const majorProviders = [
+        'gmail.com', 'yahoo.com', 'yahoo.co.in', 'outlook.com', 'hotmail.com',
+        'icloud.com', 'proton.me', 'protonmail.com', 'zoho.com', 'rediffmail.com',
+        'aol.com', 'live.com', 'yandex.com', 'msn.com', 'mail.com'
+      ];
+      const isMajor = majorProviders.includes(domainPart);
+      const isEducational = domainPart.endsWith('.edu') || domainPart.endsWith('.ac.in') || domainPart.endsWith('.edu.in') || domainPart.endsWith('.org') || domainPart.endsWith('.res.in');
+      const isRealDomain = domainPart.includes('.') && domainPart.split('.')[0].length >= 3;
+
+      if (!isMajor && !isEducational && !isRealDomain) {
+        return { valid: false, message: 'Please enter a recognized working email address (e.g. Gmail, Outlook, Yahoo or college email).' };
+      }
+
+      if (/^(.)\1{3,}@/.test(clean)) {
+        return { valid: false, message: 'Invalid email address with repeated characters.' };
+      }
+      return { valid: true, type: 'email', cleanValue: clean.toLowerCase() };
+    } else {
+      // Real-world 10-digit mobile number
+      const digitsOnly = clean.replace(/[^0-9]/g, '');
+      let tenDigit = digitsOnly;
+      if (digitsOnly.length === 12 && digitsOnly.startsWith('91')) {
+        tenDigit = digitsOnly.substring(2);
+      } else if (digitsOnly.length === 11 && digitsOnly.startsWith('0')) {
+        tenDigit = digitsOnly.substring(1);
+      }
+
+      if (tenDigit.length !== 10) {
+        const lang = this.getLanguage();
+        const msg = lang === 'te'
+          ? 'మొబైల్ నంబర్ సరిగ్గా 10 అంకెలు ఉండాలి (ఉదా: 9876543210).'
+          : 'Mobile number must be exactly 10 digits (e.g. 9876543210).';
+        return { valid: false, message: msg };
+      }
+
+      // Valid Indian telecom series starts with 6, 7, 8, or 9
+      if (!/^[6-9]/.test(tenDigit)) {
+        const lang = this.getLanguage();
+        const msg = lang === 'te'
+          ? 'భారతీయ మొబైల్ నంబర్లు 6, 7, 8, లేదా 9 తో ప్రారంభం కావాలి.'
+          : 'Regular working mobile numbers must start with 6, 7, 8, or 9.';
+        return { valid: false, message: msg };
+      }
+
+      // Block bogus repeated sequences like 0000000000, 1111111111, 9999999999
+      if (/^(\d)\1{9}$/.test(tenDigit)) {
+        return { valid: false, message: 'Please enter a genuine working mobile number, not repeated identical digits.' };
+      }
+
+      // Block 5 or more consecutive identical digits (e.g. 9800000123)
+      if (/(\d)\1{4,}/.test(tenDigit)) {
+        return { valid: false, message: 'Please provide a regular working mobile number, not an unused number with repeated digits.' };
+      }
+
+      // Block alternating repeating patterns (e.g. 9898989898, 9191919191, 9090909090)
+      const altPattern1 = tenDigit.substring(0, 2);
+      if (tenDigit === altPattern1.repeat(5)) {
+        return { valid: false, message: 'Alternating dummy numbers are not permitted. Please enter your active mobile number.' };
+      }
+
+      // Block repeated half-blocks (e.g. 9876598765)
+      if (tenDigit.substring(0, 5) === tenDigit.substring(5, 10)) {
+        return { valid: false, message: 'Please provide your actual active mobile number.' };
+      }
+
+      // Block sequential test numbers
+      const sequentialPlaceholders = [
+        '1234567890', '0123456789', '9876543210', '8765432109', '6789012345',
+        '9012345678', '9898989898', '9123456780', '9876501234'
+      ];
+      if (sequentialPlaceholders.includes(tenDigit)) {
+        return { valid: false, message: 'Please provide your active regular working mobile number, not a placeholder sequence.' };
+      }
+
+      return { valid: true, type: 'phone', cleanValue: tenDigit };
+    }
+  }
+
+  // --- Authentication System (Student, Professor, Parent) ---
+  registerUser({ name, identifier, password, role, year, major, dept, childCode, parentIdentifier, childIdentifier }) {
+    const valResult = this.validateRealWorldIdentifier(identifier);
+    if (!valResult.valid) {
+      return { success: false, message: valResult.message };
+    }
+    const cleanId = valResult.cleanValue;
+    const cleanPass = (password || '').trim();
+
+    if (!cleanPass) {
+      return { success: false, message: 'Please provide your password.' };
+    }
+    if (cleanPass.length < 4) {
+      return { success: false, message: 'Password must be at least 4 characters long.' };
+    }
+
+    if (!this.state.users) this.state.users = [];
+
+    // Strictly enforce global uniqueness: once registered, email/mobile cannot match any other account across students, professors, or parents!
+    const existing = this.state.users.find(u => (u.identifier || '').trim().toLowerCase() === cleanId);
+    if (existing) {
+      const lang = this.getLanguage();
+      const existingRole = existing.role.toUpperCase();
+      const msg = lang === 'te'
+        ? `ఈ ఇమెయిల్ లేదా మొబైల్ నంబర్ (${cleanId}) ఇప్పటికే '${existing.role}' ఖాతాగా నమోదు చేయబడింది. ఒకే వివరాలతో వేర్వేరు ఖాతాలు సృష్టించడం సాధ్యం కాదు. దయచేసి లాగిన్ అవ్వండి.`
+        : `This email or mobile number (${cleanId}) is already registered as a ${existingRole} account. Accounts cannot share the same email/mobile across roles. Please Sign In instead.`;
+      return { success: false, message: msg };
+    }
+
+    let studentCode = '';
+    if (role === 'student') {
+      const cleanPrefix = (name || 'STD').replace(/[^a-zA-Z]/g, '').substring(0, 5).toUpperCase() || 'STD';
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      studentCode = `ST-${cleanPrefix}-${randomNum}`;
+    }
+
+    let cleanParentId = '';
+    if (parentIdentifier) {
+      const parentVal = this.validateRealWorldIdentifier(parentIdentifier);
+      if (parentVal.valid) {
+        cleanParentId = parentVal.cleanValue;
+      }
+    }
+
+    const newUser = {
+      id: 'usr_' + Date.now(),
+      name: name || 'User',
+      identifier: cleanId,
+      password: cleanPass,
+      role: role || 'student',
+      avatar: `https://api.dicebear.com/7.x/${role === 'student' ? 'bottts' : 'identicon'}/svg?seed=${encodeURIComponent(name || cleanId)}`,
+      year: year || '1st Year',
+      major: major || 'General',
+      dept: dept || (role === 'professor' ? 'Department of Engineering' : ''),
+      title: role === 'professor' ? 'Faculty Professor' : '',
+      studentCode,
+      childCode: (childCode || childIdentifier || '').trim().toUpperCase(),
+      parentIdentifier: cleanParentId,
+      parentPhone: cleanParentId,
+      linkedParentId: null,
+      linkedStudentId: null,
+      studyStreakDays: 1,
+      attendancePercentage: 0, // Starts at 0% for new students. Earned dynamically based on enrolled classes, quizzes, and assignments!
+      averageGrade: 'Pending',
+      verified: role === 'professor' ? true : false,
+      enrolledClassIds: [],
+      rules: role === 'professor' ? [
+        'Maintain class attendance above 75%.',
+        'Submit assignments on time.',
+        'Follow academic honesty during quizzes.'
+      ] : [],
+      studyPlanner: null // Clean start: planner is generated ONLY after student selects their stream, branch, subjects, and hours!
+    };
+
+    // --- Automatic Student-Parent Bi-directional Connection ---
+    if (role === 'student' && cleanParentId) {
+      const matchedParent = this.state.users.find(u => u.role === 'parent' && (u.identifier || '').toLowerCase() === cleanParentId);
+      if (matchedParent) {
+        newUser.linkedParentId = matchedParent.id;
+        newUser.parentName = matchedParent.name;
+        matchedParent.linkedStudentId = newUser.id;
+        matchedParent.childCode = newUser.studentCode;
+      }
+    } else if (role === 'parent') {
+      const searchChild = (childIdentifier || childCode || '').trim();
+      let matchedStudent = null;
+
+      // 1. Auto-connect if student previously registered with this parent's mobile or email
+      matchedStudent = this.state.users.find(u => u.role === 'student' && (u.parentIdentifier === cleanId || u.parentPhone === cleanId));
+
+      // 2. Or connect if parent entered child's phone, email, or code
+      if (!matchedStudent && searchChild) {
+        matchedStudent = this.state.users.find(u => 
+          u.role === 'student' && (
+            (u.studentCode && u.studentCode.toUpperCase() === searchChild.toUpperCase()) ||
+            (u.identifier && u.identifier.toLowerCase() === searchChild.toLowerCase())
+          )
+        );
+      }
+
+      if (matchedStudent) {
+        newUser.linkedStudentId = matchedStudent.id;
+        newUser.childCode = matchedStudent.studentCode;
+        matchedStudent.linkedParentId = newUser.id;
+        matchedStudent.parentPhone = newUser.identifier;
+        matchedStudent.parentName = newUser.name;
+      }
+    }
+
+    this.state.users.push(newUser);
+    this.state.currentUser = newUser;
+    this.state.currentRole = role;
+    this.state.flowStep = 'app';
+
+    if (role === 'student') this.state.platformStats.totalStudents++;
+    if (role === 'professor') this.state.platformStats.totalProfessors++;
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    this.emit('userLoggedIn', newUser);
+    return { success: true, user: newUser };
+  }
+
+  // Auto-sync parent and student linkages
+  autoSyncParentStudentLinks(userId) {
+    const user = (this.state.users || []).find(u => u.id === userId);
+    if (!user) return;
+
+    if (user.role === 'parent' && !user.linkedStudentId) {
+      const student = (this.state.users || []).find(u => 
+        u.role === 'student' && (
+          u.parentIdentifier === user.identifier ||
+          u.parentPhone === user.identifier ||
+          (user.childCode && u.studentCode === user.childCode)
+        )
+      );
+      if (student) {
+        user.linkedStudentId = student.id;
+        user.childCode = student.studentCode;
+        student.linkedParentId = user.id;
+        student.parentPhone = user.identifier;
+        student.parentName = user.name;
+        this.saveState();
+      }
+    } else if (user.role === 'student' && !user.linkedParentId && user.parentIdentifier) {
+      const parent = (this.state.users || []).find(u => 
+        u.role === 'parent' && u.identifier === user.parentIdentifier
+      );
+      if (parent) {
+        user.linkedParentId = parent.id;
+        user.parentName = parent.name;
+        parent.linkedStudentId = user.id;
+        parent.childCode = user.studentCode;
+        this.saveState();
+      }
+    }
+  }
+
+  updateStudentParentContact(studentId, parentContact) {
+    const student = (this.state.users || []).find(u => u.id === studentId);
+    if (!student) return { success: false, message: 'Student not found.' };
+
+    const val = this.validateRealWorldIdentifier(parentContact);
+    if (!val.valid) return { success: false, message: val.message };
+
+    student.parentIdentifier = val.cleanValue;
+    student.parentPhone = val.cleanValue;
+
+    // Check if parent account exists and link immediately
+    const parent = (this.state.users || []).find(u => u.role === 'parent' && u.identifier === val.cleanValue);
+    if (parent) {
+      student.linkedParentId = parent.id;
+      student.parentName = parent.name;
+      parent.linkedStudentId = student.id;
+      parent.childCode = student.studentCode;
+    }
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { 
+      success: true, 
+      linked: !!parent, 
+      parentName: parent ? parent.name : null,
+      message: parent ? 'Parent automatically connected!' : 'Parent contact saved for automated alerts.' 
+    };
+  }
+
+  loginUser({ identifier, password, role }) {
+    const valResult = this.validateRealWorldIdentifier(identifier);
+    if (!valResult.valid) {
+      return { success: false, message: valResult.message };
+    }
+    const cleanId = valResult.cleanValue;
+    const cleanPass = (password || '').trim();
+
+    if (!cleanPass) {
+      return { success: false, message: 'Please enter your password.' };
+    }
+
+    if (!this.state.users) this.state.users = [];
+
+    // Find user by identifier and role
+    const user = this.state.users.find(u => (u.identifier || '').trim().toLowerCase() === cleanId && u.role === role);
+    if (!user) {
+      // Check if user is registered under a different role
+      const otherUser = this.state.users.find(u => (u.identifier || '').trim().toLowerCase() === cleanId);
+      if (otherUser) {
+        return { 
+          success: false, 
+          message: `This email/mobile is registered as a ${otherUser.role.toUpperCase()}. Please select the '${otherUser.role}' role above to log in.` 
+        };
+      }
+      return { success: false, message: 'No registered account found with this email or mobile. Please Register first.' };
+    }
+
+    if (user.password !== cleanPass) {
+      return { success: false, message: 'Incorrect password entered. Click "Forgot Password?" below to reset.' };
+    }
+
+    // Auto-sync parent-student relationship upon login
+    this.autoSyncParentStudentLinks(user.id);
+
+    this.state.currentUser = user;
+    this.state.currentRole = role;
+    this.state.flowStep = 'app';
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    this.emit('userLoggedIn', user);
+    return { success: true, user };
+  }
+
+  resetPassword({ identifier, newPassword }) {
+    const valResult = this.validateRealWorldIdentifier(identifier);
+    if (!valResult.valid) {
+      return { success: false, message: valResult.message };
+    }
+    const cleanId = valResult.cleanValue;
+    const cleanPass = (newPassword || '').trim();
+
+    if (!cleanPass) {
+      return { success: false, message: 'Please provide both your registered email/mobile and a new password.' };
+    }
+
+    if (cleanPass.length < 4) {
+      return { success: false, message: 'Password must be at least 4 characters long.' };
+    }
+
+    if (!this.state.users) this.state.users = [];
+    const user = this.state.users.find(u => (u.identifier || '').trim().toLowerCase() === cleanId);
+    if (!user) {
+      return { success: false, message: 'No registered account found with this email or mobile number.' };
+    }
+
+    user.password = cleanPass;
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, user, message: 'Password has been reset successfully! You can now log in.' };
+  }
+
+  changePassword(userId, oldPassword, newPassword) {
+    const user = (this.state.users || []).find(u => u.id === userId);
+    if (!user) return { success: false, message: 'User not found.' };
+
+    const cleanOld = (oldPassword || '').trim();
+    const cleanNew = (newPassword || '').trim();
+
+    if (user.password !== cleanOld) {
+      return { success: false, message: 'Current password does not match.' };
+    }
+    if (cleanNew.length < 4) {
+      return { success: false, message: 'New password must be at least 4 characters long.' };
+    }
+
+    user.password = cleanNew;
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, message: 'Password changed successfully!' };
+  }
+
+  logout() {
+    this.state.currentUser = null;
+    this.state.currentRole = null;
+    this.state.flowStep = 'lang_select';
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    this.emit('userLoggedOut');
+    this.emit('flowChanged', 'lang_select');
+  }
+
+  // --- Professors Management (The Platform Authority) ---
+  getProfessors() {
+    return (this.state.users || []).filter(u => u.role === 'professor');
+  }
+
+  getProfessor(id) {
+    return (this.state.users || []).find(u => u.id === id && u.role === 'professor');
+  }
+
+  getEnrolledProfessorRules(studentId) {
+    const student = (this.state.users || []).find(u => u.id === studentId) || this.getCurrentUser();
+    const enrolledIds = student ? (student.enrolledClassIds || []) : [];
+    if (enrolledIds.length === 0) {
+      return []; // No rules if student has not enrolled with a mentor professor yet!
+    }
+
+    const classes = (this.state.classes || []).filter(c => enrolledIds.includes(c.id));
+    const rules = [];
+    const profs = this.getProfessors();
+    
+    classes.forEach(c => {
+      const p = profs.find(prof => prof.id === c.professorId);
+      if (p && p.rules) {
+        rules.push({ 
+          professorId: p.id,
+          professorName: p.name, 
+          classTitle: c.title,
+          joinCode: c.joinCode, 
+          rules: p.rules.concat(c.rules || []) 
+        });
+      }
+    });
+
+    return rules;
+  }
+
+  // --- AI Doubt Solver & Direct Escalation to Chosen Professor ---
+  getDoubts() { return this.state.doubts || []; }
+  
+  getStudentDoubts(studentId) {
+    if (!studentId) return [];
+    return (this.state.doubts || []).filter(d => d.studentId === studentId);
+  }
+
+  getProfessorPendingDoubts(profId) {
+    return (this.state.doubts || []).filter(d => d.status === 'escalated' && d.professorId === profId);
+  }
+
+  askDoubt(studentId, question, subject = '') {
+    const user = this.getCurrentUser();
+    if (!user) return null;
+
+    const lang = this.getLanguage();
+    let aiAnswer = '';
+
+    // Step-by-Step Multilingual AI Solutions (AI Engine)
+    if (lang === 'te') {
+      aiAnswer = `✨ AI దశలవారీ విశ్లేషణ:\n` +
+        `1. ప్రాథమిక సూత్రం: "${question}" అంశానికి సంబంధించిన కీలక భావనలు మరియు నిర్వచనం.\n` +
+        `2. విశ్లేషణ & విడమరచడం: ప్రశ్నను ముఖ్యమైన దశలుగా విభజించి, మూల సూత్రాలను వర్తింపజేయడం.\n` +
+        `3. ఆచరణాత్మక ఉదాహరణ: స్పష్టమైన గణన లేదా ఆచరణాత్మక విధానంతో దశలవారీగా పరిష్కరించడం.\n` +
+        `4. పరీక్షల ముఖ్యాంశాలు: సాధారణంగా విద్యార్థులు చేసే తప్పులు మరియు సమర్థవంతమైన షార్ట్‌కట్‌లు.\n` +
+        `📌 మరింత వివరణ లేదా ప్రొఫెసర్ ప్రత్యక్ష సమీక్ష కోసం, దిగువన ఉన్న జాబితా నుండి మీకు నచ్చిన నిర్దిష్ట ప్రొఫెసర్‌ను ఎంచుకుని "ప్రొఫెసర్‌కు పంపండి" క్లిక్ చేయండి.`;
+    } else if (lang === 'hi') {
+      aiAnswer = `✨ AI चरण-दर-चरण समाधान:\n` +
+        `1. मुख्य संकल्पना: "${question}" से संबंधित मूलभूत सिद्धांत और परिभाषा।\n` +
+        `2. चरणबद्ध विश्लेषण: प्रश्न को छोटे घटकों में विभाजित कर हल की दिशा तय करना।\n` +
+        `3. व्यावहारिक समाधान: उदाहरण के साथ तार्किक प्रमाण या गणना।\n` +
+        `4. महत्वपूर्ण बिंदु: परीक्षा उपयोगी सूत्र और सीमाएं।\n` +
+        `📌 यदि आपको संकाय स्पष्टीकरण चाहिए, तो नीचे अपनी पसंद के प्रोफेसर का चयन कर "प्रोफेसर को भेजें" दबाएं।`;
+    } else if (lang === 'ta') {
+      aiAnswer = `✨ AI படிபடியான விளக்கம்:\n` +
+        `1. அடிப்படைக் கோட்பாடு: "${question}" தொடர்பான அடிப்படை அறிவியல்/கணித உண்மை.\n` +
+        `2. படிபடியான தீர்வு: கேள்வியை எளிய கூறுகளாக பகுத்தாய்ந்து விடை காணுதல்.\n` +
+        `3. செய்முறை விளக்கம்: நடைமுறை உதாரணத்துடன் தீர்வு.\n` +
+        `4. முக்கிய குறிப்பு: தேர்வுக் குறிப்புகள் மற்றும் தவிர்க்க வேண்டிய தவறுகள்.\n` +
+        `📌 பேராசிரியரின் நேரடி விளக்கம் தேவைப்பட்டால், பேராசிரியரைத் தேர்ந்தெடுத்து அனுப்பவும்.`;
+    } else {
+      aiAnswer = `✨ AI Step-by-Step Solution:\n` +
+        `1. Core Principle: Definition and foundational logic governing "${question}".\n` +
+        `2. Systematic Decomposition: Breaking the problem into inputs, constraints, and algorithmic equations.\n` +
+        `3. Detailed Walkthrough: Step-by-step mathematical proof or technical implementation.\n` +
+        `4. Edge Cases & Exam Insights: Common student pitfalls, complexity analysis, and verification.\n` +
+        `📌 If you need human faculty clarification, select your designated professor below and click "Escalate to Professor".`;
+    }
+
+    const newDoubt = {
+      id: 'dbt_' + Date.now(),
+      studentId: user.id,
+      studentName: user.name,
+      question,
+      subject: subject || 'General Academic',
+      language: lang,
+      createdAt: new Date().toISOString().replace('T', ' ').substring(0, 16),
+      aiAnswer,
+      status: 'ai',
+      professorId: null,
+      professorName: '',
+      professorReply: ''
+    };
+
+    if (!this.state.doubts) this.state.doubts = [];
+    this.state.doubts.unshift(newDoubt);
+    this.state.platformStats.doubtsSolvedByAI++;
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return newDoubt;
+  }
+
+  // Direct escalation to a STUDENT-SELECTED Professor
+  escalateDoubtToProfessor(doubtId, selectedProfessorId) {
+    const doubt = (this.state.doubts || []).find(d => d.id === doubtId);
+    if (!doubt) return { success: false, message: 'Doubt not found' };
+
+    const prof = this.getProfessor(selectedProfessorId);
+    if (!prof) return { success: false, message: 'Selected professor not found' };
+
+    doubt.status = 'escalated';
+    doubt.professorId = prof.id;
+    doubt.professorName = prof.name;
+    doubt.escalatedAt = new Date().toISOString().replace('T', ' ').substring(0, 16);
+
+    this.state.platformStats.doubtsEscalatedToProf++;
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, professor: prof };
+  }
+
+  resolveDoubt(doubtId, professorReply) {
+    const doubt = (this.state.doubts || []).find(d => d.id === doubtId);
+    if (!doubt) return;
+
+    doubt.status = 'resolved';
+    doubt.professorReply = professorReply;
+    doubt.resolvedAt = new Date().toISOString().replace('T', ' ').substring(0, 16);
+    this.saveState();
+    this.emit('stateChanged', this.state);
+  }
+
+  // Primary First-Preference: Send Doubt Directly to Student-Selected Professor
+  askProfessorDoubt(studentId, selectedProfessorId, question, subject = '') {
+    const user = this.getCurrentUser();
+    if (!user) return { success: false, message: 'Please sign in to ask a doubt.' };
+
+    const prof = this.getProfessor(selectedProfessorId);
+    if (!prof) return { success: false, message: 'Please select a registered professor.' };
+
+    const cleanQ = (question || '').trim();
+    if (!cleanQ) return { success: false, message: 'Please type your academic question or doubt.' };
+
+    const lang = this.getLanguage();
+    const newDoubt = {
+      id: 'dbt_' + Date.now(),
+      studentId: user.id,
+      studentName: user.name,
+      question: cleanQ,
+      subject: subject || (prof.dept || 'Academic Course'),
+      language: lang,
+      createdAt: new Date().toISOString().replace('T', ' ').substring(0, 16),
+      aiAnswer: '',
+      status: 'escalated', // First preference: queued directly in professor's inbox
+      professorId: prof.id,
+      professorName: prof.name,
+      escalatedAt: new Date().toISOString().replace('T', ' ').substring(0, 16),
+      professorReply: '',
+      resolvedAt: ''
+    };
+
+    if (!this.state.doubts) this.state.doubts = [];
+    this.state.doubts.unshift(newDoubt);
+    this.state.platformStats.doubtsEscalatedToProf++;
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, doubt: newDoubt, professor: prof };
+  }
+
+  // Next-Option: Generate AI step-by-step solution for any question or while waiting for professor
+  generateAIDoubtAnswer(doubtId) {
+    const doubt = (this.state.doubts || []).find(d => d.id === doubtId);
+    if (!doubt) return { success: false, message: 'Doubt not found.' };
+
+    const lang = doubt.language || this.getLanguage();
+    const question = doubt.question;
+    let aiAnswer = '';
+
+    if (lang === 'te') {
+      aiAnswer = `✨ AI దశలవారీ విశ్లేషణ:\n` +
+        `1. ప్రాథమిక సూత్రం: "${question}" అంశానికి సంబంధించిన కీలక భావనలు మరియు నిర్వచనం.\n` +
+        `2. విశ్లేషణ & విడమరచడం: ప్రశ్నను ముఖ్యమైన దశలుగా విభజించి, మూల సూత్రాలను వర్తింపజేయడం.\n` +
+        `3. ఆచరణాత్మక ఉదాహరణ: స్పష్టమైన గణన లేదా ఆచరణాత్మక విధానంతో దశలవారీగా పరిష్కరించడం.\n` +
+        `4. పరీక్షల ముఖ్యాంశాలు: సాధారణంగా విద్యార్థులు చేసే తప్పులు మరియు సమర్థవంతమైన షార్ట్‌కట్‌లు.\n` +
+        `📌 మీ ఎంపిక చేసిన ప్రొఫెసర్ సమాధానం ఇచ్చిన వెంటనే వారి ప్రత్యక్ష వివరణ కూడా ఇక్కడ కనిపిస్తుంది.`;
+    } else if (lang === 'hi') {
+      aiAnswer = `✨ AI चरण-दर-चरण समाधान:\n` +
+        `1. मुख्य संकल्पना: "${question}" से संबंधित मूलभूत सिद्धांत और परिभाषा।\n` +
+        `2. चरणबद्ध विश्लेषण: प्रश्न को छोटे घटकों में विभाजित कर हल की दिशा तय करना।\n` +
+        `3. व्यावहारिक समाधान: उदाहरण के साथ तार्किक प्रमाण या गणना।\n` +
+        `4. महत्वपूर्ण बिंदु: परीक्षा उपयोगी सूत्र और सीमाएं।\n` +
+        `📌 आपके चयनित प्रोफेसर द्वारा उत्तर दिए जाने पर उनका प्रत्यक्ष स्पष्टीकरण भी यहाँ प्रदर्शित होगा।`;
+    } else if (lang === 'ta') {
+      aiAnswer = `✨ AI படிபடியான விளக்கம்:\n` +
+        `1. அடிப்படைக் கோட்பாடு: "${question}" தொடர்பான அடிப்படை அறிவியல்/கணித உண்மை.\n` +
+        `2. படிபடியான தீர்வு: கேள்வியை எளிய கூறுகளாக பகுத்தாய்ந்து விடை காணுதல்.\n` +
+        `3. செய்முறை விளக்கம்: நடைமுறை உதாரணத்துடன் தீர்வு.\n` +
+        `4. முக்கிய குறிப்பு: தேர்வுக் குறிப்புகள் மற்றும் தவிர்க்க வேண்டிய தவறுகள்.\n` +
+        `📌 நீங்கள் தேர்ந்தெடுத்த பேராசிரியரின் பதிலும் விரைவில் இங்கே இணைக்கப்படும்.`;
+    } else {
+      aiAnswer = `✨ AI Step-by-Step Solution:\n` +
+        `1. Core Principle: Foundational theorem and underlying definitions governing "${question}".\n` +
+        `2. Step-by-Step Breakdown: Logical decomposition of requirements, assumptions, and formulas.\n` +
+        `3. Applied Demonstration: Concrete calculation, code example, or conceptual derivation.\n` +
+        `4. Key Exam Pitfalls: Common student mistakes and high-yield shortcuts.\n` +
+        `📌 Your designated professor has also received this question in their inbox and their verified response will appear once answered.`;
+    }
+
+    doubt.aiAnswer = aiAnswer;
+    this.state.platformStats.doubtsSolvedByAI++;
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, aiAnswer };
+  }
+
+  // Update profile picture from gallery / file upload or preset avatar
+  updateUserProfileAvatar(userId, avatarUrl) {
+    if (!userId || !avatarUrl) return { success: false, message: 'Invalid avatar data.' };
+    const user = (this.state.users || []).find(u => u.id === userId);
+    if (!user) return { success: false, message: 'User not found.' };
+
+    user.avatar = avatarUrl;
+    if (this.state.currentUser && this.state.currentUser.id === userId) {
+      this.state.currentUser.avatar = avatarUrl;
+    }
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, user };
+  }
+
+  // --- Classes & Enrollment (Managed by Professors) ---
+  getClasses() { return this.state.classes || []; }
+  getClass(id) { return (this.state.classes || []).find(c => c.id === id); }
+  
+  getProfessorClasses(profId) {
+    if (!profId) return [];
+    return (this.state.classes || []).filter(c => c.professorId === profId);
+  }
+
+  getStudentEnrolledClasses(studentId) {
+    if (!studentId) return [];
+    return (this.state.classes || []).filter(c => c.enrolledStudentIds && c.enrolledStudentIds.includes(studentId));
+  }
+
+  createClass(title, schedule, rulesText = '') {
+    const user = this.getCurrentUser();
+    const randomCode = Math.floor(100 + Math.random() * 900);
+    const joinCode = `CLS${randomCode}`;
+
+    const rules = rulesText 
+      ? rulesText.split('\n').map(r => r.trim()).filter(Boolean)
+      : ['Follow professor guidelines and submit weekly work on schedule.'];
+
+    const newClass = {
+      id: 'cls_' + Date.now(),
+      joinCode,
+      title,
+      professorId: user ? user.id : 'prof_default',
+      professorName: user ? user.name : 'Faculty Professor',
+      schedule: schedule || 'Mon, Wed (10:00 AM - 11:30 AM)',
+      enrolledStudentIds: [],
+      rules,
+      materials: []
+    };
+
+    if (!this.state.classes) this.state.classes = [];
+    this.state.classes.unshift(newClass);
+    this.state.platformStats.totalClasses = this.state.classes.length;
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return newClass;
+  }
+
+  joinClassByCode(studentId, code) {
+    const cleanCode = (code || '').trim().toUpperCase();
+    const targetClass = (this.state.classes || []).find(c => c.joinCode === cleanCode);
+    if (!targetClass) {
+      return { success: false, message: 'Invalid class join code. Please request the verified code from your professor.' };
+    }
+
+    if (!targetClass.enrolledStudentIds) targetClass.enrolledStudentIds = [];
+    if (!targetClass.enrolledStudentIds.includes(studentId)) {
+      targetClass.enrolledStudentIds.push(studentId);
+    }
+
+    const student = (this.state.users || []).find(u => u.id === studentId) || this.getCurrentUser();
+    if (student) {
+      if (!student.enrolledClassIds) student.enrolledClassIds = [];
+      if (!student.enrolledClassIds.includes(targetClass.id)) {
+        student.enrolledClassIds.push(targetClass.id);
+      }
+      this.calculateStudentAttendance(student.id);
+    }
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, class: targetClass };
+  }
+
+  uploadMaterial(classId, title, type, url) {
+    const cls = this.getClass(classId);
+    if (!cls) return;
+
+    const newMaterial = {
+      id: 'mat_' + Date.now(),
+      title,
+      type,
+      url: url || '#',
+      date: new Date().toISOString().substring(0, 10)
+    };
+
+    if (!cls.materials) cls.materials = [];
+    cls.materials.unshift(newMaterial);
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return newMaterial;
+  }
+
+  // --- Deletion Capabilities (Professor Classes, Live Sessions, Quizzes, Assignments, Profile) ---
+  deleteClass(classId) {
+    if (!classId) return { success: false, message: 'Class ID is required.' };
+    const classIdx = (this.state.classes || []).findIndex(c => c.id === classId);
+    if (classIdx === -1) return { success: false, message: 'Class not found.' };
+
+    const targetClass = this.state.classes[classIdx];
+
+    // Remove class from classes list
+    this.state.classes.splice(classIdx, 1);
+    this.state.platformStats.totalClasses = this.state.classes.length;
+
+    // Remove this class from all students' enrolledClassIds & recalculate attendance
+    (this.state.users || []).forEach(u => {
+      if (u.role === 'student' && u.enrolledClassIds && u.enrolledClassIds.includes(classId)) {
+        u.enrolledClassIds = u.enrolledClassIds.filter(id => id !== classId);
+        this.calculateStudentAttendance(u.id);
+      }
+    });
+
+    // Cascade delete: remove all live sessions for this class
+    if (this.state.liveSessions) {
+      this.state.liveSessions = this.state.liveSessions.filter(s => s.classId !== classId);
+    }
+
+    // Cascade delete: remove all quizzes for this class
+    if (this.state.quizzes) {
+      this.state.quizzes = this.state.quizzes.filter(q => q.classId !== classId);
+    }
+
+    // Cascade delete: remove all assignments for this class
+    if (this.state.assignments) {
+      this.state.assignments = this.state.assignments.filter(a => a.classId !== classId);
+    }
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, message: `Class "${targetClass.title}" and its associated activities were deleted.` };
+  }
+
+  deleteLiveSession(sessionId) {
+    if (!sessionId) return { success: false, message: 'Session ID is required.' };
+    const initialLen = (this.state.liveSessions || []).length;
+    this.state.liveSessions = (this.state.liveSessions || []).filter(s => s.id !== sessionId);
+    if (this.state.liveSessions.length === initialLen) return { success: false, message: 'Live session not found.' };
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, message: 'Live lecture removed.' };
+  }
+
+  deleteQuiz(quizId) {
+    if (!quizId) return { success: false, message: 'Quiz ID is required.' };
+    const initialLen = (this.state.quizzes || []).length;
+    this.state.quizzes = (this.state.quizzes || []).filter(q => q.id !== quizId);
+    if (this.state.quizzes.length === initialLen) return { success: false, message: 'Quiz not found.' };
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, message: 'Class quiz removed.' };
+  }
+
+  deleteAssignment(assignmentId) {
+    if (!assignmentId) return { success: false, message: 'Assignment ID is required.' };
+    const initialLen = (this.state.assignments || []).length;
+    this.state.assignments = (this.state.assignments || []).filter(a => a.id !== assignmentId);
+    if (this.state.assignments.length === initialLen) return { success: false, message: 'Assignment not found.' };
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, message: 'Assignment removed.' };
+  }
+
+  deleteProfessor(professorId) {
+    if (!professorId) return { success: false, message: 'Professor ID is required.' };
+    const profIdx = (this.state.users || []).findIndex(u => u.id === professorId && u.role === 'professor');
+    if (profIdx === -1) return { success: false, message: 'Professor account not found.' };
+
+    const prof = this.state.users[profIdx];
+
+    // Find all classes created by this professor and cascade delete them
+    const profClasses = (this.state.classes || []).filter(c => c.professorId === professorId);
+    profClasses.forEach(c => {
+      this.deleteClass(c.id);
+    });
+
+    // Remove any live sessions by this professor
+    if (this.state.liveSessions) {
+      this.state.liveSessions = this.state.liveSessions.filter(s => s.professorId !== professorId);
+    }
+
+    // Remove any quizzes by this professor
+    if (this.state.quizzes) {
+      this.state.quizzes = this.state.quizzes.filter(q => q.professorId !== professorId);
+    }
+
+    // Remove any assignments by this professor
+    if (this.state.assignments) {
+      this.state.assignments = this.state.assignments.filter(a => a.professorId !== professorId);
+    }
+
+    // Remove any doubts assigned to this professor
+    if (this.state.doubts) {
+      this.state.doubts = this.state.doubts.filter(d => d.professorId !== professorId);
+    }
+
+    // Remove professor from users
+    this.state.users.splice(profIdx, 1);
+    this.state.platformStats.totalProfessors = (this.state.users || []).filter(u => u.role === 'professor').length;
+
+    const isCurrent = this.state.currentUser && this.state.currentUser.id === professorId;
+    if (isCurrent) {
+      this.state.currentUser = null;
+      this.state.currentRole = null;
+      this.state.flowStep = 'lang_select';
+      this.emit('userLoggedOut');
+    }
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, message: `Professor profile and all created classes were deleted.` };
+  }
+
+  unenrollStudentFromClass(studentId, classId) {
+    const student = (this.state.users || []).find(u => u.id === studentId);
+    const cls = (this.state.classes || []).find(c => c.id === classId);
+    if (!student || !cls) return { success: false, message: 'Class or student not found.' };
+
+    student.enrolledClassIds = (student.enrolledClassIds || []).filter(id => id !== classId);
+    cls.enrolledStudentIds = (cls.enrolledStudentIds || []).filter(id => id !== studentId);
+    this.calculateStudentAttendance(studentId);
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, message: `Left class "${cls.title}".` };
+  }
+
+  getStudentAssignments(studentId) {
+    const student = (this.state.users || []).find(u => u.id === studentId) || this.getCurrentUser();
+    const enrolledIds = student ? (student.enrolledClassIds || []) : [];
+    if (enrolledIds.length === 0) return [];
+    return (this.state.assignments || []).filter(a => enrolledIds.includes(a.classId));
+  }
+
+  // --- Live Sessions (Conducted Exclusively by Professors) ---
+  getLiveSessions() { return this.state.liveSessions || []; }
+
+  getStudentLiveSessions(studentId) {
+    const student = (this.state.users || []).find(u => u.id === studentId) || this.getCurrentUser();
+    const enrolledIds = student ? (student.enrolledClassIds || []) : [];
+    if (enrolledIds.length === 0) return [];
+    return (this.state.liveSessions || []).filter(s => enrolledIds.includes(s.classId));
+  }
+
+  getProfessorLiveSessions(profId) {
+    if (!profId) return [];
+    return (this.state.liveSessions || []).filter(s => s.professorId === profId);
+  }
+
+  scheduleLiveSession(professorId, classId, title, date, time, meetUrl) {
+    const prof = this.getProfessor(professorId) || this.getCurrentUser();
+    const cls = this.getClass(classId);
+
+    const newSession = {
+      id: 'live_' + Date.now(),
+      professorId: prof ? prof.id : 'prof_default',
+      professorName: prof ? prof.name : 'Faculty Member',
+      classId: classId || '',
+      classTitle: cls ? cls.title : 'Department Lecture',
+      title: title || 'Live Faculty Interactive Session',
+      date: date || new Date().toISOString().substring(0, 10),
+      time: time || '04:00 PM - 05:00 PM',
+      meetUrl: meetUrl || 'https://meet.google.com/edu-live-session',
+      status: 'scheduled'
+    };
+
+    if (!this.state.liveSessions) this.state.liveSessions = [];
+    this.state.liveSessions.unshift(newSession);
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return newSession;
+  }
+
+  // --- Quizzes (Created & Published Strictly by Course Professors) ---
+  getQuizzes() { return this.state.quizzes || []; }
+
+  getStudentProfessorQuizzes(studentId) {
+    const student = (this.state.users || []).find(u => u.id === studentId) || this.getCurrentUser();
+    const enrolledIds = student ? (student.enrolledClassIds || []) : [];
+    if (enrolledIds.length === 0) return [];
+    return (this.state.quizzes || []).filter(q => enrolledIds.includes(q.classId));
+  }
+
+  getProfessorQuizzes(profId) {
+    if (!profId) return [];
+    return (this.state.quizzes || []).filter(q => q.professorId === profId);
+  }
+  
+  createProfessorQuiz(professorId, classId, title, timeLimitMinutes, questions) {
+    const prof = this.getProfessor(professorId) || this.getCurrentUser();
+    const cls = this.getClass(classId);
+    const newQuiz = {
+      id: 'prof_qz_' + Date.now(),
+      classId: classId || '',
+      classTitle: cls ? cls.title : 'Class Quiz',
+      professorId: prof ? prof.id : 'prof_default',
+      professorName: prof ? prof.name : 'Professor',
+      title: title || 'Professor Class Quiz',
+      timeLimitMinutes: Number(timeLimitMinutes) || 15,
+      questions: questions || []
+    };
+
+    if (!this.state.quizzes) this.state.quizzes = [];
+    this.state.quizzes.unshift(newQuiz);
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return newQuiz;
+  }
+
+  submitQuizAttempt(quizId, answers) {
+    const quiz = (this.state.quizzes || []).find(q => q.id === quizId);
+    if (!quiz) return null;
+
+    let score = 0;
+    const total = quiz.questions.length;
+    quiz.questions.forEach((q, idx) => {
+      if (answers[idx] === q.correctIndex) score++;
+    });
+
+    const percent = Math.round((score / total) * 100);
+    return { score, total, percent };
+  }
+
+  // --- Dynamic AI Mock Test Generator (Changes Every Time, 20 Questions Minimum, Topic-Specific) ---
+  generateAIMockTest(level, subjectName) {
+    if (typeof QuestionEngine !== 'undefined' && QuestionEngine.generate) {
+      return QuestionEngine.generate(level, subjectName);
+    }
+
+    // Fallback if QuestionEngine is not yet in scope
+    const sub = subjectName || 'Core Engineering';
+    const questions = [];
+    for (let i = 1; i <= 20; i++) {
+      questions.push({
+        question: `[AI Dynamic #${i}] In ${sub}, what is a foundational analytical principle or design benchmark?`,
+        options: [
+          `Verified theoretical theorems and boundary conditions in ${sub}`,
+          `Unchecked algorithmic assumptions`,
+          `Arbitrary heuristic values without proof`,
+          `Non-standard metric deviations`
+        ],
+        correctIndex: 0,
+        explanation: `Comprehensive examination in ${sub} requires validated theoretical formulations, boundary compliance, and structured proofs.`
+      });
+    }
+
+    return {
+      id: 'aimock_' + Date.now(),
+      title: `Dynamic AI Mock Test: ${sub} (20 Questions)`,
+      subject: sub,
+      level: level || 'btech',
+      timeLimitMinutes: 20,
+      totalQuestions: 20,
+      generatedAt: new Date().toISOString(),
+      questions
+    };
+  }
+
+  // --- Smart Study Planner (Customized for 1 to 12th, B.Tech, and Diploma) ---
+  getAcademicCurriculum() {
+    return ACADEMIC_LEVELS;
+  }
+
+  generateCustomStudyPlan(studentId, { level, gradeOrBranch, year, selectedSubjects, dailyHours, examName, examDate }) {
+    const student = (this.state.users || []).find(u => u.id === studentId) || this.getCurrentUser();
+    if (!student) return { success: false, message: 'Student account not found.' };
+
+    const hours = Number(dailyHours);
+    const validLevel = (level || '').trim();
+    const validGrade = (gradeOrBranch || '').trim();
+    const validDate = (examDate || '').trim();
+    const subjects = Array.isArray(selectedSubjects) ? selectedSubjects.filter(Boolean) : [];
+
+    // Strict validation: if ANY ONE of the required fields is not selected, DO NOT generate study planner!
+    if (!validLevel || !validGrade || subjects.length === 0 || !hours || hours <= 0 || !validDate) {
+      const lang = this.getLanguage();
+      const msg = lang === 'te'
+        ? 'దయచేసి అన్ని వివరాలు (విద్యా స్థాయి, గ్రేడ్/బ్రాంచ్, కనీసం ఒక సబ్జెక్ట్, రోజువారీ అధ్యయన గంటలు మరియు పరీక్ష తేదీ) ఎంచుకోండి. అప్పుడే స్టడీ ప్లానర్ రూపొందించబడుతుంది.'
+        : 'Please select all required fields (Academic Stream, Grade/Branch, at least 1 Subject, Daily Hours, and Target Exam Date) before generating your timetable.';
+      return { success: false, message: msg };
+    }
+
+    // Generate intelligent subject-wise timetable blocks
+    const schedule = [];
+    const timeSlots = [
+      { start: '06:00 AM', end: '07:30 AM' },
+      { start: '05:00 PM', end: '06:30 PM' },
+      { start: '07:00 PM', end: '08:30 PM' },
+      { start: '09:00 PM', end: '10:00 PM' }
+    ];
+
+    subjects.forEach((subj, idx) => {
+      const slot = timeSlots[idx % timeSlots.length];
+      schedule.push({
+        time: `${slot.start} - ${slot.end}`,
+        subject: subj,
+        topic: `Professor lecture notes, derivations, and practice problems in ${subj}`,
+        done: false
+      });
+    });
+
+    // Add daily AI dynamic mock test session
+    schedule.push({
+      time: '08:30 PM - 09:00 PM',
+      subject: 'Daily Mock Test & AI Review',
+      topic: 'Attempt dynamic AI mock test (20 questions) and review step-by-step solutions',
+      done: false
+    });
+
+    const planner = {
+      level: validLevel,
+      gradeOrBranch: validGrade,
+      year: year || '',
+      subjects,
+      examName: examName || `${validGrade} Examination`,
+      examDate: validDate,
+      dailyHours: hours,
+      schedule
+    };
+
+    student.studyPlanner = planner;
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return { success: true, planner };
+  }
+
+  toggleStudyTask(studentId, taskIndex) {
+    const student = (this.state.users || []).find(u => u.id === studentId) || this.getCurrentUser();
+    if (student && student.studyPlanner && student.studyPlanner.schedule[taskIndex]) {
+      student.studyPlanner.schedule[taskIndex].done = !student.studyPlanner.schedule[taskIndex].done;
+      this.calculateStudentAttendance(student.id);
+      this.saveState();
+      this.emit('stateChanged', this.state);
+    }
+  }
+
+  // --- Dynamic Academic Attendance & Performance Calculation ---
+  calculateStudentAttendance(studentId) {
+    const student = (this.state.users || []).find(u => u.id === studentId && u.role === 'student');
+    if (!student) return 0;
+
+    let points = 0;
+
+    // 1. Enrolled in Professor Classes (Max 25%)
+    const enrolledCount = (student.enrolledClassIds || []).length;
+    if (enrolledCount > 0) {
+      points += Math.min(25, 15 + (enrolledCount - 1) * 10);
+    }
+
+    // 2. Completed Quizzes (Professor Quizzes & Dynamic AI Mock Tests) (Max 35%)
+    const notifs = this.getParentNotifications(student.studentCode);
+    const quizNotifs = notifs.filter(n => n.type === 'quiz');
+    if (quizNotifs.length > 0) {
+      const avgQuizPct = quizNotifs.reduce((sum, q) => sum + (q.percentage || 0), 0) / quizNotifs.length;
+      const attemptPoints = Math.min(20, quizNotifs.length * 10);
+      const scorePoints = Math.round((avgQuizPct / 100) * 15);
+      points += (attemptPoints + scorePoints);
+    }
+
+    // 3. Submitted and Graded Assignments (Max 25%)
+    const asgNotifs = notifs.filter(n => n.type === 'assignment_submitted' || n.type === 'assignment_graded');
+    const gradedNotifs = notifs.filter(n => n.type === 'assignment_graded');
+    if (asgNotifs.length > 0) {
+      const subPoints = Math.min(15, asgNotifs.length * 10);
+      const gradePoints = gradedNotifs.length > 0
+        ? Math.round((gradedNotifs.reduce((sum, g) => sum + (g.marks || 0), 0) / gradedNotifs.length / 100) * 10)
+        : 5;
+      points += (subPoints + gradePoints);
+    }
+
+    // 4. Daily Study Planner Consistency & Completed Tasks (Max 15%)
+    if (student.studyPlanner && Array.isArray(student.studyPlanner.schedule)) {
+      const tasks = student.studyPlanner.schedule;
+      const doneCount = tasks.filter(t => t.done).length;
+      if (tasks.length > 0) {
+        points += Math.round((doneCount / tasks.length) * 15);
+      }
+    } else if (student.studyStreakDays && student.studyStreakDays > 1) {
+      points += Math.min(15, student.studyStreakDays * 5);
+    }
+
+    const finalPct = Math.min(100, Math.round(points));
+    student.attendancePercentage = finalPct;
+
+    // Dynamically update average grade based on quiz and assignment performance
+    const scores = [];
+    quizNotifs.forEach(q => { if (q.percentage !== undefined) scores.push(q.percentage); });
+    gradedNotifs.forEach(g => { if (g.marks !== undefined) scores.push(g.marks); });
+    if (scores.length > 0) {
+      const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+      student.averageGrade = `${avg}%`;
+    }
+
+    this.saveState();
+    return finalPct;
+  }
+
+  // --- Assignments & Grading ---
+  getAssignments() { return this.state.assignments || []; }
+  
+  createAssignment(classId, title, description, maxMarks, dueDate) {
+    const user = this.getCurrentUser();
+    const newAsg = {
+      id: 'asg_' + Date.now(),
+      classId,
+      professorId: user ? user.id : 'prof_default',
+      title,
+      description,
+      maxMarks: Number(maxMarks) || 100,
+      dueDate,
+      submissions: []
+    };
+    if (!this.state.assignments) this.state.assignments = [];
+    this.state.assignments.unshift(newAsg);
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return newAsg;
+  }
+
+  // --- Parent Real-Time WhatsApp Notifications System ---
+  addParentWhatsAppNotification({ studentId, studentCode, studentName, type, title, score, total, percentage, marks, feedback }) {
+    if (!this.state.parentNotifications) this.state.parentNotifications = [];
+    const lang = this.getLanguage();
+    const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const dateStr = new Date().toISOString().substring(0, 10);
+
+    let messageText = '';
+    let badgeLabel = '';
+
+    if (type === 'quiz') {
+      badgeLabel = lang === 'te' ? 'క్విజ్ పూర్తి' : 'Quiz Completed';
+      if (lang === 'te') {
+        messageText = `📲 [WhatsApp Alert] విద్యార్థి ${studentName} (${studentCode}) '${title}' పరీక్ష పూర్తి చేశారు!\nస్కోరు: ${score}/${total} (${percentage}%)\nసమయం: ${timeStr}, ${dateStr}\nఫలితాలు అధ్యాపకుల రికార్డులో నమోదయ్యాయి.`;
+      } else {
+        messageText = `📲 [WhatsApp Alert] Student ${studentName} (${studentCode}) completed '${title}'!\nScore: ${score}/${total} (${percentage}%)\nTime: ${timeStr}, ${dateStr}\nRecorded for academic tracking.`;
+      }
+    } else if (type === 'assignment_submitted') {
+      badgeLabel = lang === 'te' ? 'అసైన్‌మెంట్ సమర్పణ' : 'Assignment Submitted';
+      if (lang === 'te') {
+        messageText = `📲 [WhatsApp Alert] విద్యార్థి ${studentName} (${studentCode}) '${title}' అసైన్‌మెంట్‌ను అధ్యాపకుల సమీక్షకు సమర్పించారు.\nసమయం: ${timeStr}, ${dateStr}`;
+      } else {
+        messageText = `📲 [WhatsApp Alert] Student ${studentName} (${studentCode}) submitted solution for '${title}' for faculty evaluation.\nTime: ${timeStr}, ${dateStr}`;
+      }
+    } else if (type === 'assignment_graded') {
+      badgeLabel = lang === 'te' ? 'మార్కులు కేటాయింపు' : 'Graded by Professor';
+      if (lang === 'te') {
+        messageText = `📲 [WhatsApp Alert] ప్రొఫెసర్ ${studentName} (${studentCode}) అసైన్‌మెంట్ '${title}' కు మార్కులు కేటాయించారు!\nమార్కులు: ${marks}%\nఅధ్యాపకుల అభిప్రాయం: ${feedback || 'మంచి పనితీరు!'}\nసమయం: ${timeStr}, ${dateStr}`;
+      } else {
+        messageText = `📲 [WhatsApp Alert] Professor graded ${studentName}'s (${studentCode}) assignment '${title}'!\nMarks Awarded: ${marks}%\nFeedback: ${feedback || 'Good work'}\nTime: ${timeStr}, ${dateStr}`;
+      }
+    }
+
+    const alertItem = {
+      id: 'notif_' + Date.now(),
+      studentId,
+      studentCode,
+      studentName,
+      type,
+      badgeLabel,
+      title,
+      score,
+      total,
+      percentage,
+      messageText,
+      timestamp: `${dateStr} ${timeStr}`,
+      status: 'Delivered via WhatsApp'
+    };
+
+    this.state.parentNotifications.unshift(alertItem);
+    if (studentId) {
+      this.calculateStudentAttendance(studentId);
+    }
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return alertItem;
+  }
+
+  getParentNotifications(studentCode = null) {
+    const list = this.state.parentNotifications || [];
+    if (!studentCode) return list;
+    return list.filter(n => n.studentCode === studentCode);
+  }
+
+  submitAssignment(assignmentId, studentId, fileUrl) {
+    const asg = (this.state.assignments || []).find(a => a.id === assignmentId);
+    if (!asg) return;
+    const student = this.getCurrentUser();
+    if (!student) return;
+
+    const sub = {
+      id: 'sub_' + Date.now(),
+      studentId,
+      studentName: student.name,
+      submittedAt: new Date().toISOString().replace('T', ' ').substring(0, 16),
+      fileUrl: fileUrl || 'assignment_solution.pdf',
+      marks: null,
+      maxMarks: asg.maxMarks,
+      status: 'submitted',
+      feedback: ''
+    };
+
+    const exIndex = asg.submissions.findIndex(s => s.studentId === studentId);
+    if (exIndex >= 0) asg.submissions[exIndex] = sub;
+    else asg.submissions.push(sub);
+
+    // Automated WhatsApp alert to parent
+    this.addParentWhatsAppNotification({
+      studentId,
+      studentCode: student.studentCode,
+      studentName: student.name,
+      type: 'assignment_submitted',
+      title: asg.title
+    });
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return sub;
+  }
+
+  gradeSubmission(assignmentId, submissionId, marks, feedback) {
+    const asg = (this.state.assignments || []).find(a => a.id === assignmentId);
+    if (!asg) return;
+    const sub = asg.submissions.find(s => s.id === submissionId);
+    if (!sub) return;
+
+    sub.marks = Number(marks);
+    sub.feedback = feedback;
+    sub.status = 'graded';
+
+    const student = (this.state.users || []).find(u => u.id === sub.studentId);
+    if (student) student.averageGrade = `${sub.marks}%`;
+
+    // Automated WhatsApp alert to parent
+    this.addParentWhatsAppNotification({
+      studentId: sub.studentId,
+      studentCode: student ? student.studentCode : '',
+      studentName: sub.studentName,
+      type: 'assignment_graded',
+      title: asg.title,
+      marks: sub.marks,
+      feedback: sub.feedback
+    });
+
+    this.saveState();
+    this.emit('stateChanged', this.state);
+  }
+
+  // --- Announcements ---
+  getAnnouncements() { return this.state.announcements || []; }
+  
+  createAnnouncement(title, content) {
+    const user = this.getCurrentUser();
+    const newAnc = {
+      id: 'anc_' + Date.now(),
+      professorId: user ? user.id : null,
+      professorName: user ? user.name : 'Faculty Announcement',
+      title,
+      content,
+      date: new Date().toISOString().replace('T', ' ').substring(0, 16)
+    };
+    if (!this.state.announcements) this.state.announcements = [];
+    this.state.announcements.unshift(newAnc);
+    this.saveState();
+    this.emit('stateChanged', this.state);
+    return newAnc;
+  }
+
+  // --- Parent Weekly Report Generator (Real Logged-in/Registered Student Only) ---
+  generateWeeklyReport(studentCode) {
+    const allStudents = (this.state.users || []).filter(u => u.role === 'student');
+    const currUser = this.getCurrentUser();
+    let student = null;
+
+    if (studentCode) {
+      student = allStudents.find(u => (u.studentCode || '').toUpperCase() === studentCode.toUpperCase());
+    }
+
+    if (!student && currUser && currUser.role === 'parent') {
+      const childId = (currUser.childIdentifier || currUser.childCode || '').trim();
+      if (childId) {
+        student = allStudents.find(u => 
+          (u.studentCode && u.studentCode.toUpperCase() === childId.toUpperCase()) ||
+          (u.identifier && u.identifier.toLowerCase() === childId.toLowerCase()) ||
+          (u.identifier && childId && u.identifier.replace(/\D/g, '') === childId.replace(/\D/g, '') && childId.replace(/\D/g, '').length >= 10)
+        );
+      }
+      if (!student && currUser.identifier) {
+        student = allStudents.find(u => 
+          u.parentContact && (
+            u.parentContact.toLowerCase() === currUser.identifier.toLowerCase() ||
+            (u.parentContact.replace(/\D/g, '') === currUser.identifier.replace(/\D/g, '') && currUser.identifier.replace(/\D/g, '').length >= 10)
+          )
+        );
+      }
+    }
+
+    const lang = this.getLanguage();
+
+    if (!student) {
+      return {
+        title: lang === 'te' ? 'విద్యార్థి లింక్ కాలేదు' : 'No Student Linked Yet',
+        greeting: lang === 'te' ? 'నమస్కారం,' : 'Dear Parent,',
+        body: lang === 'te'
+          ? 'దయచేసి మీ పిల్లల స్టూడెంట్ కోడ్ (ఉదా: ST-XXXX-1234) నమోదు చేసి లింక్ చేయండి. విద్యార్థి క్విజ్ లేదా అసైన్‌మెంట్ రాసిన వెంటనే నిజ-సమయ WhatsApp హెచ్చరికలు ఇక్కడ అందుతాయి.'
+          : 'Please connect your child using their Student Code (e.g. ST-XXXX-1234). Live WhatsApp notifications and performance updates will appear here whenever they complete a quiz or assignment.',
+        channel: 'WhatsApp & SMS',
+        student: null
+      };
+    }
+
+    const stdName = student.name;
+    const stdCode = student.studentCode;
+    const stdAttendance = student.attendancePercentage !== undefined ? student.attendancePercentage : 0;
+    const stdStreak = student.studyStreakDays || 1;
+    const stdGrade = student.averageGrade || 'Pending';
+
+    const notifs = this.getParentNotifications(stdCode);
+    const quizCount = notifs.filter(n => n.type === 'quiz').length;
+    const asgCount = notifs.filter(n => n.type === 'assignment_submitted' || n.type === 'assignment_graded').length;
+
+    if (lang === 'te') {
+      return {
+        title: `వారంవారీ విద్యా సారాంశం (WhatsApp / SMS)`,
+        greeting: `నమస్కారం,`,
+        body: `${stdName} (${stdCode}) గారి తాజా అధ్యాపకుల పురోగతి నివేదిక:\n• ప్రొఫెసర్ తరగతి హాజరు: ${stdAttendance}%\n• రోజువారీ అధ్యయన స్ట్రీక్: ${stdStreak} రోజులు\n• అసైన్మెంట్ మార్కులు: ${stdGrade}\n• రాసిన క్విజ్‌లు: ${quizCount} | సమర్పించిన అసైన్‌మెంట్లు: ${asgCount}\n• విద్యార్థి ప్రతి క్విజ్ మరియు అసైన్‌మెంట్ వివరాలు క్రమం తప్పకుండా WhatsApp ద్వారా పంపబడుతున్నాయి.`,
+        channel: 'WhatsApp & SMS',
+        student
+      };
+    } else if (lang === 'hi') {
+      return {
+        title: `साप्ताहिक शैक्षणिक रिपोर्ट (WhatsApp / SMS)`,
+        greeting: `नमस्ते,`,
+        body: `${stdName} (${stdCode}) की प्रगति रिपोर्ट:\n• उपस्थिति: ${stdAttendance}%\n• अध्ययन क्रम (Streak): ${stdStreak} दिन\n• ग्रेड: ${stdGrade}\n• पूर्ण किए गए टेस्ट: ${quizCount} | असाइनमेंट: ${asgCount}\n• छात्र के प्रत्येक टेस्ट और असाइनमेंट की जानकारी WhatsApp पर भेजी जा रही है।`,
+        channel: 'WhatsApp & SMS',
+        student
+      };
+    } else if (lang === 'ta') {
+      return {
+        title: `வாராந்திர கல்வி அறிக்கை (WhatsApp / SMS)`,
+        greeting: `வணக்கம்,`,
+        body: `${stdName} (${stdCode}) அவர்களின் முன்னேற்ற அறிக்கை:\n• வகுப்பு வருகை: ${stdAttendance}%\n• படிப்பு தொடர்ச்சி: ${stdStreak} நாட்கள்\n• சராசரி தரம்: ${stdGrade}\n• எழுதிய தேர்வுகள்: ${quizCount} | சமர்ப்பித்த பணிகள்: ${asgCount}\n• மாணவரின் தேர்வுகள் WhatsApp மூலம் கண்காணிக்கப்படுகிறது.`,
+        channel: 'WhatsApp & SMS',
+        student
+      };
+    }
+
+    return {
+      title: `Weekly Academic Digest (WhatsApp & SMS Preview)`,
+      greeting: `Dear Parent,`,
+      body: `Here is ${stdName}'s (${stdCode}) performance summary:\n• Classroom Attendance: ${stdAttendance}%\n• Consecutive Study Streak: ${stdStreak} days\n• Academic Grade Standing: ${stdGrade}\n• Completed Quizzes: ${quizCount} | Submitted Assignments: ${asgCount}\n• Real-time updates dispatched to your registered WhatsApp on every test attempt.`,
+      channel: 'WhatsApp & SMS',
+      student
+    };
+  }
+}
+
+// Global store instance
+const store = new EduConnectStore();
+
+
+/* ==========================================================================
+   MODULE: js/charts.js
+   ========================================================================== */
+/**
+ * SkillBridge - Chart Visualizer Engine
+ * High-performance Chart.js integration with canvas fallback for radar, comparison bars, and gauges.
+ */
+
+const ChartManager = {
+  instances: {},
+
+  destroyChart(canvasId) {
+    if (this.instances[canvasId]) {
+      this.instances[canvasId].destroy();
+      delete this.instances[canvasId];
+    }
+  },
+
+  /**
+   * Render Student Skill Radar: Student Proficiency vs Industry Benchmark
+   */
+  renderStudentRadar(canvasId, gapAnalysis) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    this.destroyChart(canvasId);
+
+    if (typeof Chart === 'undefined') {
+      this.renderFallbackRadar(canvas, gapAnalysis);
+      return;
+    }
+
+    const labels = gapAnalysis.gapDetails.map(g => g.skillName);
+    const studentScores = gapAnalysis.gapDetails.map(g => g.studentScore);
+    const benchmarkScores = gapAnalysis.gapDetails.map(g => g.benchmarkScore);
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const gridColor = isDark ? 'rgba(255, 255, 255, 0.12)' : 'rgba(0, 0, 0, 0.08)';
+    const textColor = isDark ? '#e2e8f0' : '#475569';
+
+    const ctx = canvas.getContext('2d');
+    this.instances[canvasId] = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: `${gapAnalysis.student.name} (Current)`,
+            data: studentScores,
+            fill: true,
+            backgroundColor: 'rgba(99, 102, 241, 0.25)',
+            borderColor: '#6366f1',
+            pointBackgroundColor: '#6366f1',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: '#6366f1',
+            borderWidth: 2.5,
+            pointRadius: 4
+          },
+          {
+            label: `Industry Benchmark (${gapAnalysis.track.title})`,
+            data: benchmarkScores,
+            fill: true,
+            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+            borderColor: '#f59e0b',
+            borderDash: [5, 5],
+            pointBackgroundColor: '#f59e0b',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: '#f59e0b',
+            borderWidth: 2,
+            pointRadius: 3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              color: textColor,
+              font: { family: "'Inter', sans-serif", size: 12, weight: 600 },
+              usePointStyle: true,
+              boxWidth: 8
+            }
+          },
+          tooltip: {
+            callbacks: {
+              afterLabel: function(context) {
+                const index = context.dataIndex;
+                const item = gapAnalysis.gapDetails[index];
+                if (context.datasetIndex === 0) {
+                  return `Target: ${item.benchmarkScore} | Gap: ${item.deficit > 0 ? '-' + item.deficit : 'Mastered (+' + Math.abs(item.deficit) + ')'}`;
+                }
+                return null;
+              }
+            }
+          }
+        },
+        scales: {
+          r: {
+            angleLines: { color: gridColor },
+            grid: { color: gridColor },
+            pointLabels: {
+              color: textColor,
+              font: { family: "'Inter', sans-serif", size: 11, weight: 500 }
+            },
+            ticks: {
+              backdropColor: 'transparent',
+              color: textColor,
+              stepSize: 20,
+              min: 0,
+              max: 100
+            }
+          }
+        }
+      }
+    });
+  },
+
+  /**
+   * Cohort Comparison Bar: Class Average vs Industry Benchmark
+   */
+  renderCohortComparison(canvasId, cohortAnalytics) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    this.destroyChart(canvasId);
+
+    if (typeof Chart === 'undefined') return;
+
+    const labels = cohortAnalytics.rankedCohortGaps.map(g => g.skill.name);
+    const avgScores = cohortAnalytics.rankedCohortGaps.map(g => g.avgScore);
+    const benchmarkScores = cohortAnalytics.rankedCohortGaps.map(g => g.benchmark);
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const gridColor = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.06)';
+    const textColor = isDark ? '#cbd5e1' : '#475569';
+
+    const ctx = canvas.getContext('2d');
+    this.instances[canvasId] = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Class Average',
+            data: avgScores,
+            backgroundColor: 'rgba(99, 102, 241, 0.85)',
+            borderRadius: 6,
+            borderSkipped: false
+          },
+          {
+            label: 'Industry Target',
+            data: benchmarkScores,
+            backgroundColor: 'rgba(245, 158, 11, 0.75)',
+            borderRadius: 6,
+            borderSkipped: false
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              color: textColor,
+              font: { family: "'Inter', sans-serif", size: 12, weight: 600 }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: {
+              color: textColor,
+              font: { size: 11 },
+              maxRotation: 30,
+              minRotation: 30
+            }
+          },
+          y: {
+            grid: { color: gridColor },
+            ticks: { color: textColor, stepSize: 20 },
+            min: 0,
+            max: 100
+          }
+        }
+      }
+    });
+  },
+
+  /**
+   * Semi-Doughnut Career Readiness Gauge for Parent & Student view
+   */
+  renderReadinessGauge(canvasId, readinessScore) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    this.destroyChart(canvasId);
+
+    if (typeof Chart === 'undefined') return;
+
+    let scoreColor = '#10b981'; // Green for high
+    if (readinessScore < 60) scoreColor = '#ef4444'; // Red
+    else if (readinessScore < 75) scoreColor = '#f59e0b'; // Amber
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const emptyColor = isDark ? 'rgba(255, 255, 255, 0.1)' : '#e2e8f0';
+
+    const ctx = canvas.getContext('2d');
+    this.instances[canvasId] = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        datasets: [
+          {
+            data: [readinessScore, 100 - readinessScore],
+            backgroundColor: [scoreColor, emptyColor],
+            borderWidth: 0,
+            circumference: 180,
+            rotation: 270
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '75%',
+        plugins: {
+          legend: { display: false },
+          tooltip: { enabled: false }
+        }
+      }
+    });
+  },
+
+  /**
+   * Canvas Fallback if CDN is unreachable
+   */
+  renderFallbackRadar(canvas, gapAnalysis) {
+    const ctx = canvas.getContext('2d');
+    const width = canvas.width;
+    const height = canvas.height;
+    ctx.clearRect(0, 0, width, height);
+
+    ctx.font = '14px Inter, sans-serif';
+    ctx.fillStyle = '#64748b';
+    ctx.textAlign = 'center';
+    ctx.fillText('Skill Radar Visualization', width / 2, 40);
+
+    // Draw simple bars for each skill
+    const items = gapAnalysis.gapDetails;
+    const startY = 70;
+    const barHeight = 18;
+    const gap = 12;
+
+    items.forEach((item, i) => {
+      const y = startY + i * (barHeight + gap);
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#1e293b';
+      ctx.fillText(item.skillName, 20, y + 14);
+
+      // Student bar
+      ctx.fillStyle = '#6366f1';
+      ctx.fillRect(220, y, item.studentScore * 2, barHeight);
+
+      // Target marker
+      ctx.fillStyle = '#f59e0b';
+      ctx.fillRect(220 + item.benchmarkScore * 2, y - 2, 3, barHeight + 4);
+    });
+  }
+};
+
+
+/* ==========================================================================
+   MODULE: js/app.js
+   ========================================================================== */
+/**
+ * EduConnect - Core Application Controller (Professor-Centric Platform)
+ * 
+ * Features:
+ * 1. AI Doubt Solver & Chosen Professor Escalation:
+ *    - Direct AI step-by-step solutions
+ *    - Student selects designated professor from faculty list for direct escalation
+ * 2. Professor Academic Regulations & Code of Conduct:
+ *    - Prominently displayed class rules, attendance guidelines, and student integrity standards
+ * 3. Professor-Assigned Quizzes vs Dynamic AI Mock Tests:
+ *    - Quizzes provided strictly by professors for their classes
+ *    - Mock tests generated dynamically by AI agent (questions change every attempt)
+ * 4. Smart Study Planner & Custom Schedule:
+ *    - Student selects curriculum level (School 1-12th, B.Tech, Diploma/Polytechnic)
+ *    - Dynamic grade/branch and subject checkboxes
+ *    - Daily hours and exam date based intelligent timetable generation
+ * 5. Live Lectures:
+ *    - Scheduled and conducted exclusively by verified professors
+ * 6. Zero Admin Priority:
+ *    - Platform fully revolves around Professors and Students (with Parents linked)
+ */
+
+function initEduConnectApp() {
+  if (typeof App !== 'undefined' && typeof App.init === 'function') {
+    App.init();
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initEduConnectApp);
+} else {
+  initEduConnectApp();
+}
+
+const App = {
+  activeQuiz: null,
+  currentAIMockTest: null,
+
+  init() {
+    this.cacheDOM();
+    this.bindEvents();
+    this.initTheme();
+    this.initLanguage();
+    this.updateScreenVisibility();
+  },
+
+  cacheDOM() {
+    // Screens
+    this.openingScreen = document.getElementById('opening-screen');
+    this.appScreen = document.getElementById('app-screen');
+    this.langSelectStep = document.getElementById('lang-select-step');
+    this.authCredentialsStep = document.getElementById('auth-credentials-step');
+
+    // Auth Elements
+    this.tabLoginBtn = document.getElementById('tab-login-btn');
+    this.tabRegisterBtn = document.getElementById('tab-register-btn');
+    this.authLoginForm = document.getElementById('auth-login-form');
+    this.authRegisterForm = document.getElementById('auth-register-form');
+    this.loginErrorMsg = document.getElementById('login-error-msg');
+    this.registerErrorMsg = document.getElementById('register-error-msg');
+    this.rolePills = document.querySelectorAll('.role-pill-label');
+
+    // Navbar & Global Controls
+    this.langSelect = document.getElementById('global-lang-select');
+    this.navUserName = document.getElementById('nav-user-name');
+    this.navUserAvatar = document.getElementById('nav-user-avatar');
+    this.themeToggleBtn = document.getElementById('theme-toggle-btn');
+    this.resetDataBtn = document.getElementById('reset-data-btn');
+
+    // Role Banner
+    this.roleBanner = document.getElementById('role-banner');
+    this.roleAvatar = document.getElementById('role-avatar');
+    this.roleTitle = document.getElementById('role-title');
+    this.roleSubtitle = document.getElementById('role-subtitle');
+    this.roleBadge = document.getElementById('role-badge');
+
+    // Views (No Admin role!)
+    this.views = {
+      student: document.getElementById('student-portal'),
+      professor: document.getElementById('professor-portal'),
+      parent: document.getElementById('parent-portal')
+    };
+
+    // Modals
+    this.joinClassModal = document.getElementById('join-class-modal');
+    this.createClassModal = document.getElementById('create-class-modal');
+    this.uploadMaterialModal = document.getElementById('upload-material-modal');
+    this.createAssignmentModal = document.getElementById('create-assignment-modal');
+    this.gradeModal = document.getElementById('grade-modal');
+    this.quizModal = document.getElementById('quiz-modal');
+    this.bookMeetingModal = document.getElementById('book-meeting-modal');
+    this.newForumModal = document.getElementById('new-forum-modal');
+    this.scheduleLiveModal = document.getElementById('schedule-live-modal');
+    this.createQuizModal = document.getElementById('create-quiz-modal');
+    this.forgotPasswordModal = document.getElementById('forgot-password-modal');
+    this.forgotErrorMsg = document.getElementById('forgot-error-msg');
+    this.forgotSuccessMsg = document.getElementById('forgot-success-msg');
+
+    this.toastContainer = document.getElementById('toast-container');
+  },
+
+  bindEvents() {
+    // Global Regional Language Selector
+    if (this.langSelect) {
+      this.langSelect.addEventListener('change', (e) => {
+        store.setLanguage(e.target.value);
+      });
+    }
+
+    // Theme Toggle
+    if (this.themeToggleBtn) {
+      this.themeToggleBtn.addEventListener('click', () => {
+        const newTheme = store.toggleTheme();
+        this.applyTheme(newTheme);
+      });
+    }
+
+    // Reset Data
+    if (this.resetDataBtn) {
+      this.resetDataBtn.addEventListener('click', () => {
+        const lang = store.getLanguage();
+        const confirmMsg = lang === 'te' 
+          ? 'ప్లాట్‌ఫారమ్ డేటా మొత్తాన్ని క్లియర్ చేసి ప్రారంభ దశకు రీసెట్ చేయాలా?' 
+          : 'Clear all data and reset platform to initial state?';
+        if (confirm(confirmMsg)) {
+          store.resetToDefault();
+          this.updateScreenVisibility();
+          this.showToast('Platform reset to clean initial state.', 'info');
+        }
+      });
+    }
+
+    // Modal Close handlers
+    document.querySelectorAll('.modal-close-btn, .btn-modal-cancel').forEach(btn => {
+      btn.addEventListener('click', () => this.closeAllModals());
+    });
+
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) this.closeAllModals();
+      });
+    });
+
+    // Reactive Store Listeners
+    store.on('flowChanged', () => {
+      this.updateScreenVisibility();
+    });
+
+    store.on('languageChanged', (lang) => {
+      document.documentElement.lang = lang;
+      if (this.langSelect) this.langSelect.value = lang;
+      this.applyTranslations();
+      this.renderCurrentView();
+    });
+
+    store.on('userLoggedIn', () => {
+      this.updateScreenVisibility();
+      this.renderCurrentView();
+    });
+
+    store.on('userLoggedOut', () => {
+      this.updateScreenVisibility();
+    });
+
+    store.on('stateChanged', () => {
+      this.renderCurrentView();
+    });
+  },
+
+  initTheme() {
+    this.applyTheme(store.getTheme());
+  },
+
+  applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (this.themeToggleBtn) {
+      this.themeToggleBtn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+    }
+  },
+
+  initLanguage() {
+    const lang = store.getLanguage();
+    if (this.langSelect) this.langSelect.value = lang;
+    document.documentElement.lang = lang;
+    this.applyTranslations();
+  },
+
+  applyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      const text = store.t(key);
+      if (text && typeof text === 'string') {
+        el.textContent = text;
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.dataset.i18nPlaceholder;
+      const text = store.t(key);
+      if (text && typeof text === 'string') {
+        el.placeholder = text;
+      }
+    });
+  },
+
+  // =========================================================================
+  // Screen Management (Opening Screen -> Authentication -> Portal View)
+  // =========================================================================
+
+  updateScreenVisibility() {
+    if (!this.openingScreen || !this.langSelectStep || !this.authCredentialsStep) {
+      this.cacheDOM();
+    }
+    const user = store.getCurrentUser();
+    const flowStep = store.getFlowStep();
+
+    const openingScreen = this.openingScreen || document.getElementById('opening-screen');
+    const appScreen = this.appScreen || document.getElementById('app-screen');
+    const langSelectStep = this.langSelectStep || document.getElementById('lang-select-step');
+    const authCredentialsStep = this.authCredentialsStep || document.getElementById('auth-credentials-step');
+
+    if (!user) {
+      if (appScreen) appScreen.style.display = 'none';
+      if (openingScreen) openingScreen.style.display = 'flex';
+
+      if (flowStep === 'lang_select') {
+        if (langSelectStep) langSelectStep.style.display = 'block';
+        if (authCredentialsStep) authCredentialsStep.style.display = 'none';
+      } else {
+        if (langSelectStep) langSelectStep.style.display = 'none';
+        if (authCredentialsStep) authCredentialsStep.style.display = 'block';
+      }
+    } else {
+      if (openingScreen) openingScreen.style.display = 'none';
+      if (appScreen) appScreen.style.display = 'block';
+
+      this.updateNavbarUserBadge();
+      this.renderCurrentView();
+    }
+
+    this.applyTranslations();
+  },
+
+  chooseLanguageAndProceed(lang) {
+    if (!this.langSelectStep || !this.authCredentialsStep) {
+      this.cacheDOM();
+    }
+    store.selectLanguageAndProceed(lang);
+    if (this.langSelect) this.langSelect.value = lang;
+    this.applyTranslations();
+    this.updateScreenVisibility();
+
+    // Absolute DOM guarantee: hide lang step, show auth step
+    const langStep = document.getElementById('lang-select-step');
+    const authStep = document.getElementById('auth-credentials-step');
+    if (langStep) langStep.style.display = 'none';
+    if (authStep) authStep.style.display = 'block';
+  },
+
+  backToLanguageSelect() {
+    store.setFlowStep('lang_select');
+    this.updateScreenVisibility();
+    const langStep = document.getElementById('lang-select-step');
+    const authStep = document.getElementById('auth-credentials-step');
+    if (langStep) langStep.style.display = 'block';
+    if (authStep) authStep.style.display = 'none';
+  },
+
+  switchAuthMode(mode) {
+    if (this.loginErrorMsg) this.loginErrorMsg.style.display = 'none';
+    if (this.registerErrorMsg) this.registerErrorMsg.style.display = 'none';
+
+    if (mode === 'login') {
+      if (this.tabLoginBtn) this.tabLoginBtn.classList.add('active');
+      if (this.tabRegisterBtn) this.tabRegisterBtn.classList.remove('active');
+      if (this.authLoginForm) this.authLoginForm.style.display = 'block';
+      if (this.authRegisterForm) this.authRegisterForm.style.display = 'none';
+    } else {
+      if (this.tabRegisterBtn) this.tabRegisterBtn.classList.add('active');
+      if (this.tabLoginBtn) this.tabLoginBtn.classList.remove('active');
+      if (this.authRegisterForm) this.authRegisterForm.style.display = 'block';
+      if (this.authLoginForm) this.authLoginForm.style.display = 'none';
+    }
+  },
+
+  handleRoleChange(role) {
+    this.rolePills.forEach(pill => {
+      pill.classList.toggle('active', pill.dataset.role === role);
+    });
+
+    const stdFields = document.getElementById('reg-student-fields');
+    const profFields = document.getElementById('reg-prof-fields');
+    const parentFields = document.getElementById('reg-parent-fields');
+
+    if (stdFields) stdFields.style.display = role === 'student' ? 'block' : 'none';
+    if (profFields) profFields.style.display = role === 'professor' ? 'block' : 'none';
+    if (parentFields) parentFields.style.display = role === 'parent' ? 'block' : 'none';
+  },
+
+  getSelectedAuthRole() {
+    const checked = document.querySelector('input[name="auth_role"]:checked');
+    return checked ? checked.value : 'student';
+  },
+
+  handleLogin(e) {
+    e.preventDefault();
+    const identifier = (document.getElementById('login-identifier').value || '').trim();
+    const password = (document.getElementById('login-password').value || '').trim();
+    const role = this.getSelectedAuthRole();
+
+    const res = store.loginUser({ identifier, password, role });
+    if (!res.success) {
+      if (this.loginErrorMsg) {
+        this.loginErrorMsg.textContent = res.message;
+        this.loginErrorMsg.style.display = 'block';
+      }
+      return;
+    }
+
+    if (this.loginErrorMsg) this.loginErrorMsg.style.display = 'none';
+    this.showToast(`Welcome back, ${res.user.name}!`, 'success');
+    this.updateScreenVisibility();
+  },
+
+  handleRegister(e) {
+    e.preventDefault();
+    const name = (document.getElementById('reg-name').value || '').trim();
+    const identifier = (document.getElementById('reg-identifier').value || '').trim();
+    const password = (document.getElementById('reg-password').value || '').trim();
+    const role = this.getSelectedAuthRole();
+
+    const yearInput = document.getElementById('reg-year');
+    const majorInput = document.getElementById('reg-major');
+    const deptInput = document.getElementById('reg-dept');
+    const childCodeInput = document.getElementById('reg-child-code');
+    const parentIdInput = document.getElementById('reg-parent-id');
+    const childIdentifierInput = document.getElementById('reg-child-identifier');
+
+    const year = yearInput ? yearInput.value.trim() : '';
+    const major = majorInput ? majorInput.value.trim() : '';
+    const dept = deptInput ? deptInput.value.trim() : '';
+    const childCode = childCodeInput ? childCodeInput.value.trim() : '';
+    const parentIdentifier = parentIdInput ? parentIdInput.value.trim() : '';
+    const childIdentifier = childIdentifierInput ? childIdentifierInput.value.trim() : '';
+
+    const res = store.registerUser({ 
+      name, 
+      identifier, 
+      password, 
+      role, 
+      year, 
+      major, 
+      dept, 
+      childCode,
+      parentIdentifier,
+      childIdentifier
+    });
+    if (!res.success) {
+      if (this.registerErrorMsg) {
+        this.registerErrorMsg.textContent = res.message;
+        this.registerErrorMsg.style.display = 'block';
+      }
+      return;
+    }
+
+    if (this.registerErrorMsg) this.registerErrorMsg.style.display = 'none';
+    this.showToast(`Account created successfully! Welcome, ${res.user.name}!`, 'success');
+    this.updateScreenVisibility();
+  },
+
+  openForgotPasswordModal() {
+    if (this.forgotErrorMsg) this.forgotErrorMsg.style.display = 'none';
+    if (this.forgotSuccessMsg) this.forgotSuccessMsg.style.display = 'none';
+
+    const idInput = document.getElementById('forgot-identifier');
+    const newPassInput = document.getElementById('forgot-new-pass');
+    const confirmPassInput = document.getElementById('forgot-confirm-pass');
+
+    const loginIdInput = document.getElementById('login-identifier');
+    if (idInput && loginIdInput && loginIdInput.value) {
+      idInput.value = loginIdInput.value.trim();
+    } else if (idInput) {
+      idInput.value = '';
+    }
+
+    if (newPassInput) newPassInput.value = '';
+    if (confirmPassInput) confirmPassInput.value = '';
+
+    if (this.forgotPasswordModal) this.forgotPasswordModal.classList.add('active');
+  },
+
+  submitForgotPassword(e) {
+    e.preventDefault();
+    const identifier = (document.getElementById('forgot-identifier').value || '').trim();
+    const newPass = (document.getElementById('forgot-new-pass').value || '').trim();
+    const confirmPass = (document.getElementById('forgot-confirm-pass').value || '').trim();
+
+    if (newPass !== confirmPass) {
+      if (this.forgotErrorMsg) {
+        this.forgotErrorMsg.textContent = 'New password and confirm password do not match.';
+        this.forgotErrorMsg.style.display = 'block';
+      }
+      return;
+    }
+
+    const res = store.resetPassword({ identifier, newPassword: newPass });
+    if (!res.success) {
+      if (this.forgotErrorMsg) {
+        this.forgotErrorMsg.textContent = res.message;
+        this.forgotErrorMsg.style.display = 'block';
+      }
+      return;
+    }
+
+    if (this.forgotErrorMsg) this.forgotErrorMsg.style.display = 'none';
+    if (this.forgotSuccessMsg) {
+      this.forgotSuccessMsg.textContent = res.message;
+      this.forgotSuccessMsg.style.display = 'block';
+    }
+
+    const loginPassInput = document.getElementById('login-password');
+    if (loginPassInput) loginPassInput.value = newPass;
+
+    setTimeout(() => {
+      this.closeAllModals();
+      this.showToast('Password reset successfully. You can now log in!', 'success');
+    }, 1200);
+  },
+
+  handleLogout() {
+    store.logout();
+    const lang = store.getLanguage();
+    const byeMsg = lang === 'te' ? 'విజయవంతంగా లాగ్ అవుట్ అయ్యారు.' : 'Logged out successfully.';
+    this.showToast(byeMsg, 'info');
+    this.updateScreenVisibility();
+  },
+
+  updateNavbarUserBadge() {
+    const user = store.getCurrentUser();
+    if (!user) return;
+
+    if (this.navUserName) {
+      this.navUserName.textContent = `${user.name} (${store.t('roles.' + user.role)})`;
+    }
+    if (this.navUserAvatar) {
+      this.navUserAvatar.src = user.avatar || `https://api.dicebear.com/7.x/identicon/svg?seed=${encodeURIComponent(user.name)}`;
+    }
+  },
+
+  // =========================================================================
+  // Main Portal Views (Student, Professor, Parent - Zero Admin Priority)
+  // =========================================================================
+
+  renderCurrentView() {
+    const user = store.getCurrentUser();
+    const role = user ? user.role : (store.getCurrentRole() || 'student');
+
+    // Update navbar portal pill (strictly shows logged-in user's role)
+    const portalIcon = document.getElementById('current-portal-icon');
+    const portalText = document.getElementById('current-portal-text');
+    if (portalIcon && portalText) {
+      const icons = { student: '🎒', professor: '👨‍🏫', parent: '👨‍👩‍👧' };
+      portalIcon.textContent = icons[role] || '🎓';
+      portalText.textContent = `${store.t('roles.' + role)} Portal`;
+    }
+
+    // Strictly show ONLY the authenticated user's portal view
+    Object.keys(this.views).forEach(key => {
+      if (this.views[key]) {
+        this.views[key].classList.toggle('active', key === role);
+        this.views[key].style.display = key === role ? 'block' : 'none';
+      }
+    });
+
+    this.updateRoleBanner(role);
+
+    if (role === 'student') this.renderStudentPortal();
+    else if (role === 'professor') this.renderProfessorPortal();
+    else if (role === 'parent') this.renderParentPortal();
+  },
+
+  updateRoleBanner(role) {
+    const user = store.getCurrentUser();
+
+    this.roleBanner.className = 'role-banner ' + (
+      role === 'student' ? 'student-theme' :
+      role === 'professor' ? 'prof-theme' :
+      role === 'parent' ? 'parent-theme' : 'student-theme'
+    );
+
+    if (this.roleAvatar) {
+      this.roleAvatar.src = user && user.avatar ? user.avatar : `https://api.dicebear.com/7.x/identicon/svg?seed=${role}`;
+    }
+
+    if (this.roleTitle) {
+      if (user) {
+        this.roleTitle.textContent = `${user.name} - ${store.t('roles.' + role)}`;
+      } else {
+        this.roleTitle.textContent = `EduConnect - ${store.t('roles.' + role)}`;
+      }
+    }
+
+    if (this.roleBadge) {
+      this.roleBadge.className = `role-badge badge-${role}`;
+      this.roleBadge.textContent = user && user.studentCode ? user.studentCode : (user ? 'Verified Active' : 'Portal');
+    }
+
+    if (this.roleSubtitle) {
+      this.roleSubtitle.textContent = store.t('tagline');
+    }
+  },
+
+  // =========================================================================
+  // 1. STUDENT PORTAL
+  // =========================================================================
+
+  renderStudentPortal() {
+    const user = store.getCurrentUser();
+    if (!user) return;
+
+    // Dynamically calculate attendance based on enrolled classes, completed quizzes & assignments
+    store.calculateStudentAttendance(user.id);
+
+    // KPIs
+    const streakEl = document.getElementById('student-streak-val');
+    const attEl = document.getElementById('student-attendance-val');
+    const classesEl = document.getElementById('student-classes-count-val');
+    const gradeEl = document.getElementById('student-grade-val');
+
+    if (streakEl) streakEl.textContent = `${user.studyStreakDays || 1} Day${user.studyStreakDays > 1 ? 's' : ''}`;
+    if (attEl) attEl.textContent = `${user.attendancePercentage !== undefined ? user.attendancePercentage : 0}%`;
+    const enrolledClasses = store.getStudentEnrolledClasses(user.id);
+    if (classesEl) classesEl.textContent = enrolledClasses.length;
+    if (gradeEl) gradeEl.textContent = user.averageGrade || 'Pending';
+
+    // Display Unique Student Code for Parent WhatsApp linkage
+    const studentCodeEl = document.getElementById('student-unique-code-display');
+    if (studentCodeEl) studentCodeEl.textContent = user.studentCode || 'ST-ACTIVE';
+
+    // Populate Designated Professor selector in Doubt Solver
+    this.populateDoubtProfessorSelect();
+
+    // Render Doubts History
+    this.renderStudentDoubts(user.id);
+
+    // Render Professor Academic Regulations & Code of Conduct
+    this.renderStudentProfessorRules(user.id);
+
+    // Enrolled Classes
+    this.renderStudentClasses(user.id);
+
+    // Assignments
+    this.renderStudentAssignments(user.id);
+
+    // Professor Quizzes
+    this.renderStudentProfessorQuizzes();
+
+    // Dynamic AI Mock Test controls
+    this.renderMockTestControls();
+
+    // Smart Study Planner (Classes 1-12, B.Tech, Diploma)
+    this.renderStudentPlannerControls(user);
+    this.renderStudentPlannerTasks(user);
+
+    // Discussion Forum
+    this.renderForum();
+
+    // Parent Automatic Connection Status
+    this.renderParentConnectionStatus(user);
+  },
+
+  renderParentConnectionStatus(user) {
+    const container = document.getElementById('student-parent-connect-card');
+    if (!container) return;
+
+    // Check if any parent account is matched with this student
+    const allParents = (store.state.users || []).filter(u => u.role === 'parent');
+    const matchedParent = allParents.find(p => {
+      const childId = (p.childIdentifier || p.childCode || '').trim();
+      const isMatchedChild = (
+        (p.childCode && p.childCode.toUpperCase() === (user.studentCode || '').toUpperCase()) ||
+        (childId && childId.toUpperCase() === (user.studentCode || '').toUpperCase()) ||
+        (childId && childId.toLowerCase() === (user.identifier || '').toLowerCase()) ||
+        (childId && user.identifier && childId.replace(/\D/g, '') === user.identifier.replace(/\D/g, '') && childId.replace(/\D/g, '').length >= 10)
+      );
+      const isMatchedContact = (
+        user.parentContact && (
+          user.parentContact.toLowerCase() === (p.identifier || '').toLowerCase() ||
+          (user.parentContact.replace(/\D/g, '') === (p.identifier || '').replace(/\D/g, '') && user.parentContact.replace(/\D/g, '').length >= 10)
+        )
+      );
+      return isMatchedChild || isMatchedContact;
+    });
+
+    if (matchedParent) {
+      container.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--success-bg); color: var(--success); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+              👨‍👩‍👧
+            </div>
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--success-text); display: flex; align-items: center; gap: 0.35rem;">
+                <span>✅ ${store.t('student.parentConnected')}</span>
+                <span class="badge badge-success" style="font-size: 0.7rem;">Auto-Synced</span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-main); font-weight: 600;">
+                ${this.escapeHTML(matchedParent.name)} (${this.escapeHTML(matchedParent.identifier)})
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); max-width: 250px; line-height: 1.35;">
+            📲 Live quiz & assignment marks instantly forwarded to parent WhatsApp & portal.
+          </div>
+        </div>
+      `;
+    } else {
+      const savedContact = user.parentContact || '';
+      container.innerHTML = `
+        <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
+            <div style="font-size: 0.825rem; font-weight: 700; color: var(--warning-text); display: flex; align-items: center; gap: 0.35rem;">
+              <span>⚠️ ${store.t('student.parentNotConnected')}</span>
+            </div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">
+              ${savedContact ? `Saved: ${this.escapeHTML(savedContact)} (Auto-Sync Ready)` : 'Auto-links via Mobile or Email'}
+            </span>
+          </div>
+          <form onsubmit="App.handleUpdateParentContact(event)" style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
+            <input type="text" id="student-parent-input" class="form-control" style="font-size: 0.8rem; padding: 0.35rem 0.65rem;" placeholder="Parent Mobile (10 digits) or Email" value="${this.escapeHTML(savedContact)}" required>
+            <button type="submit" class="btn btn-primary btn-sm" style="white-space: nowrap; padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+              🔗 Auto-Link
+            </button>
+          </form>
+        </div>
+      `;
+    }
+  },
+
+  handleUpdateParentContact(e) {
+    e.preventDefault();
+    const user = store.getCurrentUser();
+    if (!user) return;
+
+    const input = document.getElementById('student-parent-input');
+    const contact = (input ? input.value : '').trim();
+    if (!contact) return;
+
+    const res = store.updateStudentParentContact(user.id, contact);
+    if (!res.success) {
+      alert(res.message);
+      return;
+    }
+
+    this.renderStudentPortal();
+    const lang = store.getLanguage();
+    const msg = lang === 'te'
+      ? 'తల్లిదండ్రుల వివరాలు విజయవంతంగా సేవ్ చేయబడ్డాయి! వారి ఖాతాతో ఆటోమేటిక్‌గా కనెక్ట్ చేయబడింది.'
+      : 'Parent contact saved! Account auto-synced with parent profile.';
+    this.showToast(msg, 'success');
+  },
+
+  populateDoubtProfessorSelect() {
+    const select = document.getElementById('doubt-prof-select');
+    if (!select) return;
+
+    const profs = store.getProfessors();
+    if (profs.length === 0) {
+      const lang = store.getLanguage();
+      const emptyMsg = lang === 'te'
+        ? 'ఇంకా ఏ ప్రొఫెసర్ రిజిస్టర్ కాలేదు (ప్రొఫెసర్ రిజిస్టర్ కాగానే ఆటోమేటిక్‌గా ఇక్కడ కనిపిస్తారు)'
+        : 'No professors registered yet (Will automatically appear once a professor registers)';
+      select.innerHTML = `<option value="">${emptyMsg}</option>`;
+      return;
+    }
+
+    select.innerHTML = profs.map(p => `
+      <option value="${p.id}">👨‍🏫 ${this.escapeHTML(p.name)} (${this.escapeHTML(p.dept || p.title || 'Faculty')})</option>
+    `).join('');
+  },
+
+  renderStudentProfessorRules(studentId) {
+    const container = document.getElementById('student-professor-rules-list');
+    if (!container) return;
+
+    const rulesData = store.getEnrolledProfessorRules(studentId);
+    if (rulesData.length === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2rem 1.5rem; color: var(--text-muted); background: var(--bg-card-subtle); border: 1px dashed var(--border-color); border-radius: var(--radius-md);">
+          <span style="font-size: 2.2rem; display: block; margin-bottom: 0.5rem;">📜</span>
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">
+            No Professor Academic Regulations Assigned Yet
+          </h4>
+          <p style="font-size: 0.85rem; max-width: 480px; margin: 0 auto 1.25rem auto; line-height: 1.5;">
+            Academic regulations and code of conduct are set strictly by the specific professor/mentor whose class you enroll in. Join your professor's class using their join code to view their official rules.
+          </p>
+          <button class="btn btn-secondary btn-sm" onclick="App.openJoinClassModal()">
+            + Join Mentor Class with Code
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = rulesData.map(item => `
+      <div class="prof-rules-box">
+        <div class="prof-rules-header">
+          <div>
+            <strong style="font-size: 0.95rem; color: var(--primary);">👨‍🏫 ${this.escapeHTML(item.professorName)}</strong>
+            <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 0.5rem;">• ${this.escapeHTML(item.classTitle)} (Code: ${item.joinCode})</span>
+          </div>
+          <span class="badge badge-warning" style="font-size: 0.75rem;">Mentor Regulations</span>
+        </div>
+        <ul class="prof-rules-list">
+          ${item.rules.map(rule => `<li>${this.escapeHTML(rule)}</li>`).join('')}
+        </ul>
+        <div style="margin-top: 0.65rem; font-size: 0.8rem; color: var(--success); font-weight: 600;">
+          ✓ ${store.t('student.rulesPledge')}
+        </div>
+      </div>
+    `).join('');
+  },
+
+  renderStudentDoubts(studentId) {
+    const container = document.getElementById('student-doubts-history');
+    if (!container) return;
+
+    const doubts = store.getStudentDoubts(studentId);
+    if (doubts.length === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+          <p>${store.t('student.noDoubts')}</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = doubts.map(d => {
+      const isAI = d.status === 'ai';
+      const isEscalated = d.status === 'escalated';
+      const isResolved = d.status === 'resolved';
+
+      let statusBadge = '';
+      if (isAI) {
+        statusBadge = `<span class="badge badge-info" style="background: rgba(59, 130, 246, 0.15); color: var(--primary); border: 1px solid rgba(59, 130, 246, 0.3);">⚡ AI-Solved</span>`;
+      } else if (isEscalated) {
+        statusBadge = `<span class="badge badge-warning" style="background: rgba(245, 158, 11, 0.15); color: #b45309; border: 1px solid rgba(245, 158, 11, 0.3);">⏳ Assigned to Prof. ${this.escapeHTML(d.professorName || 'Faculty')} (Awaiting Faculty Response)</span>`;
+      } else if (isResolved) {
+        statusBadge = `<span class="badge badge-success" style="background: rgba(16, 185, 129, 0.15); color: #047857; border: 1px solid rgba(16, 185, 129, 0.3);">✓ Verified Answer by Prof. ${this.escapeHTML(d.professorName || 'Faculty')}</span>`;
+      }
+
+      return `
+        <div class="doubt-card ${isResolved ? 'resolved' : ''}">
+          <div class="doubt-header">
+            <div>
+              <span style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">Q: ${this.escapeHTML(d.question)}</span>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">
+                ${d.createdAt} ${d.professorName ? `• Designated Faculty: <strong>Prof. ${this.escapeHTML(d.professorName)}</strong>` : ''}
+              </div>
+            </div>
+            <div>${statusBadge}</div>
+          </div>
+
+          <!-- Professor Reply (Primary Faculty Clarification) -->
+          ${d.professorReply ? `
+            <div style="margin-top: 0.75rem; padding: 0.85rem; background: var(--success-bg); border-radius: var(--radius-sm); border: 1px solid rgba(16, 185, 129, 0.3);">
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--success); margin-bottom: 0.25rem;">
+                👨‍🏫 Verified Faculty Explanation (Prof. ${this.escapeHTML(d.professorName || 'Professor')}):
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-main); line-height: 1.5; margin: 0;">${this.escapeHTML(d.professorReply)}</p>
+              <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.35rem;">Resolved on ${d.resolvedAt || ''}</span>
+            </div>
+          ` : ''}
+
+          <!-- AI Explanation if present -->
+          ${d.aiAnswer ? `
+            <div class="doubt-body" style="margin-top: 0.75rem;">
+              <div style="font-size: 0.825rem; font-weight: 600; color: var(--primary); margin-bottom: 0.35rem;">
+                🤖 Step-by-Step AI Solution:
+              </div>
+              <pre style="white-space: pre-wrap; font-family: inherit; font-size: 0.85rem; color: var(--text-main); background: var(--bg-card-subtle); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); line-height: 1.5;">${this.escapeHTML(d.aiAnswer)}</pre>
+            </div>
+          ` : ''}
+
+          <!-- Awaiting Professor with on-demand AI solver -->
+          ${isEscalated && !d.aiAnswer && !d.professorReply ? `
+            <div style="margin-top: 0.75rem; padding: 0.85rem 1rem; background: rgba(99, 102, 241, 0.05); border-radius: var(--radius-sm); border: 1px dashed var(--primary); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+              <div style="font-size: 0.85rem; color: var(--text-muted);">
+                👨‍🏫 Submitted directly to <strong>Prof. ${this.escapeHTML(d.professorName || 'Faculty')}</strong> as first preference. Faculty response will appear here.
+              </div>
+              <button type="button" class="btn btn-sm btn-secondary" onclick="App.handleGenerateAIForDoubt('${d.id}')" style="font-size: 0.8rem; font-weight: 600;">
+                ⚡ Solve with AI while waiting (Next Option)
+              </button>
+            </div>
+          ` : ''}
+
+          <!-- AI-only doubt, allow escalating to professor -->
+          ${isAI ? `
+            <div class="doubt-actions" style="margin-top: 0.75rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Need faculty review from your mentor?</span>
+              <button type="button" class="btn btn-sm btn-secondary" onclick="App.handleEscalateDoubt('${d.id}')">
+                👨‍🏫 Send to Selected Professor
+              </button>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }).join('');
+  },
+
+  handleSendDoubtToProfessor(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const user = store.getCurrentUser();
+    if (!user) return;
+
+    const input = document.getElementById('student-doubt-input');
+    const question = (input ? input.value : '').trim();
+    if (!question) {
+      alert('Please type your academic question or doubt description.');
+      return;
+    }
+
+    const profSelect = document.getElementById('doubt-prof-select');
+    const selectedProfId = profSelect ? profSelect.value : null;
+
+    if (!selectedProfId) {
+      alert('Please select your designated professor from the dropdown above to submit your academic question.');
+      return;
+    }
+
+    const res = store.askProfessorDoubt(user.id, selectedProfId, question);
+    if (!res.success) {
+      alert(res.message);
+      return;
+    }
+
+    if (input) input.value = '';
+    this.renderStudentDoubts(user.id);
+    const lang = store.getLanguage();
+    const msg = lang === 'te'
+      ? `మీ సందేహం ప్రొఫెసర్ ${res.professor.name} గారికి విజయవంతంగా పంపబడింది (మొదటి ప్రాధాన్యత)!`
+      : `Academic doubt submitted directly to Professor ${res.professor.name}! (First Preference)`;
+    this.showToast(msg, 'success');
+  },
+
+  handleSolveDoubtWithAI() {
+    const user = store.getCurrentUser();
+    if (!user) return;
+
+    const input = document.getElementById('student-doubt-input');
+    const question = (input ? input.value : '').trim();
+    if (!question) {
+      alert('Please type your academic question or concept doubt first.');
+      return;
+    }
+
+    store.askDoubt(user.id, question);
+    if (input) input.value = '';
+    this.renderStudentDoubts(user.id);
+    const lang = store.getLanguage();
+    const successMsg = lang === 'te'
+      ? 'మీ సందేహం AI ద్వారా తెలుగులో దశలవారీగా పరిష్కరించబడింది (తదుపరి ఎంపిక)!'
+      : 'Step-by-step solution generated with AI! (Next Option)';
+    this.showToast(successMsg, 'success');
+  },
+
+  handleGenerateAIForDoubt(doubtId) {
+    const user = store.getCurrentUser();
+    if (!user) return;
+
+    const res = store.generateAIDoubtAnswer(doubtId);
+    if (!res) {
+      alert('Could not generate AI solution for this doubt.');
+      return;
+    }
+
+    this.renderStudentDoubts(user.id);
+    this.showToast('AI step-by-step explanation generated while awaiting professor reply!', 'info');
+  },
+
+  handleAskDoubt(e) {
+    // Keep backward compatibility, route to professor-first
+    this.handleSendDoubtToProfessor(e);
+  },
+
+  handleEscalateDoubt(doubtId) {
+    const profSelect = document.getElementById('doubt-prof-select');
+    const selectedProfId = profSelect ? profSelect.value : null;
+
+    if (!selectedProfId) {
+      alert('Please select a designated professor from the dropdown above to submit your doubt.');
+      return;
+    }
+
+    const res = store.escalateDoubtToProfessor(doubtId, selectedProfId);
+    if (!res.success) {
+      alert(res.message);
+      return;
+    }
+
+    const user = store.getCurrentUser();
+    if (user) this.renderStudentDoubts(user.id);
+
+    const lang = store.getLanguage();
+    const escMsg = lang === 'te'
+      ? `సందేహం ప్రొఫెసర్ ${res.professor.name} గారికి పంపబడింది.`
+      : `Doubt sent to Professor ${res.professor.name} for verified faculty explanation!`;
+    this.showToast(escMsg, 'info');
+  },
+
+  renderStudentClasses(studentId) {
+    const container = document.getElementById('student-classes-list');
+    if (!container) return;
+
+    const enrolled = store.getStudentEnrolledClasses(studentId);
+    if (enrolled.length === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+          <p>${store.t('student.noClasses')}</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = `
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+        ${enrolled.map(c => `
+          <div class="class-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-main);">${this.escapeHTML(c.title)}</h3>
+              <span class="badge badge-info" style="font-family: monospace;">${c.joinCode}</span>
+            </div>
+            <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              👨‍🏫 ${this.escapeHTML(c.professorName)} • 🕒 ${this.escapeHTML(c.schedule)}
+            </p>
+            <div style="border-top: 1px solid var(--border-color); padding-top: 0.5rem; margin-top: 0.5rem;">
+              <div style="font-size: 0.8rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-main);">
+                ${store.t('student.materialsTitle')}
+              </div>
+              ${(c.materials && c.materials.length > 0) ? `
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem;">
+                  ${c.materials.map(m => `
+                    <li style="font-size: 0.8rem; display: flex; align-items: center; justify-content: space-between;">
+                      <span>📄 ${this.escapeHTML(m.title)} (${m.type})</span>
+                      <a href="${m.url}" target="_blank" style="color: var(--primary); text-decoration: underline; font-size: 0.75rem;">Open</a>
+                    </li>
+                  `).join('')}
+                </ul>
+              ` : `
+                <p style="font-size: 0.775rem; color: var(--text-muted);">No materials uploaded yet.</p>
+              `}
+            </div>
+            <div style="margin-top: 0.75rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem; display: flex; justify-content: flex-end;">
+              <button class="btn btn-sm btn-outline-danger" onclick="App.handleUnenrollClass('${c.id}')" style="font-size: 0.75rem; padding: 0.2rem 0.55rem;">
+                ${store.t('student.leaveClassBtn')}
+              </button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  },
+
+  renderStudentAssignments(studentId) {
+    const container = document.getElementById('student-assignments-list');
+    if (!container) return;
+
+    const assignments = store.getStudentAssignments(studentId);
+    if (assignments.length === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem;">
+          <p>${store.t('student.noAssignments')}</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = assignments.map(a => {
+      const sub = (a.submissions || []).find(s => s.studentId === studentId);
+      const isGraded = sub && sub.status === 'graded';
+      const isSubmitted = sub && sub.status === 'submitted';
+
+      let statusHtml = '<span class="badge badge-warning">Pending Submission</span>';
+      if (isGraded) statusHtml = `<span class="badge badge-success">Graded: ${sub.marks}/${a.maxMarks}</span>`;
+      else if (isSubmitted) statusHtml = '<span class="badge badge-info">Submitted - Awaiting Review</span>';
+
+      return `
+        <div style="background-color: var(--bg-card-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.35rem;">
+            <h4 style="font-size: 0.95rem; font-weight: 700;">${this.escapeHTML(a.title)}</h4>
+            ${statusHtml}
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+            ${this.escapeHTML(a.description)}
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.775rem; color: var(--text-muted);">
+            <span>Due: ${a.dueDate}</span>
+            ${!sub ? `
+              <button class="btn btn-sm btn-primary" onclick="App.handleStudentSubmitAssignment('${a.id}')">
+                ${store.t('student.submitBtn')}
+              </button>
+            ` : (isGraded && sub.feedback ? `
+              <span style="color: var(--success); font-weight: 600;">Feedback: ${this.escapeHTML(sub.feedback)}</span>
+            ` : '')}
+          </div>
+        </div>
+      `;
+    }).join('');
+  },
+
+  handleStudentSubmitAssignment(assignmentId) {
+    const user = store.getCurrentUser();
+    if (!user) return;
+    const fileUrl = prompt('Enter link or filename for your completed solution:', 'https://drive.google.com/my-solution.pdf');
+    if (!fileUrl) return;
+
+    store.submitAssignment(assignmentId, user.id, fileUrl);
+    this.renderStudentAssignments(user.id);
+    this.showToast('Solution submitted successfully for professor grading!', 'success');
+  },
+
+  // --- Professor Quizzes & Dynamic AI Mock Tests ---
+
+  renderStudentProfessorQuizzes() {
+    const container = document.getElementById('student-prof-quizzes-list');
+    if (!container) return;
+
+    const user = store.getCurrentUser();
+    const quizzes = store.getStudentProfessorQuizzes(user ? user.id : null);
+    if (quizzes.length === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2rem 1.5rem; color: var(--text-muted); background: var(--bg-card-subtle); border: 1px dashed var(--border-color); border-radius: var(--radius-md);">
+          <span style="font-size: 2.2rem; display: block; margin-bottom: 0.5rem;">📝</span>
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">
+            No Professor-Assigned Class Quizzes Yet
+          </h4>
+          <p style="font-size: 0.85rem; max-width: 480px; margin: 0 auto 1.25rem auto; line-height: 1.5;">
+            Class quizzes are created exclusively by your enrolled mentor professors for their batches. Once your professor publishes an assessment, it will appear here. You can also practice anytime using the Dynamic AI Mock Test below.
+          </p>
+          <button class="btn btn-secondary btn-sm" onclick="App.openJoinClassModal()">
+            + Join Mentor Class with Code
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = quizzes.map(q => `
+      <div class="quiz-card-item">
+        <div>
+          <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.2rem;">
+            ${this.escapeHTML(q.title)}
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">
+            👨‍🏫 By ${this.escapeHTML(q.professorName)} • ⏱️ ${q.timeLimitMinutes} Mins • ❓ ${q.questions.length} Questions
+          </div>
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="App.openProfessorQuiz('${q.id}')">
+          ▶️ Take Quiz
+        </button>
+      </div>
+    `).join('');
+  },
+
+  openProfessorQuiz(quizId) {
+    const quiz = store.getQuizzes().find(q => q.id === quizId);
+    if (!quiz) return;
+
+    this.activeQuiz = quiz;
+    const titleEl = document.getElementById('quiz-modal-title');
+    const bodyEl = document.getElementById('quiz-questions-body');
+    const activeIdEl = document.getElementById('quiz-active-id');
+    const activeTypeEl = document.getElementById('quiz-active-type');
+
+    if (titleEl) titleEl.textContent = `Professor Quiz: ${quiz.title}`;
+    if (activeIdEl) activeIdEl.value = quiz.id;
+    if (activeTypeEl) activeTypeEl.value = 'professor';
+
+    bodyEl.innerHTML = quiz.questions.map((q, idx) => `
+      <div style="margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+        <p style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem;">
+          ${idx + 1}. ${this.escapeHTML(q.question)}
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+          ${q.options.map((opt, optIdx) => `
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; cursor: pointer;">
+              <input type="radio" name="quiz_q_${idx}" value="${optIdx}" required>
+              <span>${this.escapeHTML(opt)}</span>
+            </label>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+
+    if (this.quizModal) this.quizModal.classList.add('active');
+  },
+
+  renderMockTestControls() {
+    const levelSelect = document.getElementById('mock-level-select');
+    if (levelSelect) {
+      this.handleMockLevelChange(levelSelect.value);
+    }
+  },
+
+  handleMockLevelChange(level) {
+    const subjectSelect = document.getElementById('mock-subject-select');
+    if (!subjectSelect) return;
+
+    const curr = store.getAcademicCurriculum();
+    const lvlData = curr[level];
+    if (!lvlData) return;
+
+    if (level === 'school') {
+      const grades = lvlData.grades || {};
+      subjectSelect.innerHTML = Object.keys(grades).map(grade => `
+        <optgroup label="${this.escapeHTML(grade)}">
+          ${grades[grade].map(s => `<option value="${this.escapeHTML(s)}">${this.escapeHTML(s)}</option>`).join('')}
+        </optgroup>
+      `).join('');
+    } else {
+      const branches = lvlData.branches || {};
+      subjectSelect.innerHTML = Object.keys(branches).map(branch => `
+        <optgroup label="${this.escapeHTML(branch)}">
+          ${branches[branch].map(s => `<option value="${this.escapeHTML(s)}">${this.escapeHTML(s)}</option>`).join('')}
+        </optgroup>
+      `).join('');
+    }
+  },
+
+  startAIMockTest() {
+    const levelSelect = document.getElementById('mock-level-select');
+    const subjectSelect = document.getElementById('mock-subject-select');
+    const level = levelSelect ? levelSelect.value : 'btech';
+    const subject = subjectSelect ? subjectSelect.value : 'Computer Science';
+
+    // Generate fresh dynamic questions (Changes Every Time!)
+    const dynamicMock = store.generateAIMockTest(level, subject);
+    this.currentAIMockTest = dynamicMock;
+
+    const titleEl = document.getElementById('quiz-modal-title');
+    const bodyEl = document.getElementById('quiz-questions-body');
+    const activeIdEl = document.getElementById('quiz-active-id');
+    const activeTypeEl = document.getElementById('quiz-active-type');
+
+    if (titleEl) titleEl.textContent = dynamicMock.title;
+    if (activeIdEl) activeIdEl.value = dynamicMock.id;
+    if (activeTypeEl) activeTypeEl.value = 'ai_mock';
+
+    bodyEl.innerHTML = dynamicMock.questions.map((q, idx) => `
+      <div style="margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+        <p style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem;">
+          ${idx + 1}. ${this.escapeHTML(q.question)}
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+          ${q.options.map((opt, optIdx) => `
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; cursor: pointer;">
+              <input type="radio" name="quiz_q_${idx}" value="${optIdx}" required>
+              <span>${this.escapeHTML(opt)}</span>
+            </label>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+
+    if (this.quizModal) this.quizModal.classList.add('active');
+    this.showToast('Dynamic AI Mock Test questions generated fresh for this session!', 'info');
+  },
+
+  submitQuiz(e) {
+    e.preventDefault();
+    const typeEl = document.getElementById('quiz-active-type');
+    const isMock = typeEl && typeEl.value === 'ai_mock';
+
+    const testObject = isMock ? this.currentAIMockTest : this.activeQuiz;
+    if (!testObject || !testObject.questions) return;
+
+    let score = 0;
+    const total = testObject.questions.length;
+    testObject.questions.forEach((q, idx) => {
+      const checked = document.querySelector(`input[name="quiz_q_${idx}"]:checked`);
+      const val = checked ? parseInt(checked.value, 10) : -1;
+      if (val === q.correctIndex) score++;
+    });
+
+    const percent = Math.round((score / total) * 100);
+    this.closeAllModals();
+
+    const student = store.getCurrentUser();
+    if (student) {
+      const testTitle = testObject.title || (isMock ? 'Dynamic AI Mock Test' : 'Class Quiz');
+      store.addParentWhatsAppNotification({
+        studentId: student.id,
+        studentCode: student.studentCode,
+        studentName: student.name,
+        type: 'quiz',
+        title: testTitle,
+        score,
+        total,
+        percentage: percent
+      });
+    }
+
+    const lang = store.getLanguage();
+    const resultMsg = lang === 'te'
+      ? `పరీక్ష పూర్తయింది!\nమీ స్కోరు: ${score}/${total} (${percent}%)\n${percent >= 75 ? 'అద్భుతమైన ప్రతిభ! 🎉' : 'మంచి ప్రయత్నం! మరింత అభ్యాసం చేయండి.'}\n\n📲 ఈ పరీక్ష ఫలితాలు మీ తల్లిదండ్రుల WhatsApp కు తక్షణమే పంపబడ్డాయి!`
+      : `Test Complete!\nScore: ${score}/${total} (${percent}%)\n${percent >= 75 ? 'Outstanding performance! 🎉' : 'Keep practicing to master these concepts!'}\n\n📲 Test results have been sent to your parent's WhatsApp in real time!`;
+
+    alert(resultMsg);
+    this.showToast(`Test Auto-Graded: ${percent}% (WhatsApp Alert Sent to Parent)`, 'success');
+  },
+
+  // --- Smart Study Planner (Classes 1-12, B.Tech, Diploma) ---
+
+  renderStudentPlannerControls(user) {
+    const levelSelect = document.getElementById('planner-level-select');
+    if (!levelSelect) return;
+
+    const planner = user ? user.studyPlanner : null;
+    if (planner && planner.level) {
+      levelSelect.value = planner.level;
+      this.handlePlannerLevelChange(planner.level, planner.gradeOrBranch, planner.subjects);
+      const hoursInput = document.getElementById('planner-hours-input');
+      const dateInput = document.getElementById('planner-exam-date');
+      if (hoursInput && planner.dailyHours) hoursInput.value = planner.dailyHours;
+      if (dateInput && planner.examDate) dateInput.value = planner.examDate;
+    } else {
+      levelSelect.value = '';
+      const gradeSelect = document.getElementById('planner-grade-select');
+      if (gradeSelect) {
+        gradeSelect.innerHTML = `<option value="" disabled selected>-- Select Grade / Branch --</option>`;
+      }
+      const container = document.getElementById('planner-subjects-checkboxes');
+      if (container) {
+        const lang = store.getLanguage();
+        container.innerHTML = `<span style="font-size: 0.8rem; color: var(--text-muted);">${lang === 'te' ? 'ముందుగా విద్యా స్థాయి మరియు బ్రాంచ్‌ను ఎంచుకోండి.' : 'Please select Academic Stream and Grade/Branch first.'}</span>`;
+      }
+      const hoursInput = document.getElementById('planner-hours-input');
+      const dateInput = document.getElementById('planner-exam-date');
+      if (hoursInput) hoursInput.value = '';
+      if (dateInput) dateInput.value = '';
+    }
+  },
+
+  handlePlannerLevelChange(level, preselectedGrade = null, preselectedSubjects = null) {
+    const gradeSelect = document.getElementById('planner-grade-select');
+    if (!gradeSelect) return;
+
+    if (!level) {
+      gradeSelect.innerHTML = `<option value="" disabled selected>-- Select Grade / Branch --</option>`;
+      return;
+    }
+
+    const curr = store.getAcademicCurriculum();
+    const lvlData = curr[level];
+    if (!lvlData) return;
+
+    let keys = [];
+    if (level === 'school') keys = Object.keys(lvlData.grades || {});
+    else keys = Object.keys(lvlData.branches || {});
+
+    gradeSelect.innerHTML = [
+      `<option value="" disabled ${!preselectedGrade ? 'selected' : ''}>-- Select Grade / Branch --</option>`,
+      ...keys.map(k => `<option value="${this.escapeHTML(k)}" ${preselectedGrade === k ? 'selected' : ''}>${this.escapeHTML(k)}</option>`)
+    ].join('');
+
+    if (preselectedGrade) {
+      gradeSelect.value = preselectedGrade;
+      this.handlePlannerGradeChange(preselectedGrade, preselectedSubjects);
+    } else {
+      const container = document.getElementById('planner-subjects-checkboxes');
+      if (container) {
+        const lang = store.getLanguage();
+        container.innerHTML = `<span style="font-size: 0.8rem; color: var(--text-muted);">${lang === 'te' ? 'సబ్జెక్టులను ఎంచుకోవడానికి పైన గ్రేడ్ లేదా బ్రాంచ్‌ను ఎంచుకోండి.' : 'Select a Grade / Branch above to choose subjects.'}</span>`;
+      }
+    }
+  },
+
+  handlePlannerGradeChange(gradeOrBranch, preselectedSubjects = null) {
+    const levelSelect = document.getElementById('planner-level-select');
+    const container = document.getElementById('planner-subjects-checkboxes');
+    if (!levelSelect || !container) return;
+
+    const level = levelSelect.value;
+    if (!level || !gradeOrBranch) return;
+
+    const curr = store.getAcademicCurriculum();
+    const lvlData = curr[level];
+    if (!lvlData) return;
+
+    let subjects = [];
+    if (level === 'school') subjects = (lvlData.grades || {})[gradeOrBranch] || [];
+    else subjects = (lvlData.branches || {})[gradeOrBranch] || [];
+
+    const user = store.getCurrentUser();
+    const savedSubjects = (user && user.studyPlanner && user.studyPlanner.subjects) ? user.studyPlanner.subjects : (preselectedSubjects || []);
+
+    container.innerHTML = subjects.map(s => {
+      const isChecked = savedSubjects.includes(s);
+      return `
+        <label class="subject-checkbox-chip">
+          <input type="checkbox" name="planner_subj" value="${this.escapeHTML(s)}" ${isChecked ? 'checked' : ''}>
+          <span>${this.escapeHTML(s)}</span>
+        </label>
+      `;
+    }).join('');
+  },
+
+  handleGenerateStudyPlan(e) {
+    e.preventDefault();
+    const user = store.getCurrentUser();
+    if (!user) return;
+
+    const levelEl = document.getElementById('planner-level-select');
+    const gradeEl = document.getElementById('planner-grade-select');
+    const hoursEl = document.getElementById('planner-hours-input');
+    const dateEl = document.getElementById('planner-exam-date');
+    const valMsgEl = document.getElementById('planner-validation-msg');
+
+    const level = levelEl ? levelEl.value : '';
+    const gradeOrBranch = gradeEl ? gradeEl.value : '';
+    const dailyHours = hoursEl ? hoursEl.value : '';
+    const examDate = dateEl ? dateEl.value : '';
+
+    const checkedBoxes = document.querySelectorAll('input[name="planner_subj"]:checked');
+    const selectedSubjects = Array.from(checkedBoxes).map(cb => cb.value);
+
+    // Call store.generateCustomStudyPlan which performs strict validation
+    const res = store.generateCustomStudyPlan(user.id, {
+      level,
+      gradeOrBranch,
+      selectedSubjects,
+      dailyHours,
+      examDate,
+      examName: `${gradeOrBranch} Examination`
+    });
+
+    if (!res.success) {
+      if (valMsgEl) {
+        valMsgEl.textContent = res.message;
+        valMsgEl.style.display = 'block';
+        valMsgEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        alert(res.message);
+      }
+      return;
+    }
+
+    if (valMsgEl) valMsgEl.style.display = 'none';
+
+    this.renderStudentPlannerTasks(store.getCurrentUser());
+    const lang = store.getLanguage();
+    const toastMsg = lang === 'te' 
+      ? 'మీ సబ్జెక్టుల ఆధారంగా అనుకూలమైన స్టడీ ప్లాన్ సిద్ధమైంది!' 
+      : 'Custom subject-based study plan generated!';
+    this.showToast(toastMsg, 'success');
+  },
+
+  renderStudentPlannerTasks(user) {
+    const container = document.getElementById('student-planner-items');
+    if (!container) return;
+
+    if (!user || !user.studyPlanner) {
+      const titleEl = document.getElementById('planner-exam-title');
+      const metaEl = document.getElementById('planner-exam-meta');
+      const lang = store.getLanguage();
+
+      if (titleEl) {
+        titleEl.textContent = lang === 'te' 
+          ? 'అనుకూల అధ్యయన టైమ్‌టేబుల్ (ఇంకా రూపొందించబడలేదు)' 
+          : 'Personalized Study Timetable (Not Generated Yet)';
+      }
+      if (metaEl) {
+        metaEl.textContent = lang === 'te'
+          ? 'దయచేసి పైన ఉన్న అన్ని ఎంపికలను ఎంచుకుని "కస్టమ్ సబ్జెక్ట్ స్టడీ ప్లాన్ రూపొందించండి" క్లిక్ చేయండి.'
+          : 'Please select all required fields above and click "Generate Custom Subject Study Plan".';
+      }
+
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2.5rem 1.5rem; background: var(--bg-card-subtle); border: 1px dashed var(--border-color); border-radius: var(--radius-md);">
+          <span style="font-size: 2.2rem; display: block; margin-bottom: 0.5rem;">📅</span>
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">
+            ${lang === 'te' ? 'స్టడీ టైమ్‌టేబుల్ ఇంకా సిద్ధం కాలేదు' : 'No Study Plan Generated Yet'}
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 520px; margin: 0 auto; line-height: 1.5;">
+            ${lang === 'te'
+              ? 'విద్యా స్థాయి (స్కూల్ 1-12, బి.టెక్ లేదా డిప్లొమా), బ్రాంచ్, సబ్జెక్టులు, రోజువారీ గంటలు మరియు పరీక్ష తేదీ ఎంచుకుంటేనే ఇక్కడ టైమ్‌టేబుల్ కనిపిస్తుంది.'
+              : 'Timetable is created strictly after selecting your Academic Stream (School 1-12, B.Tech, or Diploma), Branch, Subjects, Daily Hours, and Exam Date.'}
+          </p>
+        </div>
+      `;
+      return;
+    }
+
+    const planner = user.studyPlanner;
+    const titleEl = document.getElementById('planner-exam-title');
+    const metaEl = document.getElementById('planner-exam-meta');
+
+    if (titleEl) {
+      titleEl.textContent = `${planner.gradeOrBranch} - Study Routine (${planner.dailyHours} hrs/day)`;
+    }
+    if (metaEl) {
+      metaEl.textContent = `Target Exam: ${planner.examDate} • Subjects: ${planner.subjects.join(', ')}`;
+    }
+
+    container.innerHTML = planner.schedule.map((task, idx) => `
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: var(--bg-card-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <input type="checkbox" ${task.done ? 'checked' : ''} onchange="App.handleTogglePlannerTask(${idx})" style="width: 18px; height: 18px; cursor: pointer;">
+          <div>
+            <div style="font-size: 0.9rem; font-weight: 600; text-decoration: ${task.done ? 'line-through' : 'none'}; color: ${task.done ? 'var(--text-muted)' : 'var(--text-main)'};">
+              ${this.escapeHTML(task.subject)}: ${this.escapeHTML(task.topic)}
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">${task.time}</div>
+          </div>
+        </div>
+        <span class="badge ${task.done ? 'badge-success' : 'badge-warning'}">
+          ${task.done ? 'Completed' : 'Upcoming'}
+        </span>
+      </div>
+    `).join('');
+  },
+
+  handleTogglePlannerTask(taskIndex) {
+    const user = store.getCurrentUser();
+    if (!user) return;
+    store.toggleStudyTask(user.id, taskIndex);
+    this.renderStudentPlannerTasks(store.getCurrentUser());
+  },
+
+  renderForum() {
+    const container = document.getElementById('student-forum-posts');
+    if (!container) return;
+
+    const posts = store.state.announcements || [];
+    container.innerHTML = `
+      <div style="background: var(--bg-card-subtle); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.5rem;">
+          Collaborative academic discussions with your course professors and fellow students.
+        </p>
+        ${posts.slice(0, 2).map(p => `
+          <div style="border-top: 1px solid var(--border-color); padding-top: 0.5rem; margin-top: 0.5rem;">
+            <strong style="font-size: 0.85rem;">${this.escapeHTML(p.title)}</strong>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">${this.escapeHTML(p.content)}</p>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  },
+
+  renderStudentLiveSessions() {
+    const container = document.getElementById('student-live-sessions-list');
+    if (!container) return;
+
+    const user = store.getCurrentUser();
+    const sessions = store.getStudentLiveSessions(user ? user.id : null);
+    if (sessions.length === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2rem 1.5rem; color: var(--text-muted); background: var(--bg-card-subtle); border: 1px dashed var(--border-color); border-radius: var(--radius-md);">
+          <span style="font-size: 2.2rem; display: block; margin-bottom: 0.5rem;">📹</span>
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">
+            No Live Lectures Scheduled Yet
+          </h4>
+          <p style="font-size: 0.85rem; max-width: 480px; margin: 0 auto 1.25rem auto; line-height: 1.5;">
+            Live lectures and problem-solving clinics are conducted exclusively by your enrolled mentor professors. Once your professor schedules an online session, it will appear here with an interactive join link.
+          </p>
+          <button class="btn btn-secondary btn-sm" onclick="App.openJoinClassModal()">
+            + Join Mentor Class with Code
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = sessions.map(s => `
+      <div class="live-card-item">
+        <div>
+          <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.2rem;">
+            ${this.escapeHTML(s.title)}
+          </div>
+          <div style="font-size: 0.825rem; color: var(--text-muted);">
+            👨‍🏫 Conducted by: <strong>${this.escapeHTML(s.professorName)}</strong> • 📅 ${s.date} • 🕒 ${s.time}
+          </div>
+        </div>
+        <a href="${s.meetUrl}" target="_blank" class="btn btn-sm btn-primary">
+          ${store.t('student.joinLectureBtn')}
+        </a>
+      </div>
+    `).join('');
+  },
+
+  // =========================================================================
+  // 2. PROFESSOR PORTAL (The Central Platform Authority)
+  // =========================================================================
+
+  renderProfessorPortal() {
+    const user = store.getCurrentUser();
+    const profId = user ? user.id : null;
+
+    // KPIs - Filtered specifically for this professor
+    const classes = store.getProfessorClasses(profId);
+    const doubts = store.getProfessorPendingDoubts(profId);
+    const assignments = store.getAssignments();
+    let pendingSubs = 0;
+    assignments.forEach(a => {
+      (a.submissions || []).forEach(s => {
+        if (s.status === 'submitted') pendingSubs++;
+      });
+    });
+
+    const clEl = document.getElementById('prof-total-classes-val');
+    const dbEl = document.getElementById('prof-pending-doubts-val');
+    const grEl = document.getElementById('prof-pending-grading-val');
+
+    if (clEl) clEl.textContent = classes.length;
+    if (dbEl) dbEl.textContent = doubts.length;
+    if (grEl) grEl.textContent = pendingSubs;
+
+    // Doubt Resolution Inbox
+    this.renderProfessorDoubtInbox(doubts);
+
+    // Classes Management
+    this.renderProfessorClasses();
+
+    // Professor's Live Sessions & Quizzes
+    this.renderProfessorLiveAndQuizzes(profId);
+
+    // Grading Queue
+    this.renderProfessorGradingQueue();
+
+    // Broadcast Announcements
+    this.renderProfessorAnnouncements();
+  },
+
+  renderProfessorDoubtInbox(doubts) {
+    const container = document.getElementById('prof-doubt-inbox-list');
+    if (!container) return;
+
+    if (doubts.length === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+          <p>${store.t('professor.noPendingDoubts')}</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = doubts.map(d => `
+      <div class="doubt-card" style="margin-bottom: 1rem;">
+        <div class="doubt-header">
+          <div>
+            <span style="font-weight: 700; font-size: 0.95rem;">Question from: ${this.escapeHTML(d.studentName)}</span>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">${d.createdAt}</div>
+          </div>
+          <span class="badge badge-warning">Awaiting Your Explanation</span>
+        </div>
+        <div style="padding: 0.75rem; background: var(--bg-card-subtle); border-radius: var(--radius-sm); margin: 0.5rem 0; font-size: 0.875rem;">
+          <strong>Q:</strong> ${this.escapeHTML(d.question)}
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+          Student reviewed initial AI solution and designated you for verified faculty explanation.
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <textarea id="prof-reply-input-${d.id}" class="form-control" rows="2" placeholder="Provide verified faculty explanation and guidance..."></textarea>
+          <div style="display: flex; justify-content: flex-end;">
+            <button class="btn btn-sm btn-primary" onclick="App.handleResolveDoubt('${d.id}')">
+              ${store.t('professor.submitReplyBtn')}
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  },
+
+  handleResolveDoubt(doubtId) {
+    const input = document.getElementById(`prof-reply-input-${doubtId}`);
+    const reply = input ? input.value.trim() : '';
+    if (!reply) {
+      alert('Please enter your faculty response to resolve this student doubt.');
+      return;
+    }
+
+    store.resolveDoubt(doubtId, reply);
+    this.renderProfessorPortal();
+    this.showToast('Faculty answer submitted and student doubt marked as resolved!', 'success');
+  },
+
+  renderProfessorClasses() {
+    const container = document.getElementById('prof-classes-mgmt-list');
+    if (!container) return;
+
+    const user = store.getCurrentUser();
+    const profId = user ? user.id : null;
+    const classes = store.getProfessorClasses(profId);
+
+    if (classes.length === 0) {
+      const lang = store.getLanguage();
+      const emptyMsg = lang === 'te'
+        ? 'మీరు ఇంకా ఎటువంటి తరగతులను సృష్టించలేదు. మీ విద్యార్థులకు కోడ్ ఇవ్వడానికి మరియు క్విజ్‌లు కేటాయించడానికి పైన ఉన్న \'+ Create New Class\' పై క్లిక్ చేయండి.'
+        : 'No classes created by you yet. Click \'+ Create New Class\' above to generate class batches and join codes.';
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem; background: var(--bg-card-subtle); border: 1px dashed var(--border-color); border-radius: var(--radius-sm);">
+          <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">🏫</span>
+          <p style="margin-bottom: 1rem;">${emptyMsg}</p>
+          <button class="btn btn-primary btn-sm" onclick="App.openCreateClassModal()">
+            + Create New Class
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = `
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem;">
+        ${classes.map(c => `
+          <div class="class-card" style="display: flex; flex-direction: column; justify-content: space-between; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; gap: 0.5rem;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0;">${this.escapeHTML(c.title)}</h4>
+                <span class="badge badge-info" style="font-family: monospace; font-size: 0.85rem; font-weight: 700;">Code: ${c.joinCode}</span>
+              </div>
+              <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                🕒 ${this.escapeHTML(c.schedule)}
+              </p>
+              <div style="font-size: 0.825rem; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem;">
+                👥 Enrolled Students: ${c.enrolledStudentIds ? c.enrolledStudentIds.length : 0}
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+              <button class="btn btn-sm btn-primary" onclick="App.openCreateQuizModal('${c.id}')" title="Create Quiz for this class">
+                🎯 + Quiz
+              </button>
+              <button class="btn btn-sm btn-secondary" onclick="App.openScheduleLiveModal('${c.id}')" title="Schedule Live Session for this class">
+                📹 + Live
+              </button>
+              <button class="btn btn-sm btn-secondary" onclick="App.openUploadMaterialModal('${c.id}')" title="Upload Material">
+                📁 + Notes
+              </button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  },
+
+  renderProfessorLiveAndQuizzes(profId) {
+    const liveContainer = document.getElementById('prof-live-sessions-list');
+    const quizContainer = document.getElementById('prof-quizzes-list');
+
+    if (liveContainer) {
+      const sessions = store.getProfessorLiveSessions(profId);
+      if (sessions.length === 0) {
+        liveContainer.innerHTML = `
+          <div style="text-align: center; padding: 2rem 1rem; color: var(--text-muted); font-size: 0.85rem; border: 1px dashed var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card-subtle);">
+            <p style="margin-bottom: 0.75rem;">No live lectures scheduled by you yet.</p>
+            <button class="btn btn-sm btn-secondary" onclick="App.openScheduleLiveModal()">
+              + Schedule Live Lecture
+            </button>
+          </div>
+        `;
+      } else {
+        liveContainer.innerHTML = sessions.map(s => {
+          const targetClass = store.getClass(s.classId);
+          const classTag = targetClass ? `${targetClass.title} (${targetClass.joinCode})` : 'Class Lecture';
+          return `
+            <div style="padding: 0.75rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.25rem;">
+                <div style="font-weight: 700; font-size: 0.9rem;">${this.escapeHTML(s.title)}</div>
+                <span class="badge badge-info" style="font-size: 0.75rem;">${this.escapeHTML(classTag)}</span>
+              </div>
+              <div style="font-size: 0.775rem; color: var(--text-muted); margin-bottom: 0.35rem;">${s.date} • ${s.time}</div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="${s.meetUrl}" target="_blank" style="font-size: 0.775rem; color: var(--primary); text-decoration: underline;">Launch Meeting</a>
+                <button class="btn btn-sm btn-danger" onclick="App.handleDeleteLiveSession('${s.id}')" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;">
+                  🗑️ Delete
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    if (quizContainer) {
+      const quizzes = store.getProfessorQuizzes(profId);
+      if (quizzes.length === 0) {
+        quizContainer.innerHTML = `
+          <div style="text-align: center; padding: 2rem 1rem; color: var(--text-muted); font-size: 0.85rem; border: 1px dashed var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card-subtle);">
+            <p style="margin-bottom: 0.75rem;">No class quizzes created by you yet.</p>
+            <button class="btn btn-sm btn-secondary" onclick="App.openCreateQuizModal()">
+              + Create Class Quiz
+            </button>
+          </div>
+        `;
+      } else {
+        quizContainer.innerHTML = quizzes.map(q => {
+          const targetClass = store.getClass(q.classId);
+          const classTag = targetClass ? `${targetClass.title} (${targetClass.joinCode})` : (q.classTitle || 'Academic Class');
+          return `
+            <div style="padding: 0.75rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.25rem;">
+                <strong style="font-size: 0.9rem; color: var(--text-main);">${this.escapeHTML(q.title)}</strong>
+                <span class="badge badge-info" style="font-size: 0.75rem;">🏫 ${this.escapeHTML(classTag)}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.35rem;">
+                <div style="font-size: 0.775rem; color: var(--text-muted);">⏱️ ${q.timeLimitMinutes} Mins • ❓ ${q.questions.length} Question(s)</div>
+                <button class="btn btn-sm btn-danger" onclick="App.handleDeleteQuiz('${q.id}')" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;">
+                  🗑️ Delete
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+  },
+
+  renderProfessorGradingQueue() {
+    const tbody = document.getElementById('prof-grading-tbody');
+    const user = store.getCurrentUser();
+    const profId = user ? user.id : null;
+    const assignments = store.getAssignments().filter(a => !profId || a.professorId === profId);
+
+    if (tbody) {
+      let rowsHtml = '';
+      assignments.forEach(a => {
+        (a.submissions || []).forEach(sub => {
+          const isGraded = sub.status === 'graded';
+          rowsHtml += `
+            <tr>
+              <td><strong>${this.escapeHTML(sub.studentName)}</strong></td>
+              <td>${this.escapeHTML(a.title)}</td>
+              <td>${sub.submittedAt}</td>
+              <td>
+                <span class="badge ${isGraded ? 'badge-success' : 'badge-warning'}">
+                  ${isGraded ? `${sub.marks}/${a.maxMarks}` : 'Pending'}
+                </span>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-primary" onclick="App.openGradeModal('${a.id}', '${sub.id}', '${this.escapeHTML(sub.studentName)}')">
+                  ${isGraded ? 'Update Grade' : 'Grade & Feedback'}
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+      });
+
+      if (!rowsHtml) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 1.5rem;">
+              No student submissions in queue.
+            </td>
+          </tr>
+        `;
+      } else {
+        tbody.innerHTML = rowsHtml;
+      }
+    }
+
+    const asgContainer = document.getElementById('prof-assignments-list');
+    if (asgContainer) {
+      if (assignments.length === 0) {
+        asgContainer.innerHTML = `
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+            No assignments published yet. Click '+ Create New Assignment' above to publish coursework.
+          </p>
+        `;
+      } else {
+        asgContainer.innerHTML = assignments.map(a => `
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); margin-bottom: 0.5rem; gap: 0.5rem; flex-wrap: wrap;">
+            <div>
+              <strong style="font-size: 0.9rem; color: var(--text-main);">${this.escapeHTML(a.title)}</strong>
+              <div style="font-size: 0.775rem; color: var(--text-muted);">
+                Max Marks: ${a.maxMarks} • Due Date: ${a.dueDate} • Submissions: ${(a.submissions || []).length}
+              </div>
+            </div>
+            <button class="btn btn-sm btn-danger" onclick="App.handleDeleteAssignment('${a.id}')" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">
+              🗑️ Delete Assignment
+            </button>
+          </div>
+        `).join('');
+      }
+    }
+  },
+
+  renderProfessorAnnouncements() {
+    const container = document.getElementById('prof-announcements-list');
+    if (!container) return;
+
+    const announcements = store.getAnnouncements();
+    if (announcements.length === 0) {
+      container.innerHTML = `<p style="font-size: 0.85rem; color: var(--text-muted);">No broadcast notices posted yet.</p>`;
+      return;
+    }
+
+    container.innerHTML = announcements.map(anc => `
+      <div style="background: var(--bg-card-subtle); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 0.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+          <strong style="font-size: 0.9rem;">${this.escapeHTML(anc.title)}</strong>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">${anc.date}</span>
+        </div>
+        <p style="font-size: 0.825rem; color: var(--text-main); margin: 0;">${this.escapeHTML(anc.content)}</p>
+      </div>
+    `).join('');
+  },
+
+  submitBroadcastAnnouncement(e) {
+    e.preventDefault();
+    const title = (document.getElementById('broadcast-title-input').value || '').trim();
+    const content = (document.getElementById('broadcast-content-input').value || '').trim();
+    if (!title || !content) return;
+
+    store.createAnnouncement(title, content);
+    document.getElementById('broadcast-title-input').value = '';
+    document.getElementById('broadcast-content-input').value = '';
+    this.renderProfessorAnnouncements();
+    this.showToast('Announcement broadcasted to enrolled students & linked parents!', 'success');
+  },
+
+  // =========================================================================
+  // 3. PARENT PORTAL
+  // =========================================================================
+
+  renderParentPortal() {
+    const user = store.getCurrentUser();
+    const childCode = user && user.childCode ? user.childCode.trim() : '';
+
+    const nameEl = document.getElementById('parent-child-name');
+    const codeEl = document.getElementById('parent-child-code');
+    const statsEl = document.getElementById('parent-child-stats');
+    const digestEl = document.getElementById('parent-whatsapp-digest');
+    const feedListEl = document.getElementById('parent-whatsapp-feed-list');
+    const linkInput = document.getElementById('parent-link-code-input');
+
+    const report = store.generateWeeklyReport(childCode);
+    const student = report.student;
+
+    if (student) {
+      if (nameEl) nameEl.textContent = `${student.name}`;
+      if (codeEl) codeEl.textContent = `Student Code: ${student.studentCode}`;
+      if (statsEl) {
+        statsEl.textContent = `Attendance: ${student.attendancePercentage !== undefined ? student.attendancePercentage : 0}% • Study Streak: ${student.studyStreakDays || 1} Days • Grade: ${student.averageGrade || 'Pending'}`;
+      }
+      if (linkInput && !linkInput.value) linkInput.value = student.studentCode;
+    } else {
+      if (nameEl) nameEl.textContent = store.t('parent.unlinkedTitle');
+      if (codeEl) codeEl.textContent = store.t('parent.unlinkedDesc');
+      if (statsEl) statsEl.textContent = 'Please enter your child\'s student code above to link their profile.';
+    }
+
+    // Render Live WhatsApp Activity & Test Alerts Feed
+    if (feedListEl) {
+      const notifs = store.getParentNotifications(student ? student.studentCode : null);
+      if (notifs.length === 0) {
+        const lang = store.getLanguage();
+        const emptyFeedMsg = lang === 'te'
+          ? 'ఇంకా ఎటువంటి పరీక్షలు లేదా అసైన్‌మెంట్లు నమోదు కాలేదు. విద్యార్థి క్విజ్ రాసినా లేదా అసైన్‌మెంట్ సమర్పించినా తక్షణ WhatsApp హెచ్చరికలు ఇక్కడ కనిపిస్తాయి.'
+          : 'No activity alerts yet. Whenever the student writes a quiz or submits an assignment, real-time WhatsApp notifications will arrive instantly here.';
+        feedListEl.innerHTML = `
+          <div style="text-align: center; padding: 2rem 1rem; color: var(--text-muted); background: var(--bg-card-subtle); border-radius: var(--radius-sm); border: 1px dashed var(--border-color);">
+            <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">📱</span>
+            <p style="font-size: 0.85rem; margin: 0;">${emptyFeedMsg}</p>
+          </div>
+        `;
+      } else {
+        feedListEl.innerHTML = notifs.map(n => {
+          let icon = '📝';
+          if (n.type === 'quiz') {
+            icon = '🎯';
+          } else if (n.type === 'assignment_graded') {
+            icon = '⭐';
+          }
+
+          return `
+            <div class="whatsapp-card" style="background: var(--bg-card-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 0.85rem;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 1.25rem;">${icon}</span>
+                  <div>
+                    <strong style="font-size: 0.95rem; color: var(--text-main);">${this.escapeHTML(n.title)}</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">${this.escapeHTML(n.studentName)} (${n.studentCode}) • ${n.timestamp}</span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; font-weight: 700;">${n.badgeLabel}</span>
+                  ${n.percentage !== undefined ? `<span class="badge badge-info">${n.percentage}%</span>` : ''}
+                  ${n.marks !== undefined ? `<span class="badge badge-warning">${n.marks}% Marks</span>` : ''}
+                </div>
+              </div>
+              <div style="padding: 0.75rem 1rem; background: var(--bg-card); border-left: 3px solid #25D366; border-radius: var(--radius-sm); font-size: 0.825rem; color: var(--text-main); white-space: pre-wrap; line-height: 1.5; font-family: monospace;">
+${this.escapeHTML(n.messageText)}
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    // Weekly WhatsApp Digest Preview
+    if (digestEl) {
+      digestEl.innerHTML = `
+        <div class="whatsapp-card" style="background: var(--bg-card-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">📱</span>
+            <div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-main);">${this.escapeHTML(report.title)}</h4>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">${report.channel} • Delivered in your regional language</span>
+            </div>
+          </div>
+          <div style="padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.85rem; line-height: 1.6; white-space: pre-wrap; color: var(--text-main);">
+${this.escapeHTML(report.greeting)}
+
+${this.escapeHTML(report.body)}
+          </div>
+        </div>
+      `;
+    }
+  },
+
+  handleParentLinkStudent(e) {
+    e.preventDefault();
+    const input = document.getElementById('parent-link-code-input');
+    const val = (input ? input.value : '').trim();
+    if (!val) return;
+
+    const allStudents = (store.state.users || []).filter(u => u.role === 'student');
+    const student = allStudents.find(s => 
+      (s.studentCode || '').toUpperCase() === val.toUpperCase() ||
+      (s.identifier || '').toLowerCase() === val.toLowerCase() ||
+      (s.identifier && val && s.identifier.replace(/\D/g, '') === val.replace(/\D/g, '') && val.replace(/\D/g, '').length >= 10)
+    );
+
+    if (!student) {
+      alert(`No registered student found with code/mobile/email: ${val}. Please verify the details with your child.`);
+      return;
+    }
+
+    const user = store.getCurrentUser();
+    if (user) {
+      user.childCode = student.studentCode;
+      user.childIdentifier = student.identifier;
+      if (!student.parentContact) {
+        student.parentContact = user.identifier;
+      }
+      store.saveState();
+    }
+
+    this.renderParentPortal();
+    this.showToast(`Successfully linked to ${student.name} (${student.studentCode})!`, 'success');
+  },
+
+  // =========================================================================
+  // Modals & Action Handlers
+  // =========================================================================
+
+  openJoinClassModal() {
+    if (this.joinClassModal) this.joinClassModal.classList.add('active');
+  },
+
+  submitJoinClass(e) {
+    e.preventDefault();
+    const user = store.getCurrentUser();
+    if (!user) return;
+
+    const input = document.getElementById('join-code-input');
+    const code = (input.value || '').trim();
+    const res = store.joinClassByCode(user.id, code);
+
+    if (!res.success) {
+      alert(res.message);
+      return;
+    }
+
+    this.closeAllModals();
+    this.renderStudentPortal();
+    input.value = '';
+    this.showToast(`Enrolled successfully in ${res.class.title}!`, 'success');
+  },
+
+  openCreateClassModal() {
+    if (this.createClassModal) this.createClassModal.classList.add('active');
+  },
+
+  submitCreateClass(e) {
+    e.preventDefault();
+    const titleInput = document.getElementById('create-class-title');
+    const scheduleInput = document.getElementById('create-class-schedule');
+    const title = (titleInput ? titleInput.value : '').trim();
+    const schedule = (scheduleInput ? scheduleInput.value : '').trim();
+    if (!title) return;
+
+    const newCls = store.createClass(title, schedule);
+    if (titleInput) titleInput.value = '';
+    if (scheduleInput) scheduleInput.value = '';
+    this.closeAllModals();
+    this.renderProfessorPortal();
+    this.showToast(`Class '${newCls.title}' created! Join code: ${newCls.joinCode}`, 'success');
+  },
+
+  openUploadMaterialModal(classId) {
+    const hidden = document.getElementById('upload-material-class-id');
+    if (hidden) hidden.value = classId;
+    if (this.uploadMaterialModal) this.uploadMaterialModal.classList.add('active');
+  },
+
+  submitUploadMaterial(e) {
+    e.preventDefault();
+    const classId = document.getElementById('upload-material-class-id').value;
+    const title = (document.getElementById('upload-material-title').value || '').trim();
+    const type = document.getElementById('upload-material-type').value;
+    const url = (document.getElementById('upload-material-url').value || '').trim();
+
+    store.uploadMaterial(classId, title, type, url);
+    this.closeAllModals();
+    this.renderProfessorPortal();
+    this.showToast('Course material and notes uploaded successfully!', 'success');
+  },
+
+  openCreateAssignmentModal() {
+    if (this.createAssignmentModal) this.createAssignmentModal.classList.add('active');
+  },
+
+  submitCreateAssignment(e) {
+    e.preventDefault();
+    const title = (document.getElementById('asg-title').value || '').trim();
+    const desc = (document.getElementById('asg-desc').value || '').trim();
+    const maxMarks = document.getElementById('asg-max-marks').value;
+    const dueDate = document.getElementById('asg-due-date').value;
+
+    store.createAssignment(null, title, desc, maxMarks, dueDate);
+    this.closeAllModals();
+    this.renderProfessorPortal();
+    this.showToast('Assignment published to students!', 'success');
+  },
+
+  openGradeModal(asgId, subId, studentName) {
+    document.getElementById('grade-asg-id').value = asgId;
+    document.getElementById('grade-sub-id').value = subId;
+    document.getElementById('grade-student-display').textContent = `Student: ${studentName}`;
+    if (this.gradeModal) this.gradeModal.classList.add('active');
+  },
+
+  submitGrade(e) {
+    e.preventDefault();
+    const asgId = document.getElementById('grade-asg-id').value;
+    const subId = document.getElementById('grade-sub-id').value;
+    const marks = document.getElementById('grade-marks-input').value;
+    const feedback = document.getElementById('grade-feedback-input').value.trim();
+
+    store.gradeSubmission(asgId, subId, marks, feedback);
+    this.closeAllModals();
+    this.renderProfessorPortal();
+    this.showToast(`Marks and feedback awarded: ${marks}%!`, 'success');
+  },
+
+  openScheduleLiveModal(preselectedClassId = null) {
+    const user = store.getCurrentUser();
+    const profId = user ? user.id : null;
+    const classes = store.getProfessorClasses(profId);
+
+    if (classes.length === 0) {
+      const lang = store.getLanguage();
+      const alertMsg = lang === 'te'
+        ? 'మీరు ఇంకా ఎటువంటి తరగతిని సృష్టించలేదు. లైవ్ లెక్చర్ షెడ్యూల్ చేయడానికి ముందు దయచేసి మీ క్లాస్‌ను సృష్టించండి.'
+        : 'You have not created any classes yet. Please create a class first before scheduling a live lecture.';
+      alert(alertMsg);
+      this.openCreateClassModal();
+      return;
+    }
+
+    const classSelect = document.getElementById('live-class-select');
+    if (classSelect) {
+      classSelect.innerHTML = classes.map(c => `
+        <option value="${c.id}" ${c.id === preselectedClassId ? 'selected' : ''}>
+          ${this.escapeHTML(c.title)} (Code: ${c.joinCode})
+        </option>
+      `).join('');
+      if (preselectedClassId) {
+        classSelect.value = preselectedClassId;
+      }
+    }
+    if (this.scheduleLiveModal) this.scheduleLiveModal.classList.add('active');
+  },
+
+  submitScheduleLive(e) {
+    e.preventDefault();
+    const user = store.getCurrentUser();
+    const classId = document.getElementById('live-class-select').value;
+    const title = document.getElementById('live-title-input').value.trim();
+    const date = document.getElementById('live-date-input').value;
+    const time = document.getElementById('live-time-input').value.trim();
+    const meetUrl = document.getElementById('live-url-input').value.trim();
+
+    store.scheduleLiveSession(user ? user.id : null, classId, title, date, time, meetUrl);
+    this.closeAllModals();
+    this.renderProfessorPortal();
+    this.showToast('Live lecture scheduled and published for enrolled students!', 'success');
+  },
+
+  openCreateQuizModal(preselectedClassId = null) {
+    const user = store.getCurrentUser();
+    const profId = user ? user.id : null;
+    const classes = store.getProfessorClasses(profId);
+
+    if (classes.length === 0) {
+      const lang = store.getLanguage();
+      const alertMsg = lang === 'te'
+        ? 'మీరు ఇంకా ఎటువంటి తరగతిని సృష్టించలేదు. మీ విద్యార్థులకు క్లాస్ క్విజ్ కేటాయించడానికి ముందు దయచేసి మీ క్లాస్‌ను సృష్టించండి.'
+        : 'You have not created any classes yet. Please create a class first before creating a class quiz.';
+      alert(alertMsg);
+      this.openCreateClassModal();
+      return;
+    }
+
+    const classSelect = document.getElementById('quiz-create-class-select');
+    if (classSelect) {
+      classSelect.innerHTML = classes.map(c => `
+        <option value="${c.id}" ${c.id === preselectedClassId ? 'selected' : ''}>
+          ${this.escapeHTML(c.title)} (Code: ${c.joinCode} • ${c.enrolledStudentIds ? c.enrolledStudentIds.length : 0} Students)
+        </option>
+      `).join('');
+      if (preselectedClassId) {
+        classSelect.value = preselectedClassId;
+      }
+    }
+    if (this.createQuizModal) this.createQuizModal.classList.add('active');
+  },
+
+  submitCreateQuiz(e) {
+    e.preventDefault();
+    const user = store.getCurrentUser();
+    const classId = document.getElementById('quiz-create-class-select').value;
+    const titleInput = document.getElementById('quiz-create-title');
+    const title = titleInput.value.trim();
+    const timeLimit = document.getElementById('quiz-create-timelimit').value;
+
+    const qText = document.getElementById('quiz-q1-text').value.trim();
+    const opt0 = document.getElementById('quiz-q1-opt0').value.trim();
+    const opt1 = document.getElementById('quiz-q1-opt1').value.trim();
+    const opt2 = document.getElementById('quiz-q1-opt2').value.trim();
+    const opt3 = document.getElementById('quiz-q1-opt3').value.trim();
+    const correctIdx = parseInt(document.getElementById('quiz-q1-correct').value, 10);
+
+    const questions = [{
+      question: qText,
+      options: [opt0, opt1, opt2, opt3],
+      correctIndex: correctIdx
+    }];
+
+    const targetClass = store.getClass(classId);
+    store.createProfessorQuiz(user ? user.id : null, classId, title, timeLimit, questions);
+    titleInput.value = '';
+    this.closeAllModals();
+    this.renderProfessorPortal();
+    const className = targetClass ? targetClass.title : 'class';
+    this.showToast(`Class quiz '${title}' published for ${className}! Enrolled students can now take it.`, 'success');
+  },
+
+  openBookMeetingModal() {
+    if (this.bookMeetingModal) this.bookMeetingModal.classList.add('active');
+  },
+
+  submitBookMeeting(e) {
+    e.preventDefault();
+    const date = document.getElementById('meeting-date-input').value;
+    const time = document.getElementById('meeting-time-input').value;
+    this.closeAllModals();
+    this.showToast(`Faculty 1-on-1 meeting scheduled for ${date} at ${time}! Meeting invite sent via SMS.`, 'success');
+  },
+
+  openNewForumPostModal() {
+    if (this.newForumModal) this.newForumModal.classList.add('active');
+  },
+
+  submitNewForumPost(e) {
+    e.preventDefault();
+    const title = (document.getElementById('forum-post-title-input').value || '').trim();
+    const content = (document.getElementById('forum-post-content-input').value || '').trim();
+    if (!title || !content) return;
+
+    store.createAnnouncement(title, content);
+    this.closeAllModals();
+    this.showToast('Discussion thread created successfully!', 'success');
+  },
+
+  // --- Profile Picture Management (Gallery & Preset Avatars) ---
+
+  openProfilePicModal() {
+    const modal = document.getElementById('profile-pic-modal');
+    if (!modal) return;
+    this.renderPresetAvatars();
+    modal.classList.add('active');
+  },
+
+  renderPresetAvatars() {
+    const grid = document.getElementById('preset-avatar-grid');
+    if (!grid) return;
+
+    const presets = [
+      { name: 'Scholar Alex', url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&mouth=smile&eyebrows=default' },
+      { name: 'Scholar Priya', url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&mouth=smile&eyebrows=default' },
+      { name: 'Scholar Rahul', url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Rahul&mouth=smile&eyebrows=default' },
+      { name: 'Scholar Ananya', url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ananya&mouth=smile&eyebrows=default' },
+      { name: 'Prof. Rao', url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ProfessorKV&facialHair=beardLight' },
+      { name: 'Prof. Lakshmi', url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=DrLakshmi&facialHair=default' },
+      { name: 'Academic Mentor', url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AcademicMentor' },
+      { name: 'Parent Guardian', url: 'https://api.dicebear.com/7.x/avataaars/svg?seed=GuardianParent' },
+      { name: 'AI Bot Blue', url: 'https://api.dicebear.com/7.x/bottts/svg?seed=BlueBot' },
+      { name: 'AI Bot Cyber', url: 'https://api.dicebear.com/7.x/bottts/svg?seed=CyberTutor' },
+      { name: 'Minimalist Student', url: 'https://api.dicebear.com/7.x/notionists/svg?seed=StudySmart' },
+      { name: 'Creative Scholar', url: 'https://api.dicebear.com/7.x/notionists/svg?seed=CreativeMind' }
+    ];
+
+    grid.innerHTML = presets.map(p => `
+      <div onclick="App.handleSelectPresetAvatar('${p.url}')" title="${p.name}" style="cursor: pointer; border: 2px solid var(--border-color); border-radius: var(--radius-md); padding: 0.5rem; text-align: center; background: var(--bg-card); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='scale(1.05)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='scale(1)'">
+        <img src="${p.url}" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 0.25rem auto;" alt="${p.name}">
+        <span style="font-size: 0.7rem; font-weight: 600; color: var(--text-muted); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${p.name}</span>
+      </div>
+    `).join('');
+  },
+
+  handleSelectPresetAvatar(avatarUrl) {
+    const user = store.getCurrentUser();
+    if (!user) return;
+    store.updateUserProfileAvatar(user.id, avatarUrl);
+    if (this.roleAvatar) this.roleAvatar.src = avatarUrl;
+    if (this.navUserAvatar) this.navUserAvatar.src = avatarUrl;
+    this.closeAllModals();
+    this.showToast('Profile picture updated successfully!', 'success');
+  },
+
+  handleProfilePicUpload(e) {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('Please choose an image file (JPG, PNG, WEBP, GIF).');
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Selected image exceeds 5MB limit. Please choose a smaller photo.');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const dataUrl = event.target.result;
+      const user = store.getCurrentUser();
+      if (!user) return;
+      store.updateUserProfileAvatar(user.id, dataUrl);
+      if (this.roleAvatar) this.roleAvatar.src = dataUrl;
+      if (this.navUserAvatar) this.navUserAvatar.src = dataUrl;
+      this.closeAllModals();
+      this.showToast('Profile picture uploaded from device gallery!', 'success');
+    };
+    reader.readAsDataURL(file);
+  },
+
+  // --- Professor Deletion Actions (Quizzes, Assignments, Live Classes ONLY) ---
+
+  handleDeleteLiveSession(sessionId) {
+    const lang = store.getLanguage();
+    const promptMsg = lang === 'te'
+      ? 'మీరు ఖచ్చితంగా ఈ షెడ్యూల్ చేసిన లైవ్ లెక్చర్‌ను తొలగించాలనుకుంటున్నారా?'
+      : 'Are you sure you want to delete this scheduled live lecture?';
+
+    if (!confirm(promptMsg)) return;
+
+    store.deleteLiveSession(sessionId);
+    const user = store.getCurrentUser();
+    this.renderProfessorLiveAndQuizzes(user ? user.id : null);
+    this.showToast(lang === 'te' ? 'లైవ్ లెక్చర్ తొలగించబడింది.' : 'Live lecture deleted.', 'success');
+  },
+
+  handleDeleteQuiz(quizId) {
+    const lang = store.getLanguage();
+    const promptMsg = lang === 'te'
+      ? 'మీరు ఖచ్చితంగా ఈ క్లాస్ క్విజ్‌ను తొలగించాలనుకుంటున్నారా?'
+      : 'Are you sure you want to delete this class quiz?';
+
+    if (!confirm(promptMsg)) return;
+
+    store.deleteQuiz(quizId);
+    const user = store.getCurrentUser();
+    this.renderProfessorLiveAndQuizzes(user ? user.id : null);
+    this.showToast(lang === 'te' ? 'క్లాస్ క్విజ్ తొలగించబడింది.' : 'Class quiz deleted.', 'success');
+  },
+
+  handleDeleteAssignment(assignmentId) {
+    const lang = store.getLanguage();
+    const promptMsg = lang === 'te'
+      ? 'మీరు ఖచ్చితంగా ఈ అసైన్‌మెంట్‌ను తొలగించాలనుకుంటున్నారా?'
+      : 'Are you sure you want to delete this assignment?';
+
+    if (!confirm(promptMsg)) return;
+
+    store.deleteAssignment(assignmentId);
+    this.renderProfessorGradingQueue();
+    this.showToast(lang === 'te' ? 'అసైన్‌మెంట్ తొలగించబడింది.' : 'Assignment deleted.', 'success');
+  },
+
+  handleUnenrollClass(classId) {
+    const user = store.getCurrentUser();
+    if (!user) return;
+    const cls = store.getClass(classId);
+    const title = cls ? cls.title : 'class';
+    const lang = store.getLanguage();
+    const promptMsg = lang === 'te'
+      ? `మీరు ఖచ్చితంగా "${title}" తరగతి నుండి నిష్క్రమించాలనుకుంటున్నారా?`
+      : `Are you sure you want to leave "${title}"?`;
+
+    if (!confirm(promptMsg)) return;
+
+    store.unenrollStudentFromClass(user.id, classId);
+    const byeMsg = lang === 'te'
+      ? `"${title}" తరగతి నుండి నిష్క్రమించారు. హాజరు నవీకరించబడింది.`
+      : `Left class "${title}". Attendance recalculated.`;
+    this.showToast(byeMsg, 'info');
+  },
+
+  closeAllModals() {
+    document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+  },
+
+  showToast(message, type = 'info') {
+    if (!this.toastContainer) return;
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    this.toastContainer.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(10px)';
+      setTimeout(() => toast.remove(), 300);
+    }, 3500);
+  },
+
+  escapeHTML(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+};
+
+// Global exports and event delegation
+window.App = App;
+window.store = store;
+
+window.chooseLanguageAndProceed = function(lang) {
+  if (window.App && typeof window.App.chooseLanguageAndProceed === 'function') {
+    window.App.chooseLanguageAndProceed(lang);
+  } else {
+    const langStep = document.getElementById('lang-select-step');
+    const authStep = document.getElementById('auth-credentials-step');
+    if (langStep) langStep.style.display = 'none';
+    if (authStep) authStep.style.display = 'block';
+  }
+};
+
+document.addEventListener('click', function(e) {
+  const langBtn = e.target.closest('.lang-card-btn');
+  if (langBtn) {
+    const lang = langBtn.getAttribute('data-lang') || 'en';
+    window.chooseLanguageAndProceed(lang);
+  }
+});
+
+
